@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context="univosv.listaperzo.Pagos"
-    android:background="@drawable/fondo3">
+    android:background="#EAE7E7">
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/Tabla"

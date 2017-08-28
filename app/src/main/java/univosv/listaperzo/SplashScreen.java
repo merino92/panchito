@@ -15,8 +15,8 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
 
-               // Intent i = new Intent(SplashScreen.this,login.class);
-                //startActivity(i);
+                Intent i = new Intent(SplashScreen.this,login.class);
+                startActivity(i);/////
             }
         },4000L);
     }

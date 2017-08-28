@@ -24,18 +24,22 @@
             android:screenOrientation="landscape" />
         <activity android:name=".Pagos" />
         <activity android:name=".Perfil" />
-        <activity android:name=".SplashScreen"/>
+        <activity android:name=".SplashScreen"
+            android:label="UNIVO app"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
 
         <activity
             android:name=".login"
             android:label="UNIVO app"
             android:theme="@style/AppTheme"
             >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

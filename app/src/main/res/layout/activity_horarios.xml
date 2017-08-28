@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context="univosv.listaperzo.Horarios"
-    android:background="@drawable/fondo3">
+    android:background="#EAE7E7">
 
 
 
