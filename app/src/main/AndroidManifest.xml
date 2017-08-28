@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="univosv.listaperzo">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/logofab"
+        android:label="Univo App"
+        android:roundIcon="@mipmap/logofab"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Horarios"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Notas"
+            android:screenOrientation="landscape" />
+        <activity android:name=".Pagos" />
+        <activity android:name=".Perfil" />
+        <activity android:name=".SplashScreen"/>
+
+        <activity
+            android:name=".login"
+            android:label="UNIVO app"
+            android:theme="@style/AppTheme"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#344ee3</color>
+    <color name="colorPrimaryDark">#303f9f</color>
+    <color name="colorAccent">#B9770E</color>
+    <color name="mostazaU">#b9770e</color>
+    <color name="blancocajatext">#ffffff</color>
+    <color name="AzulUNIVO">#0b0c43</color>
+    <color name="btntramsparente">#c6c8e4</color>
+</resources>
