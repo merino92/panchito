@@ -12,7 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lista"
-        android:background="#EAE7E7" />
+        android:background="#EAE7E7"
+        android:layout_below="@+id/toolbar" />
 
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/material_design_android_floating_action_menu"
@@ -26,14 +27,14 @@
         fab:menu_animationDelayPerItem="55"
         fab:menu_backgroundColor="@android:color/transparent"
         fab:menu_buttonSpacing="0dp"
-        fab:menu_colorNormal="#ad134cf7"
-        fab:menu_colorPressed="#38e0f2"
+        fab:menu_colorNormal="#070748"
+        fab:menu_colorPressed="#3737B0"
         fab:menu_colorRipple="#99d4d4d4"
         fab:menu_fab_label="Menu"
         fab:menu_fab_size="normal"
         fab:menu_icon="@mipmap/logofab"
-        fab:menu_labels_colorNormal="#d4277ff9"
-        fab:menu_labels_colorPressed="#ed50ffb0"
+        fab:menu_labels_colorNormal="#BD760B"
+        fab:menu_labels_colorPressed="#E1AF63"
         fab:menu_labels_colorRipple="#664279f1"
         fab:menu_labels_cornerRadius="3dp"
         fab:menu_labels_ellipsize="none"
@@ -61,7 +62,7 @@
             android:src="@drawable/ic_actualizar"
             fab:fab_label="Actualizar"
             fab:fab_size="mini"
-            app:fab_colorNormal="#3493f2"
+            app:fab_colorNormal="#BD760B"
             />
 
         <com.github.clans.fab.FloatingActionButton
@@ -71,7 +72,7 @@
             android:src="@drawable/ic_usuario"
             fab:fab_label="Usuario"
             fab:fab_size="mini"
-            app:fab_colorNormal="#3493f2"
+            app:fab_colorNormal="#BD760B"
             android:onClick="lanzarPerfil"
             />
 
@@ -106,6 +107,29 @@
             android:onClick="lanzarHorario"
             />
     </com.github.clans.fab.FloatingActionMenu>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#070748"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:text="UNIVO News"
+        android:textAlignment="center"
+        android:textColor="#BD760B"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>
