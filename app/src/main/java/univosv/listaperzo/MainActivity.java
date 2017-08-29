@@ -151,9 +151,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 // TODO Auto-generated method stub
-                progressDialog.dismiss();
+
 
                 super.onPageFinished(view, url);
+                progressDialog.dismiss();
 
             }//funcion que desaparece el dialogo cuando la pagina ha cargado completamente
 
