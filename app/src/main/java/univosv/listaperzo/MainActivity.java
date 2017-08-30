@@ -41,8 +41,13 @@ public class MainActivity extends AppCompatActivity {
         else {
             ArrayList<String> tituloSinInter=new ArrayList<String>();
             ArrayList<String> descripcionSinInter=new ArrayList<String>();
-            tituloSinInter.add("Sin conexion a internet");
-            descripcionSinInter.add("Verifica tu conexion");
+
+            for(int i=0;i<10;i++)
+            {
+                tituloSinInter.add("Sin conexion a internet");
+                descripcionSinInter.add("Verifica tu conexion");
+            }
+
             AdapterItem adapter =
                     new AdapterItem(this,tituloSinInter , descripcionSinInter);
             ListaNoticias.setAdapter(adapter);
@@ -205,11 +210,17 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
 
-            ArrayList<Object> object= Cofre.Funciones.Recuperarnotas();
-            ArrayList<String>Titulo= (ArrayList<String>) object.get(0);
-            ArrayList<String>descripcion= (ArrayList<String>) object.get(1);
+            ArrayList<String> tituloSinInter=new ArrayList<String>();
+            ArrayList<String> descripcionSinInter=new ArrayList<String>();
+
+            for(int i=0;i<10;i++)
+            {
+                tituloSinInter.add("Sin conexion a internet");
+                descripcionSinInter.add("Verifica tu conexion");
+            }
+
             AdapterItem adapter =
-                    new AdapterItem(this,Titulo , descripcion);
+                    new AdapterItem(this,tituloSinInter , descripcionSinInter);
             ListaNoticias.setAdapter(adapter);
 
         }

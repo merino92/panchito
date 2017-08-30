@@ -62,7 +62,7 @@ public class Cofre {
             return clave;
         }
 
-        public static void  GuardarNotas(ArrayList<String>titulo,ArrayList<String>descripcion){
+       /* public static void  GuardarNotas(ArrayList<String>titulo,ArrayList<String>descripcion){
 
           Vars.listanotas.add(titulo);
             Vars.listanotas.add(descripcion);
@@ -78,11 +78,11 @@ public class Cofre {
         // Esta línea sirve para extraer el tipo correspondiente al listado, necesario
             // para que Gson sepa a qué tiene que convertir
             Type type = new TypeToken<List<Object>>(){}.getType();
-// Convertimos el string en el listado
+       // Convertimos el string en el listado
             ArrayList<Object> objects = Vars.gson.fromJson(notas, type);
             return objects;
 
 
-        }
+        }*/
     }
 }

@@ -1,6 +1,7 @@
 package univosv.listaperzo;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,13 +22,30 @@ ProgressBar barra;
                 int Progreso=0;
                 while (Progreso<ProgresoTotal){
                     Progreso +=25;
-                    barra.setProgress(Progreso);
-                }
-
-
+                    barra.setProgress(Progreso);}
                 Intent i = new Intent(SplashScreen.this,login.class);
-                startActivity(i);///////
+                startActivity(i);//////
+
+                   // comprobacion();
+
+
             }
         },4000L);
+    }
+
+    private void comprobacion(){
+        SharedPreferences sharedPreferences= Cofre.Vars.preferencias;
+        String clave=sharedPreferences.getString(Cofre.Vars.USUARIO,"");
+
+        String sp=sharedPreferences.getString(Cofre.Vars.CLAVE,"");
+
+        if(clave.equals(sp))
+        {
+            Intent intent=new Intent(SplashScreen.this,MainActivity.class);
+            startActivity(intent);
+        }else{
+            Intent i = new Intent(SplashScreen.this,login.class);
+            startActivity(i);///////
+        }
     }
 }
