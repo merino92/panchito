@@ -63,6 +63,7 @@
             fab:fab_label="Actualizar"
             fab:fab_size="mini"
             app:fab_colorNormal="#BD760B"
+            android:onClick="actualizar"
             />
 
         <com.github.clans.fab.FloatingActionButton

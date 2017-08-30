@@ -120,28 +120,5 @@ public class HandleXML {
         });
         thread.start();
     }
-  /*  class ObteniendoXML extends AsyncTask<String,String,String>
-    {
 
-        final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
-        @Override
-        protected void onPreExecute(){
-            progressDialog.setTitle("");
-            progressDialog.setMessage("Cargando ...");
-            progressDialog.show();
-
-        }
-
-        @Override
-        protected String doInBackground(String... url) {
-            fetchXML();
-            return url[0];
-        }
-
-        @Override
-        protected void onPostExecute(String resultado){
-
-
-        }
-    }*/
 }

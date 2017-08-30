@@ -46,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
             AdapterItem adapter =
                     new AdapterItem(this,tituloSinInter , descripcionSinInter);
             ListaNoticias.setAdapter(adapter);
+
+           /* ArrayList<Object> object= Cofre.Funciones.Recuperarnotas();
+            ArrayList<String>Titulo= (ArrayList<String>) object.get(0);
+            ArrayList<String>descripcion= (ArrayList<String>) object.get(1);
+            AdapterItem adapter =
+                    new AdapterItem(this,Titulo , descripcion);
+            ListaNoticias.setAdapter(adapter);*/
+
         }
     }
 
@@ -100,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             AdapterItem adapter = new AdapterItem(this, handleXML.Titulo, handleXML.Descripcion);
 
             overridePendingTransition(R.anim.zoom_forward_in,R.anim.zoom_forward_out);
-
+          //  Cofre.Funciones.GuardarNotas(handleXML.Titulo,handleXML.Descripcion);
             ListaNoticias.setAdapter(adapter);
 
             ListaNoticias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -186,5 +194,25 @@ public class MainActivity extends AppCompatActivity {
         inter=Internet.conectadoRedMovil();
         wifi=Internet.conectadoWifi();
         return  (inter||wifi);
+    }
+    public void actualizar(View view){
+        ListaNoticias = (ListView) findViewById(R.id.lista);
+        if (VerificarInternet())
+        {
+
+            String url=ObtenerUrlUnivoNews();
+            new CargarListaNoticias().execute(url);
+        }
+        else {
+
+            ArrayList<Object> object= Cofre.Funciones.Recuperarnotas();
+            ArrayList<String>Titulo= (ArrayList<String>) object.get(0);
+            ArrayList<String>descripcion= (ArrayList<String>) object.get(1);
+            AdapterItem adapter =
+                    new AdapterItem(this,Titulo , descripcion);
+            ListaNoticias.setAdapter(adapter);
+
+        }
+
     }
 }
