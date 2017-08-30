@@ -87,6 +87,13 @@
             android:text="ENTRAR"
             android:textColor="@color/mostazaU" />
 
+        <CheckBox
+            android:id="@+id/checquesito"
+            android:layout_width="159dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Recordar Usuario?" />
+
         <TextView
             android:id="@+id/link_signup"
             android:layout_width="fill_parent"

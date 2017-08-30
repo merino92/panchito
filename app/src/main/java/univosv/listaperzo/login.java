@@ -9,19 +9,28 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class login extends AppCompatActivity {
   EditText contra,usuario;
+    CheckBox cheque;
     public String  usuario1;
     public final static String NOMBRE_SHARED_PREFERENCE="PerfilDatosTemporales";
-    public  SharedPreferences sharedPreferences=getApplicationContext().
-                                                    getSharedPreferences(NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE);
+    public  SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        usuario=(EditText)findViewById(R.id.usuario);
+        contra=(EditText)findViewById(R.id.clave);
+        cheque=(CheckBox)findViewById(R.id.checquesito);
+         sharedPreferences=getApplicationContext().
+                getSharedPreferences(NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE);
+        Cofre.Funciones.Iniciar(sharedPreferences);
+        String Usuario=Cofre.Funciones.InvocarUsuario();
+        usuario.setText(Usuario);
 
     }
     public void entrar(View view){
@@ -31,22 +40,25 @@ public class login extends AppCompatActivity {
         usuario1=usuario.getText().toString();
         contra1=contra.getText().toString();
 
+
         if (usuario1.equals("panchito")&& contra1.equals("panchito"))
         {
-                GuardarUsuario();
+                guardar(usuario1);
             Intent intent=new Intent(this,MainActivity.class);
             startActivity(intent);
         }
         else
         {
-            Toast.makeText(this,"ERROR USUARIO O CONTRA INCORRECTA",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"ERROR USUARIO O CLAVE INCORRECTA",Toast.LENGTH_LONG).show();
         }
     }
-    private void GuardarUsuario(){
 
-        SharedPreferences.Editor editor=sharedPreferences.edit();
-        editor.putString("USUARIO",usuario1);
-        editor.commit();
-    }
+   private void guardar(String usuario){
+       String clave=usuario;
+       if (cheque.isChecked()){
+           Cofre.Funciones.GuardarUsuario(clave);
 
+
+       }
+   }
 }
