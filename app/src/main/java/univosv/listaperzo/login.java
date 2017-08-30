@@ -13,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 public class login extends AppCompatActivity {
   EditText contra,usuario;
     CheckBox cheque;
@@ -30,6 +31,8 @@ public class login extends AppCompatActivity {
                 getSharedPreferences(NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE);
         Cofre.Funciones.Iniciar(sharedPreferences);
         String Usuario=Cofre.Funciones.InvocarUsuario();
+        String clave=Cofre.Funciones.InvocarClave();
+        contra.setText(clave);
         usuario.setText(Usuario);
 
     }
@@ -43,7 +46,7 @@ public class login extends AppCompatActivity {
 
         if (usuario1.equals("panchito")&& contra1.equals("panchito"))
         {
-                guardar(usuario1);
+                guardar(usuario1,contra1);
             Intent intent=new Intent(this,MainActivity.class);
             startActivity(intent);
         }
@@ -53,11 +56,10 @@ public class login extends AppCompatActivity {
         }
     }
 
-   private void guardar(String usuario){
-       String clave=usuario;
-       if (cheque.isChecked()){
-           Cofre.Funciones.GuardarUsuario(clave);
+   private void guardar(String usuario,String clave){
 
+       if (cheque.isChecked()){
+           Cofre.Funciones.GuardarUsuarioYClave(usuario,clave);
 
        }
    }
