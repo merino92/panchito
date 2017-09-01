@@ -90,7 +90,7 @@
 
 
         <CheckBox
-            android:id="@+id/checquesito"
+            android:id="@+id/recuerdaUsuario"
             style="@style/Widget.AppCompat.CompoundButton.CheckBox"
             android:layout_width="217dp"
             android:layout_height="wrap_content"
@@ -99,8 +99,7 @@
             android:text="Recordar Usuario Y Clave?"
             android:textAlignment="center"
             android:textColor="@color/AzulUNIVO"
-            android:textStyle="bold"
-            app:buttonTint="@color/AzulUNIVO" />
+            android:textStyle="bold" />
         <TextView
             android:id="@+id/link_signup"
             android:layout_width="fill_parent"
@@ -111,8 +110,5 @@
             android:textColor="@color/mostazaU"
             android:textSize="16dip"
             android:layout_weight="0.27" />
-
-
-
     </LinearLayout>
 </ScrollView>
