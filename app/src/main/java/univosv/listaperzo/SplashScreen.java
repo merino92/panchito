@@ -25,6 +25,7 @@ ProgressBar barra;
                     barra.setProgress(Progreso);}
                 Intent i = new Intent(SplashScreen.this,login.class);
                 startActivity(i);//////
+                overridePendingTransition(R.anim.fade_int, R.anim.fade_out);
 
                    // comprobacion();
 
