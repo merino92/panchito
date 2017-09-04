@@ -4,8 +4,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
-    android:background="@drawable/fondofullhd"
-    tools:context="univosv.listaperzo.login">
+    tools:context="univosv.listaperzo.login"
+    >
 
     <LinearLayout
         android:orientation="vertical"
@@ -115,4 +115,6 @@
 
 
     </LinearLayout>
+
+
 </ScrollView>
