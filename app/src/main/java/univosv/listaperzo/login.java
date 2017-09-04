@@ -15,37 +15,38 @@ import android.widget.Toast;
 
 
 public class login extends AppCompatActivity {
-    EditText Contra,Usuario;
-    CheckBox RecordarUsuario;
-    public String  Usuario1;
-    public final static String NOMBRE_SHARED_PREFERENCE="PerfilDatosTemporales";
+  EditText contra,usuario;
+    CheckBox cheque;
+    public String  usuario1;
+
     public  SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Usuario=(EditText)findViewById(R.id.usuario);
-        Contra=(EditText)findViewById(R.id.clave);
-        RecordarUsuario=(CheckBox)findViewById(R.id.recuerdaUsuario);
+        usuario=(EditText)findViewById(R.id.usuario);
+        contra=(EditText)findViewById(R.id.clave);
+        cheque=(CheckBox)findViewById(R.id.checquesito);
          sharedPreferences=getApplicationContext().
-                getSharedPreferences(NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE);
+                getSharedPreferences(Cofre.Vars.NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE);
         Cofre.Funciones.Iniciar(sharedPreferences);
-        String usuarioGuardado = Cofre.Funciones.InvocarUsuario();
-        String claveGuardada = Cofre.Funciones.InvocarClave();
-        Contra.setText(claveGuardada);
-        Usuario.setText(usuarioGuardado);
+        String Usuario=Cofre.Funciones.InvocarUsuario();
+        String clave=Cofre.Funciones.InvocarClave();
+        contra.setText(clave);
+        usuario.setText(Usuario);
+
     }
-
     public void entrar(View view){
-        Usuario=(EditText)findViewById(R.id.usuario);
-        Contra=(EditText)findViewById(R.id.clave);
+        usuario=(EditText)findViewById(R.id.usuario);
+        contra=(EditText)findViewById(R.id.clave);
         String contra1;
-        Usuario1=Usuario.getText().toString();
-        contra1=Contra.getText().toString();
+        usuario1=usuario.getText().toString();
+        contra1=contra.getText().toString();
 
-        if (Usuario1.equals("panchito")&& contra1.equals("panchito"))
+
+        if (usuario1.equals("panchito")&& contra1.equals("panchito"))
         {
-            Guardar(Usuario1,contra1);
+                guardar(usuario1,contra1);
             Intent intent=new Intent(this,MainActivity.class);
             startActivity(intent);
         }
@@ -55,9 +56,11 @@ public class login extends AppCompatActivity {
         }
     }
 
-   private void Guardar(String usuario,String clave){
-       if (RecordarUsuario.isChecked()){
+   private void guardar(String usuario,String clave){
+
+       if (cheque.isChecked()){
            Cofre.Funciones.GuardarUsuarioYClave(usuario,clave);
+
        }
    }
 }
