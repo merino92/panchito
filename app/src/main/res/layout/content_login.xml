@@ -99,9 +99,9 @@
             android:layout_marginBottom="20dp"
             android:text="Recordar Usuario Y Clave?"
             android:textAlignment="center"
-            android:textColor="@color/AzulUNIVO"
+            android:textColor="@color/blancocajatext"
             android:textStyle="bold"
-            app:buttonTint="@color/AzulUNIVO" />
+            app:buttonTint="@color/blancocajatext" />
         <TextView
             android:id="@+id/link_signup"
             android:layout_width="fill_parent"
