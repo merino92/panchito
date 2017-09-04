@@ -5,6 +5,7 @@
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
     tools:context="univosv.listaperzo.login"
+    android:background="@color/AzulUNIVO"
     >
 
     <LinearLayout
