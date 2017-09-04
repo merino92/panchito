@@ -29,6 +29,7 @@ public class Cofre {
         public static final String URLNOTICIAS="URLNOTICIAS";
         public static SharedPreferences preferencias;
         public static SharedPreferences.Editor Editor;
+        public final static String NOMBRE_SHARED_PREFERENCE="PerfilDatosTemporales";
         public static   Gson gson = new Gson();
         public static ArrayList<Object> listanotas = new ArrayList<Object>();
     }

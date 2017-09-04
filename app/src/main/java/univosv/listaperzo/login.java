@@ -18,7 +18,7 @@ public class login extends AppCompatActivity {
   EditText contra,usuario;
     CheckBox cheque;
     public String  usuario1;
-    public final static String NOMBRE_SHARED_PREFERENCE="PerfilDatosTemporales";
+
     public  SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class login extends AppCompatActivity {
         contra=(EditText)findViewById(R.id.clave);
         cheque=(CheckBox)findViewById(R.id.checquesito);
          sharedPreferences=getApplicationContext().
-                getSharedPreferences(NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE);
+                getSharedPreferences(Cofre.Vars.NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE);
         Cofre.Funciones.Iniciar(sharedPreferences);
         String Usuario=Cofre.Funciones.InvocarUsuario();
         String clave=Cofre.Funciones.InvocarClave();

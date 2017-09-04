@@ -27,7 +27,7 @@ ProgressBar barra;
                 startActivity(i);//////
                 overridePendingTransition(R.anim.fade_int, R.anim.fade_out);
 
-                   // comprobacion();
+                    comprobacion();
 
 
             }
@@ -35,12 +35,14 @@ ProgressBar barra;
     }
 
     private void comprobacion(){
-        SharedPreferences sharedPreferences= Cofre.Vars.preferencias;
-        String clave=sharedPreferences.getString(Cofre.Vars.USUARIO,"");
 
-        String sp=sharedPreferences.getString(Cofre.Vars.CLAVE,"");
+        Cofre.Funciones.Iniciar(getApplicationContext().
+                getSharedPreferences(Cofre.Vars.NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE));
+        String clave=Cofre.Vars.preferencias.getString(Cofre.Vars.USUARIO,"");
 
-        if(clave.equals(sp))
+        String sp=Cofre.Vars.preferencias.getString(Cofre.Vars.CLAVE,"");
+
+        if(clave!=""&& sp!="")
         {
             Intent intent=new Intent(SplashScreen.this,MainActivity.class);
             startActivity(intent);
