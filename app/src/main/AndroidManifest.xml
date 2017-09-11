@@ -5,7 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logofab"
@@ -13,6 +14,7 @@
         android:roundIcon="@mipmap/logofab"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <service android:name=".ServiciosSegundoPlano" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"></activity>

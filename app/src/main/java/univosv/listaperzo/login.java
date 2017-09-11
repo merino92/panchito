@@ -24,6 +24,8 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        startService(new Intent(this, ServiciosSegundoPlano.class));//inicio el servicio
+
         usuario=(EditText)findViewById(R.id.usuario);
         contra=(EditText)findViewById(R.id.clave);
         cheque=(CheckBox)findViewById(R.id.checquesito);

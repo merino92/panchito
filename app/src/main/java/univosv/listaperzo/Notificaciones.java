@@ -35,9 +35,8 @@ public void Notificationes(Activity activity,Context context){
         setSmallIcon(icono).
         setVibrate(new long[] {100, 250, 100, 500}).
         setAutoCancel(true);
-
-
-
-
+            //le agrega titutolo,despcripcion,el icono a la notificacion
+        AdNotificaciones.notify(1,builder.build());
+        //lanza la notificacion
     }
 }
