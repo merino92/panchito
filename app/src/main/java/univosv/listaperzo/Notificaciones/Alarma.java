@@ -21,7 +21,10 @@ public class Alarma {
         intento.putExtra(NOMBRE,INDEX);
         PendingIntent intentoPendiente = PendingIntent.getService(contexto,INDEX,intento,PendingIntent.FLAG_UPDATE_CURRENT);
         Calendar calendario = Calendar.getInstance();
-        calendario.set(2017,9,11,15,35,0);
+        calendario.add(calendario.MONTH,9);
+        calendario.add(calendario.DAY_OF_WEEK,3);
+        calendario.add(calendario.HOUR,9);
+        calendario.add(calendario.MINUTE,40);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
             alarmManager.setExact(AlarmManager.RTC_WAKEUP,calendario.getTimeInMillis(),intentoPendiente);
         }
