@@ -1,9 +1,6 @@
 package univosv.listaperzo;
 
-import android.app.AlarmManager;
-import android.app.Notification;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
@@ -11,12 +8,14 @@ import android.support.annotation.Nullable;
 import java.util.Calendar;
 import java.util.Date;
 
+import univosv.listaperzo.Notificaciones.Notificacion;
+
 /**
  * Created by administrador on 11/9/17.
  */
 
 public class ServiciosSegundoPlano extends Service {
-    Notificaciones notificaciones;
+    Notificacion notificaciones;
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {

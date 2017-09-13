@@ -13,6 +13,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import univosv.listaperzo.Notificaciones.Alarma;
+
 
 public class login extends AppCompatActivity {
   EditText contra,usuario;
@@ -36,6 +38,7 @@ public class login extends AppCompatActivity {
         String clave=Cofre.Funciones.InvocarClave();
         contra.setText(clave);
         usuario.setText(Usuario);
+        Alarma.Crear(this);
 
     }
     public void entrar(View view){
