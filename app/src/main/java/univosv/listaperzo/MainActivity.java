@@ -66,11 +66,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         String FechaActual=Cofre.Funciones.ObtenerFechaActual();
         String FechaNoticas=Cofre.Funciones.InvocarFechaNoticias();
-        if(FechaActual.equals(FechaNoticas)){
-
-
-
-        }else {
+        if(!FechaActual.equals(FechaNoticas)){
             if (VerificarInternet())
             {
                 String url=ObtenerUrlUnivoNews();
@@ -95,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-    }
+    }//verifica internet y compara fecha del sistemas con las noticias
     /*codigo asincrono para cargar la lista de noticias*/
     private class CargarListaNoticias extends AsyncTask<String, Void, HandleXML> {
         @Override
