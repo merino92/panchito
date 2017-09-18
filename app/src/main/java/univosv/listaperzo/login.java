@@ -13,6 +13,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import univosv.listaperzo.Notificaciones.Alarma;
+
 
 public class login extends AppCompatActivity {
   EditText contra,usuario;
@@ -24,6 +26,8 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        startService(new Intent(this, ServiciosSegundoPlano.class));//inicio el servicio
+
         usuario=(EditText)findViewById(R.id.usuario);
         contra=(EditText)findViewById(R.id.clave);
         cheque=(CheckBox)findViewById(R.id.checquesito);
@@ -34,6 +38,7 @@ public class login extends AppCompatActivity {
         String clave=Cofre.Funciones.InvocarClave();
         contra.setText(clave);
         usuario.setText(Usuario);
+        Alarma.Crear(this);
 
     }
     public void entrar(View view){

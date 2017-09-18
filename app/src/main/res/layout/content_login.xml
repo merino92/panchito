@@ -4,8 +4,9 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
-    android:background="@drawable/fondofullhd"
-    tools:context="univosv.listaperzo.login">
+    tools:context="univosv.listaperzo.login"
+    android:background="@drawable/fondofullhd_opt"
+    >
 
     <LinearLayout
         android:orientation="vertical"
@@ -90,7 +91,7 @@
 
 
         <CheckBox
-            android:id="@+id/recuerdaUsuario"
+            android:id="@+id/checquesito"
             style="@style/Widget.AppCompat.CompoundButton.CheckBox"
             android:layout_width="217dp"
             android:layout_height="wrap_content"
@@ -98,8 +99,9 @@
             android:layout_marginBottom="20dp"
             android:text="Recordar Usuario Y Clave?"
             android:textAlignment="center"
-            android:textColor="@color/AzulUNIVO"
-            android:textStyle="bold" />
+            android:textColor="@color/blancocajatext"
+            android:textStyle="bold"
+            app:buttonTint="@color/blancocajatext" />
         <TextView
             android:id="@+id/link_signup"
             android:layout_width="fill_parent"
@@ -110,5 +112,10 @@
             android:textColor="@color/mostazaU"
             android:textSize="16dip"
             android:layout_weight="0.27" />
+
+
+
     </LinearLayout>
+
+
 </ScrollView>
