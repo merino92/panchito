@@ -22,7 +22,6 @@ public class BaseSQL extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CrearBase);
-
     }
 
     @Override

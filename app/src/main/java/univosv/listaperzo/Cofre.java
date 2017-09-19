@@ -91,7 +91,11 @@ public class Cofre {
            return FechaActual;
        }
 
-       public static void GuardarNoticias(ArrayList<String>t,ArrayList<String>d,ArrayList<String>u,Context c){
+       public static void GuardarNoticias(
+               ArrayList<String>t,
+               ArrayList<String>d,
+               ArrayList<String>u,
+               Context c){
            BaseSQL base =new BaseSQL(c,"NOTICIAS",null,1);
            SQLiteDatabase db = base.getWritableDatabase();
 
@@ -107,7 +111,7 @@ public class Cofre {
                db.close();
            }
        }
-        public static ArrayList<ArrayList> MostrarNoticias(Context c){
+       public static ArrayList<ArrayList> MostrarNoticias(Context c){
             BaseSQL base =new BaseSQL(c,"NOTICIAS",null,1);
             SQLiteDatabase db=base.getReadableDatabase();
             Cursor titulo = db.rawQuery(" SELECT titulo FROM NOTICIAS  ", null);
@@ -120,23 +124,19 @@ public class Cofre {
             if (titulo.moveToFirst()&&descripcion.moveToFirst()&&url.moveToFirst()) {
                 //Recorremos el cursor hasta que no haya más registros
                 do {
-
                     String ti = titulo.getString(0);
                     String de = descripcion.getString(0);
                     String ur = url.getString(0);
                     TITULO.add(ti);
                     DESCRIPCION.add(de);
                     URL.add(ur);
-
-
                 } while (titulo.moveToNext()&&descripcion.moveToNext()&&url.moveToNext());
-
             }
             ArrayList<ArrayList> arr = new ArrayList<ArrayList>();
             arr.add(TITULO);
             arr.add(DESCRIPCION);
             arr.add(URL);
-                return arr;
+            return arr;
 
         }
 
@@ -152,11 +152,6 @@ public class Cofre {
                     else {
                     return false;
                 }
-
-                }//cierra la clase
-
-
-
-
+            }//cierra la clase
         }
 }
