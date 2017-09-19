@@ -46,19 +46,21 @@ public class MainActivity extends AppCompatActivity {
             //CargarNoticiasUnivo(url);//Cargar noticias
             }
             else {
-            ArrayList<String> tituloSinInter=new ArrayList<String>();
-            ArrayList<String> descripcionSinInter=new ArrayList<String>();
 
-            for(int i=0;i<10;i++)
-            {
-                tituloSinInter.add("Sin conexion a internet");
-                descripcionSinInter.add("Verifica tu conexion");
+            if(Cofre.Funciones.VerificarExistenciadbs(this)){CargarNoticiasBDS();}
+            else {
+                ArrayList<String> tituloSinInter = new ArrayList<String>();
+                ArrayList<String> descripcionSinInter = new ArrayList<String>();
+
+                for (int i = 0; i < 10; i++) {
+                    tituloSinInter.add("Sin conexion a internet");
+                    descripcionSinInter.add("Verifica tu conexion");
+                }
+
+                AdapterItem adapter =
+                        new AdapterItem(this, tituloSinInter, descripcionSinInter);
+                ListaNoticias.setAdapter(adapter);
             }
-
-            AdapterItem adapter =
-                    new AdapterItem(this,tituloSinInter , descripcionSinInter);
-            ListaNoticias.setAdapter(adapter);
-
         }
     }
     @Override
@@ -69,9 +71,7 @@ public class MainActivity extends AppCompatActivity {
         if(!FechaActual.equals(FechaNoticas)){
             if (VerificarInternet())
             {
-                String url=ObtenerUrlUnivoNews();
-                new CargarListaNoticias().execute(url);
-                //CargarNoticiasUnivo(url);//Cargar noticias
+                CargarNoticiasBDS();
             }
             else {
                 ArrayList<String> tituloSinInter=new ArrayList<String>();
@@ -243,20 +243,82 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
 
-            ArrayList<String> tituloSinInter=new ArrayList<String>();
-            ArrayList<String> descripcionSinInter=new ArrayList<String>();
 
-            for(int i=0;i<10;i++)
-            {
-                tituloSinInter.add("Sin conexion a internet");
-                descripcionSinInter.add("Verifica tu conexion");
-            }
-
-            AdapterItem adapter =
-                    new AdapterItem(this,tituloSinInter , descripcionSinInter);
-            ListaNoticias.setAdapter(adapter);
 
         }
 
     }
+
+    public void CargarNoticiasBDS(){
+
+        ArrayList<ArrayList> lista=Cofre.Funciones.MostrarNoticias(this);
+
+        ArrayList<String>titulo=lista.get(0);
+        ArrayList<String>descripcion=lista.get(1);
+       final ArrayList<String>url=lista.get(2);
+        AdapterItem adapter =
+                new AdapterItem(this,titulo , descripcion);
+        ListaNoticias.setAdapter(adapter);
+        ListaNoticias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final int pos = position;
+                if(VerificarInternet()) {
+                    MostrarNoticiasbds(pos, url);//funcion que muestra la noticia
+                }
+                else {
+                    ArrayList<String>vacio=new ArrayList<String>();
+                    MostrarNoticiasbds(pos, vacio);
+                }//verifica el internet y si hay muestra las noticia completa
+
+            }
+        });//carga las noticias desde la base de datos;
+
+    }
+    private void MostrarNoticiasbds(int posicion,ArrayList<String>url) {
+
+       /* se crea la barra de cargando*/
+        int Posicion=posicion;//obtengo la posisicion del item
+        ArrayList<String> enlaces=url;//contiene los enlaces
+        String url1=enlaces.get(posicion);//obtiene el enlace del item seleccionado
+        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+        View enview1=getLayoutInflater().inflate(R.layout.dialogo_alerta,null);
+        WebView wv = new WebView(this);
+
+        wv.loadUrl(url1);
+        wv.setWebViewClient(new WebViewClient() {
+
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                progressDialog = new ProgressDialog(MainActivity.this);
+                progressDialog.setIcon(R.mipmap.ic_launcher);
+                progressDialog.setMessage("Cargando...");
+                progressDialog.setCancelable(true);
+                progressDialog.show();
+                super.onPageStarted(view, url, favicon);
+            } //muestra el dialogo mientras se carga la pagina
+
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+
+                return true;
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                // TODO Auto-generated method stub
+
+
+                super.onPageFinished(view, url);
+                progressDialog.dismiss();
+
+            }//funcion que desaparece el dialogo cuando la pagina ha cargado completamente
+
+        });
+        alert.setView(enview1);
+        alert.setView(wv);
+        AlertDialog alerta=alert.create();
+        alerta.show();//muestra la noticia
+    }//alert dialog
 }
