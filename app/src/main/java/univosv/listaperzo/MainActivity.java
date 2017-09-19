@@ -2,6 +2,7 @@ package univosv.listaperzo;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     private ListView ListaNoticias;
@@ -24,44 +26,72 @@ public class MainActivity extends AppCompatActivity {
     private int posicion;
     ProgressDialog progressDialog;
     verificacionDeInternet Internet=new verificacionDeInternet(this);
+    public SharedPreferences sharedPreferences;
+
     public MainActivity() throws XmlPullParserException {
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ListaNoticias = (ListView) findViewById(R.id.lista);
+        sharedPreferences=getApplicationContext().
+                getSharedPreferences(Cofre.Vars.NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE);
+        Cofre.Funciones.Iniciar(sharedPreferences);//inicia el sharedpreference
         if (VerificarInternet())
         {
-
             String url=ObtenerUrlUnivoNews();
             new CargarListaNoticias().execute(url);
             //CargarNoticiasUnivo(url);//Cargar noticias
-        }
-        else {
-            ArrayList<String> tituloSinInter=new ArrayList<String>();
-            ArrayList<String> descripcionSinInter=new ArrayList<String>();
-
-            for(int i=0;i<10;i++)
-            {
-                tituloSinInter.add("Sin conexion a internet");
-                descripcionSinInter.add("Verifica tu conexion");
             }
+            else {
 
-            AdapterItem adapter =
-                    new AdapterItem(this,tituloSinInter , descripcionSinInter);
-            ListaNoticias.setAdapter(adapter);
+            if(Cofre.Funciones.VerificarExistenciadbs(this)){CargarNoticiasBDS();}
+            else {
+                ArrayList<String> tituloSinInter = new ArrayList<String>();
+                ArrayList<String> descripcionSinInter = new ArrayList<String>();
 
-           /* ArrayList<Object> object= Cofre.Funciones.Recuperarnotas();
-            ArrayList<String>Titulo= (ArrayList<String>) object.get(0);
-            ArrayList<String>descripcion= (ArrayList<String>) object.get(1);
-            AdapterItem adapter =
-                    new AdapterItem(this,Titulo , descripcion);
-            ListaNoticias.setAdapter(adapter);*/
+                for (int i = 0; i < 10; i++) {
+                    tituloSinInter.add("Sin conexion a internet");
+                    descripcionSinInter.add("Verifica tu conexion");
+                }
 
+                AdapterItem adapter =
+                        new AdapterItem(this, tituloSinInter, descripcionSinInter);
+                ListaNoticias.setAdapter(adapter);
+            }
         }
     }
+    @Override
+    protected void onStart(){
+        super.onStart();
+        String FechaActual=Cofre.Funciones.ObtenerFechaActual();
+        String FechaNoticas=Cofre.Funciones.InvocarFechaNoticias();
+        if(!FechaActual.equals(FechaNoticas)){
+            if (VerificarInternet())
+            {
+                CargarNoticiasBDS();
+            }
+            else {
+                ArrayList<String> tituloSinInter=new ArrayList<String>();
+                ArrayList<String> descripcionSinInter=new ArrayList<String>();
 
+                for(int i=0;i<10;i++)
+                {
+                    tituloSinInter.add("Sin conexion a internet");
+                    descripcionSinInter.add("Verifica tu conexion");
+                }
+
+                AdapterItem adapter =
+                        new AdapterItem(this,tituloSinInter , descripcionSinInter);
+                ListaNoticias.setAdapter(adapter);
+
+            }
+        }
+
+
+    }//verifica internet y compara fecha del sistemas con las noticias
     /*codigo asincrono para cargar la lista de noticias*/
     private class CargarListaNoticias extends AsyncTask<String, Void, HandleXML> {
         @Override
@@ -84,6 +114,9 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(HandleXML noticias){
             CargarNoticiasUnivo(noticias);
+                String fecha=Cofre.Funciones.ObtenerFechaActual();
+            Cofre.Funciones.GuardarFechaNoticias(fecha);
+
             progressDialog.dismiss();
         }
     }
@@ -210,20 +243,82 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
 
-            ArrayList<String> tituloSinInter=new ArrayList<String>();
-            ArrayList<String> descripcionSinInter=new ArrayList<String>();
 
-            for(int i=0;i<10;i++)
-            {
-                tituloSinInter.add("Sin conexion a internet");
-                descripcionSinInter.add("Verifica tu conexion");
-            }
-
-            AdapterItem adapter =
-                    new AdapterItem(this,tituloSinInter , descripcionSinInter);
-            ListaNoticias.setAdapter(adapter);
 
         }
 
     }
+
+    public void CargarNoticiasBDS(){
+
+        ArrayList<ArrayList> lista=Cofre.Funciones.MostrarNoticias(this);
+
+        ArrayList<String>titulo=lista.get(0);
+        ArrayList<String>descripcion=lista.get(1);
+       final ArrayList<String>url=lista.get(2);
+        AdapterItem adapter =
+                new AdapterItem(this,titulo , descripcion);
+        ListaNoticias.setAdapter(adapter);
+        ListaNoticias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final int pos = position;
+                if(VerificarInternet()) {
+                    MostrarNoticiasbds(pos, url);//funcion que muestra la noticia
+                }
+                else {
+                    ArrayList<String>vacio=new ArrayList<String>();
+                    MostrarNoticiasbds(pos, vacio);
+                }//verifica el internet y si hay muestra las noticia completa
+
+            }
+        });//carga las noticias desde la base de datos;
+
+    }
+    private void MostrarNoticiasbds(int posicion,ArrayList<String>url) {
+
+       /* se crea la barra de cargando*/
+        int Posicion=posicion;//obtengo la posisicion del item
+        ArrayList<String> enlaces=url;//contiene los enlaces
+        String url1=enlaces.get(posicion);//obtiene el enlace del item seleccionado
+        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+        View enview1=getLayoutInflater().inflate(R.layout.dialogo_alerta,null);
+        WebView wv = new WebView(this);
+
+        wv.loadUrl(url1);
+        wv.setWebViewClient(new WebViewClient() {
+
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                progressDialog = new ProgressDialog(MainActivity.this);
+                progressDialog.setIcon(R.mipmap.ic_launcher);
+                progressDialog.setMessage("Cargando...");
+                progressDialog.setCancelable(true);
+                progressDialog.show();
+                super.onPageStarted(view, url, favicon);
+            } //muestra el dialogo mientras se carga la pagina
+
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+
+                return true;
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                // TODO Auto-generated method stub
+
+
+                super.onPageFinished(view, url);
+                progressDialog.dismiss();
+
+            }//funcion que desaparece el dialogo cuando la pagina ha cargado completamente
+
+        });
+        alert.setView(enview1);
+        alert.setView(wv);
+        AlertDialog alerta=alert.create();
+        alerta.show();//muestra la noticia
+    }//alert dialog
 }
