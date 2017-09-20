@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         ListaNoticias = (ListView) findViewById(R.id.lista);
         sharedPreferences=getApplicationContext().
                 getSharedPreferences(Cofre.Vars.NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE);
-        Cofre.Funciones.Iniciar(sharedPreferences);//inicia el sharedpreference
+        Cofre.Funciones.Iniciar(sharedPreferences,this);//inicia el sharedpreference
 
     }
 
@@ -261,7 +261,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void CargarNoticiasBDS(){
 
-        ArrayList<ArrayList> lista=Cofre.Funciones.MostrarNoticias(this);
+        ArrayList<ArrayList> lista=Cofre.Funciones.ObtenerNoticias(this);
 
         ArrayList<String>titulo=lista.get(0);
         ArrayList<String>descripcion=lista.get(1);

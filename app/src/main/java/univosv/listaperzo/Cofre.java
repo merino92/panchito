@@ -156,22 +156,20 @@ public class Cofre {
                 SQLiteDatabase db = Vars.Base.getWritableDatabase();
                 return (db!=null);
             }
-    }//cierra la clase
+        public static void Arreglovacio(Activity activity, ListView listView){
 
-            public static void Arreglovacio(Activity activity, ListView listView){
+            ArrayList<String> tituloSinInter = new ArrayList<String>();
+            ArrayList<String> descripcionSinInter = new ArrayList<String>();
 
-                ArrayList<String> tituloSinInter = new ArrayList<String>();
-                ArrayList<String> descripcionSinInter = new ArrayList<String>();
-
-                for (int i = 0; i < 10; i++) {
-                    tituloSinInter.add("Sin conexion a internet");
-                    descripcionSinInter.add("Verifica tu conexion");
-                }
-
-                AdapterItem adapter =
-                        new AdapterItem(activity, tituloSinInter, descripcionSinInter);
-               listView.setAdapter(adapter);
-
+            for (int i = 0; i < 10; i++) {
+                tituloSinInter.add("Sin conexion a internet");
+                descripcionSinInter.add("Verifica tu conexion");
             }
+
+            AdapterItem adapter =
+                    new AdapterItem(activity, tituloSinInter, descripcionSinInter);
+            listView.setAdapter(adapter);
+
         }
+    }//cierre de clase funciones
 }
