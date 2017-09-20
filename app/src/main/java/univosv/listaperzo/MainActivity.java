@@ -44,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
             String url=ObtenerUrlUnivoNews();
             new CargarListaNoticias().execute(url);
             //CargarNoticiasUnivo(url);//Cargar noticias
-            }
-            else {
-
+        }
+        else
+        {
             if(Cofre.Funciones.VerificarExistenciadbs(this)){CargarNoticiasBDS();}
             else {
                 ArrayList<String> tituloSinInter = new ArrayList<String>();
@@ -63,34 +63,45 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    //de donde debemos cargar las noticias
+    //base de datos BDD
+    //internet I
+    /*private boolean DeDondeCargarNoticias(){
+        String fechaActual;
+        String fechaUltimaCarga;
+        if(fechaActual.equals(fechaUltimaCarga)){
+            //cargar de la BDD
+            if(BddEstaVacia()){
+                if(HayInternet()){
+                    CargarDeInternet();
+                }
+                else{
+                    CargarNoticiasVacio();
+                }
+            }
+            else{//si la base no esta vacia
+                CargaDeBdd();
+            }
+        }
+        else{//Carga de internet
+            if(HayInternet()){
+                CargarDeInternet();
+            }
+            else{
+                CargarNoticiasVacio();
+            }
+        }
+    }*/
     @Override
     protected void onStart(){
         super.onStart();
         String FechaActual=Cofre.Funciones.ObtenerFechaActual();
         String FechaNoticas=Cofre.Funciones.InvocarFechaNoticias();
-        if(!FechaActual.equals(FechaNoticas)){
-            if (VerificarInternet())
-            {
-                CargarNoticiasBDS();
-            }
-            else {
-                ArrayList<String> tituloSinInter=new ArrayList<String>();
-                ArrayList<String> descripcionSinInter=new ArrayList<String>();
-
-                for(int i=0;i<10;i++)
-                {
-                    tituloSinInter.add("Sin conexion a internet");
-                    descripcionSinInter.add("Verifica tu conexion");
-                }
-
-                AdapterItem adapter =
-                        new AdapterItem(this,tituloSinInter , descripcionSinInter);
-                ListaNoticias.setAdapter(adapter);
-
-            }
+        //Si son iguales las fechas carga de la bdd
+        //si son diferentes carga de internet
+        if(FechaActual.equals(FechaNoticas)){
+            CargarNoticiasBDS();
         }
-
-
     }//verifica internet y compara fecha del sistemas con las noticias
     /*codigo asincrono para cargar la lista de noticias*/
     private class CargarListaNoticias extends AsyncTask<String, Void, HandleXML> {
