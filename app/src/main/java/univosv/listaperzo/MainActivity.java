@@ -39,71 +39,49 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences=getApplicationContext().
                 getSharedPreferences(Cofre.Vars.NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE);
         Cofre.Funciones.Iniciar(sharedPreferences);//inicia el sharedpreference
-        if (VerificarInternet())
-        {
-            String url=ObtenerUrlUnivoNews();
-            new CargarListaNoticias().execute(url);
-            //CargarNoticiasUnivo(url);//Cargar noticias
-        }
-        else
-        {
-            if(Cofre.Funciones.VerificarExistenciadbs(this)){CargarNoticiasBDS();}
-            else {
-                ArrayList<String> tituloSinInter = new ArrayList<String>();
-                ArrayList<String> descripcionSinInter = new ArrayList<String>();
 
-                for (int i = 0; i < 10; i++) {
-                    tituloSinInter.add("Sin conexion a internet");
-                    descripcionSinInter.add("Verifica tu conexion");
-                }
-
-                AdapterItem adapter =
-                        new AdapterItem(this, tituloSinInter, descripcionSinInter);
-                ListaNoticias.setAdapter(adapter);
-            }
-        }
     }
+
+
     //de donde debemos cargar las noticias
     //base de datos BDD
     //internet I
-    /*private boolean DeDondeCargarNoticias(){
-        String fechaActual;
-        String fechaUltimaCarga;
+    private void DeDondeCargarNoticias(){
+        String fechaActual=Cofre.Funciones.ObtenerFechaActual();
+        String fechaUltimaCarga=Cofre.Funciones.InvocarFechaNoticias();
         if(fechaActual.equals(fechaUltimaCarga)){
             //cargar de la BDD
-            if(BddEstaVacia()){
-                if(HayInternet()){
-                    CargarDeInternet();
+            if(Cofre.Funciones.VerificarExistenciadbs(this)){
+                if(VerificarInternet()){
+                    String url=ObtenerUrlUnivoNews();
+                    new CargarListaNoticias().execute(url);
                 }
                 else{
-                    CargarNoticiasVacio();
+                    Cofre.Funciones.Arreglovacio(this,ListaNoticias);
                 }
             }
             else{//si la base no esta vacia
-                CargaDeBdd();
+                CargarNoticiasBDS();
             }
         }
         else{//Carga de internet
-            if(HayInternet()){
-                CargarDeInternet();
+            if(VerificarInternet()){
+                String url=ObtenerUrlUnivoNews();
+                new CargarListaNoticias().execute(url);
             }
             else{
-                CargarNoticiasVacio();
+                Cofre.Funciones.Arreglovacio(this,ListaNoticias);
             }
         }
-    }*/
+    }
     @Override
     protected void onStart(){
         super.onStart();
-        String FechaActual=Cofre.Funciones.ObtenerFechaActual();
-        String FechaNoticas=Cofre.Funciones.InvocarFechaNoticias();
-        //Si son iguales las fechas carga de la bdd
-        //si son diferentes carga de internet
-        if(FechaActual.equals(FechaNoticas)){
-            CargarNoticiasBDS();
-        }
+       DeDondeCargarNoticias();
     }//verifica internet y compara fecha del sistemas con las noticias
     /*codigo asincrono para cargar la lista de noticias*/
+
+
     private class CargarListaNoticias extends AsyncTask<String, Void, HandleXML> {
         @Override
         protected void onPreExecute(){
