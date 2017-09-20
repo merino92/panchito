@@ -51,33 +51,28 @@ public class MainActivity extends AppCompatActivity {
         String fechaActual=Cofre.Funciones.ObtenerFechaActual();
         String fechaUltimaCarga=Cofre.Funciones.InvocarFechaNoticias();
         if(fechaActual.equals(fechaUltimaCarga)){
-            Log.i("Fechas iguales","Cargar de la bdd");
             //cargar de la BDD
-            if(!Cofre.Funciones.VerificarExistenciadbs(this)){
-                Log.i("No existe la bdd","Cargar de internet");
+
+            if(Cofre.Funciones.VerificarExistenciadbs(this)){
                 if(VerificarInternet()){
                     String url=ObtenerUrlUnivoNews();
                     new CargarListaNoticias().execute(url);
                 }
                 else{
-                    Log.i("No tiene internet...","jajaja");
                     Cofre.Funciones.Arreglovacio(this,ListaNoticias);
                 }
             }
             else{//si la base no esta vacia
-                Log.i("Carga de la bdd","Si existe la bdd");
+                Log.i("cargando de la base","exito");
                 CargarNoticiasBDS();
             }
         }
         else{//Carga de internet
-            Log.i("Carga de internet","Fechas diferentes");
             if(VerificarInternet()){
-                Log.i("Cargando de internet...","jajaja");
                 String url=ObtenerUrlUnivoNews();
                 new CargarListaNoticias().execute(url);
             }
             else{
-                Log.i("No tiene internet","Carga arreglo vacio");
                 Cofre.Funciones.Arreglovacio(this,ListaNoticias);
             }
         }
@@ -85,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
+        Log.i("carga","OnStar");
        DeDondeCargarNoticias();
     }//verifica internet y compara fecha del sistemas con las noticias
     /*codigo asincrono para cargar la lista de noticias*/
@@ -259,6 +255,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
     public void CargarNoticiasBDS(){
 
         ArrayList<ArrayList> lista=Cofre.Funciones.MostrarNoticias(this);
