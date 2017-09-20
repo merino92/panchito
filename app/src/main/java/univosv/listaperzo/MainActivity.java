@@ -169,16 +169,29 @@ public class MainActivity extends AppCompatActivity {
        /* se crea la barra de cargando*/
         int Posicion=posicion;//obtengo la posisicion del item
         ArrayList<String> enlaces=handleXML.Enlace;//contiene los enlaces
-        String url=enlaces.get(posicion);//obtiene el enlace del item seleccionado
+        _MostrarNoticias(posicion,enlaces);
+    }//MostrarNoticias
+
+    private void MostrarNoticias(int posicion,ArrayList<String>url) {
+
+       /* se crea la barra de cargando*/
+        int Posicion=posicion;//obtengo la posisicion del item
+        //ArrayList<String> enlaces=url;//contiene los enlaces
+        _MostrarNoticias(posicion,url);
+
+    }//MostrarNoticiasBDS
+
+    private void _MostrarNoticias(int posicion, ArrayList<String> enlaces){
+        String url1=enlaces.get(posicion);//obtiene el enlace del item seleccionado
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         View enview1=getLayoutInflater().inflate(R.layout.dialogo_alerta,null);
         WebView wv = new WebView(this);
 
-        wv.loadUrl(url);
+        wv.loadUrl(url1);
         wv.setWebViewClient(new WebViewClient() {
 
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                  progressDialog = new ProgressDialog(MainActivity.this);
+                progressDialog = new ProgressDialog(MainActivity.this);
                 progressDialog.setIcon(R.mipmap.ic_launcher);
                 progressDialog.setMessage("Cargando...");
                 progressDialog.setCancelable(true);
@@ -209,7 +222,8 @@ public class MainActivity extends AppCompatActivity {
         alert.setView(wv);
         AlertDialog alerta=alert.create();
         alerta.show();//muestra la noticia
-    }//alert dialog
+    }
+
     public void lanzarHorario(View view) {
         Intent i = new Intent(this, Horarios.class);
         startActivity(i);
@@ -264,61 +278,15 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final int pos = position;
                 if(VerificarInternet()) {
-                    MostrarNoticiasbds(pos, url);//funcion que muestra la noticia
+                    MostrarNoticias(pos, url);//funcion que muestra la noticia
                 }
                 else {
                     ArrayList<String>vacio=new ArrayList<String>();
-                    MostrarNoticiasbds(pos, vacio);
+                    MostrarNoticias(pos, vacio);
                 }//verifica el internet y si hay muestra las noticia completa
 
             }
         });//carga las noticias desde la base de datos;
 
     }
-    private void MostrarNoticiasbds(int posicion,ArrayList<String>url) {
-
-       /* se crea la barra de cargando*/
-        int Posicion=posicion;//obtengo la posisicion del item
-        ArrayList<String> enlaces=url;//contiene los enlaces
-        String url1=enlaces.get(posicion);//obtiene el enlace del item seleccionado
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-        View enview1=getLayoutInflater().inflate(R.layout.dialogo_alerta,null);
-        WebView wv = new WebView(this);
-
-        wv.loadUrl(url1);
-        wv.setWebViewClient(new WebViewClient() {
-
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                progressDialog = new ProgressDialog(MainActivity.this);
-                progressDialog.setIcon(R.mipmap.ic_launcher);
-                progressDialog.setMessage("Cargando...");
-                progressDialog.setCancelable(true);
-                progressDialog.show();
-                super.onPageStarted(view, url, favicon);
-            } //muestra el dialogo mientras se carga la pagina
-
-
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-
-                return true;
-            }
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                // TODO Auto-generated method stub
-
-
-                super.onPageFinished(view, url);
-                progressDialog.dismiss();
-
-            }//funcion que desaparece el dialogo cuando la pagina ha cargado completamente
-
-        });
-        alert.setView(enview1);
-        alert.setView(wv);
-        AlertDialog alerta=alert.create();
-        alerta.show();//muestra la noticia
-    }//alert dialog
 }
