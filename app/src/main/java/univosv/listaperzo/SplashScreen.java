@@ -36,8 +36,10 @@ ProgressBar barra;
 
     private void comprobacion(){
 
-        Cofre.Funciones.Iniciar(getApplicationContext().
-                getSharedPreferences(Cofre.Vars.NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE));
+        Cofre.Funciones.Iniciar(
+                getApplicationContext().
+                    getSharedPreferences(Cofre.Vars.NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE),
+                getApplicationContext());
         String clave=Cofre.Vars.preferencias.getString(Cofre.Vars.USUARIO,"");
 
         String sp=Cofre.Vars.preferencias.getString(Cofre.Vars.CLAVE,"");

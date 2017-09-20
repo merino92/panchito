@@ -33,7 +33,7 @@ public class login extends AppCompatActivity {
         cheque=(CheckBox)findViewById(R.id.checquesito);
          sharedPreferences=getApplicationContext().
                 getSharedPreferences(Cofre.Vars.NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE);
-        Cofre.Funciones.Iniciar(sharedPreferences);
+        Cofre.Funciones.Iniciar(sharedPreferences,this);
         String Usuario=Cofre.Funciones.InvocarUsuario();
         String clave=Cofre.Funciones.InvocarClave();
         contra.setText(clave);

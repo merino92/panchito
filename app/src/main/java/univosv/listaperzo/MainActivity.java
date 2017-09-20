@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         ListaNoticias = (ListView) findViewById(R.id.lista);
         sharedPreferences=getApplicationContext().
                 getSharedPreferences(Cofre.Vars.NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE);
-        Cofre.Funciones.Iniciar(sharedPreferences);//inicia el sharedpreference
+        Cofre.Funciones.Iniciar(sharedPreferences,this);//inicia el sharedpreference
 
     }
 
@@ -137,7 +137,10 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"vacio",Toast.LENGTH_SHORT);
         }else {
             AdapterItem adapter = new AdapterItem(this, handleXML.Titulo, handleXML.Descripcion);
-
+            ArrayList<String>t=handleXML.Titulo;
+            ArrayList<String>d=handleXML.Descripcion;
+            ArrayList<String>l=handleXML.Enlace;
+                Cofre.Funciones.GuardarNoticias(t,d,l);
             overridePendingTransition(R.anim.zoom_forward_in,R.anim.zoom_forward_out);
           //  Cofre.Funciones.GuardarNotas(handleXML.Titulo,handleXML.Descripcion);
             ListaNoticias.setAdapter(adapter);
@@ -258,7 +261,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void CargarNoticiasBDS(){
 
-        ArrayList<ArrayList> lista=Cofre.Funciones.MostrarNoticias(this);
+        ArrayList<ArrayList> lista=Cofre.Funciones.ObtenerNoticias(this);
 
         ArrayList<String>titulo=lista.get(0);
         ArrayList<String>descripcion=lista.get(1);
