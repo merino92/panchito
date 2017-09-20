@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -50,26 +51,33 @@ public class MainActivity extends AppCompatActivity {
         String fechaActual=Cofre.Funciones.ObtenerFechaActual();
         String fechaUltimaCarga=Cofre.Funciones.InvocarFechaNoticias();
         if(fechaActual.equals(fechaUltimaCarga)){
+            Log.i("Fechas iguales","Cargar de la bdd");
             //cargar de la BDD
-            if(Cofre.Funciones.VerificarExistenciadbs(this)){
+            if(!Cofre.Funciones.VerificarExistenciadbs(this)){
+                Log.i("No existe la bdd","Cargar de internet");
                 if(VerificarInternet()){
                     String url=ObtenerUrlUnivoNews();
                     new CargarListaNoticias().execute(url);
                 }
                 else{
+                    Log.i("No tiene internet...","jajaja");
                     Cofre.Funciones.Arreglovacio(this,ListaNoticias);
                 }
             }
             else{//si la base no esta vacia
+                Log.i("Carga de la bdd","Si existe la bdd");
                 CargarNoticiasBDS();
             }
         }
         else{//Carga de internet
+            Log.i("Carga de internet","Fechas diferentes");
             if(VerificarInternet()){
+                Log.i("Cargando de internet...","jajaja");
                 String url=ObtenerUrlUnivoNews();
                 new CargarListaNoticias().execute(url);
             }
             else{
+                Log.i("No tiene internet","Carga arreglo vacio");
                 Cofre.Funciones.Arreglovacio(this,ListaNoticias);
             }
         }
@@ -251,7 +259,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
     public void CargarNoticiasBDS(){
 
         ArrayList<ArrayList> lista=Cofre.Funciones.MostrarNoticias(this);

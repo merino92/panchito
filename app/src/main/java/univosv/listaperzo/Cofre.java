@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.ListView;
 
@@ -40,6 +41,7 @@ public class Cofre {
         public final static String NOMBRE_SHARED_PREFERENCE="PerfilDatosTemporales";
         public static   Gson gson = new Gson();
         public static ArrayList<Object> listanotas = new ArrayList<Object>();
+        public static BaseSQL Base;
     }
 
     public static class Funciones{
@@ -59,8 +61,9 @@ public class Cofre {
             return usuario;
         }
 
-        public static void Iniciar(SharedPreferences sharedPreferences){
+        public static void Iniciar(SharedPreferences sharedPreferences,Context contexto){
             Vars.preferencias=sharedPreferences;
+            Vars.Base = new BaseSQL(contexto,"NOTICIAS",null,1);
         }
 
         public static String InvocarClave(){
@@ -71,41 +74,42 @@ public class Cofre {
             return clave;
         }
 
-       public static void GuardarFechaNoticias(String fecha){
+        public static void GuardarFechaNoticias(String fecha){
            Vars.Editor=Vars.preferencias.edit();
            Vars.Editor.putString(Vars.FECHANOTICIAS,fecha);
            Vars.Editor.commit();
-       }
-       public static String InvocarFechaNoticias(){
+        }
+
+        public static String InvocarFechaNoticias(){
            String fecha="";
            if(Vars.preferencias.contains(Vars.FECHANOTICIAS)){
                fecha=Vars.preferencias.getString(Vars.FECHANOTICIAS,"");
            }
            return fecha;
-       }
+        }
 
-       public static String ObtenerFechaActual(){
+        public static String ObtenerFechaActual(){
            Calendar fecha = Calendar.getInstance();
            String año =String.valueOf(fecha.get(Calendar.YEAR));
            String mes = String.valueOf(fecha.get(Calendar.MONTH));
            String dia = String.valueOf(fecha.get(Calendar.DAY_OF_MONTH));
            String FechaActual=dia+"-"+mes+"-"+año;
            return FechaActual;
-       }
+        }
 
-       public static void GuardarNoticias(
+        public static void GuardarNoticias(
                ArrayList<String>t,
                ArrayList<String>d,
                ArrayList<String>u,
                Context c){
-           BaseSQL base =new BaseSQL(c,"NOTICIAS",null,1);
-           SQLiteDatabase db = base.getWritableDatabase();
+
+           SQLiteDatabase db = Vars.Base.getWritableDatabase();
 
            if (db!=null){
 
                for (int i=0;i<t.size();i++){
 
-                   String nombre = "Usuario" + i;
+                   //String nombre = "Usuario" + i;
                    //Insertamos los datos en la tabla Usuarios
                    db.execSQL("INSERT INTO NOTICIAS (titulo, descripcion,url) " +
                            "VALUES (" + t.get(i) + ", '" +d.get(i) +",'"+u.get(i)+")");
@@ -113,9 +117,14 @@ public class Cofre {
                db.close();
            }
        }
-       public static ArrayList<ArrayList> MostrarNoticias(Context c){
-            BaseSQL base =new BaseSQL(c,"NOTICIAS",null,1);
-            SQLiteDatabase db=base.getReadableDatabase();
+       public static boolean BddPoseeAlgunRegistro(){
+           SQLiteDatabase db = Vars.Base.getWritableDatabase();
+           long numRows = DatabaseUtils.queryNumEntries(db, BaseSQL.NombreTabla);
+           return (numRows>0);
+       }
+       public static ArrayList<ArrayList> ObtenerNoticias(Context c){
+            //BaseSQL base =new BaseSQL(c,"NOTICIAS",null,1);
+            SQLiteDatabase db=Vars.Base.getReadableDatabase();
             Cursor titulo = db.rawQuery(" SELECT titulo FROM NOTICIAS  ", null);
             Cursor descripcion = db.rawQuery(" SELECT descripcion FROM NOTICIAS  ", null);
             Cursor url = db.rawQuery(" SELECT url FROM NOTICIAS  ", null);
@@ -143,18 +152,11 @@ public class Cofre {
         }
 
             public static boolean  VerificarExistenciadbs(Context c){
-                BaseSQL base =new BaseSQL(c,"NOTICIAS",null,1);
-                SQLiteDatabase db = base.getWritableDatabase();
-
-                if (db!=null){
-
-                    return true;
-
-                    }
-                    else {
-                    return false;
-                }
-            }//cierra la clase
+                //BaseSQL base =new BaseSQL(c,"NOTICIAS",null,1);
+                SQLiteDatabase db = Vars.Base.getWritableDatabase();
+                return (db!=null);
+            }
+    }//cierra la clase
 
             public static void Arreglovacio(Activity activity, ListView listView){
 
