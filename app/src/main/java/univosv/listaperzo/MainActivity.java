@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     //de donde debemos cargar las noticias
     //base de datos BDD
     //internet I
@@ -82,13 +81,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
     @Override
     protected void onStart(){
         super.onStart();
        DeDondeCargarNoticias();
     }//verifica internet y compara fecha del sistemas con las noticias
     /*codigo asincrono para cargar la lista de noticias*/
-
 
     private class CargarListaNoticias extends AsyncTask<String, Void, HandleXML> {
         @Override
@@ -100,8 +99,6 @@ public class MainActivity extends AppCompatActivity {
             progressDialog.show();
 
         }
-
-
 
         @Override
         protected HandleXML doInBackground(String... url) {
@@ -128,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
         // cosas.add(handleXML.ItemCompleto);
         return handleXML;
     }
+
     private void CargarNoticiasUnivo(final HandleXML handleXML){
        /* ArrayAdapter<String> adaptador =
                 new ArrayAdapter(
@@ -141,6 +139,12 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"vacio",Toast.LENGTH_SHORT);
         }else {
             AdapterItem adapter = new AdapterItem(this, handleXML.Titulo, handleXML.Descripcion);
+
+            Cofre.Funciones.GuardarNoticias(
+                    handleXML.Titulo,
+                    handleXML.Descripcion,
+                    handleXML.Enlace,
+                    getApplicationContext());
 
             overridePendingTransition(R.anim.zoom_forward_in,R.anim.zoom_forward_out);
           //  Cofre.Funciones.GuardarNotas(handleXML.Titulo,handleXML.Descripcion);
@@ -156,11 +160,13 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
+
     /*Obtiene de la conexion con el webservice
     * la dirección del feed rss de la univo news*/
     private String ObtenerUrlUnivoNews(){
         return "http://univonews.com/feed/";
     }
+
     private void MostrarNoticias(int posicion,HandleXML handleXML) {
 
        /* se crea la barra de cargando*/
@@ -259,8 +265,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-    public void CargarNoticiasBDS(){
 
+    public void CargarNoticiasBDS(){
         ArrayList<ArrayList> lista=Cofre.Funciones.ObtenerNoticias(this);
 
         ArrayList<String>titulo=lista.get(0);

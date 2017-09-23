@@ -1,11 +1,13 @@
 package univosv.listaperzo;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
@@ -106,17 +108,24 @@ public class Cofre {
            SQLiteDatabase db = Vars.Base.getWritableDatabase();
 
            if (db!=null){
+               ContentValues contenedorDeValoresSql;
+               //funciona... pero hay que utilizar content values...
+               /*
 
+               * */
                for (int i=0;i<t.size();i++){
-
+                   contenedorDeValoresSql = new ContentValues();
                    //String nombre = "Usuario" + i;
                    //Insertamos los datos en la tabla Usuarios
-                   db.execSQL("INSERT INTO NOTICIAS (titulo, descripcion,url) " +
-                           "VALUES (" + t.get(i) + ", '" +d.get(i) +",'"+u.get(i)+")");
+                   String sql = "INSERT INTO NOTICIAS (titulo, descripcion,url) " +
+                           "VALUES ('" + t.get(i) + "', '" +d.get(i) +"','"+u.get(i)+"')";
+
+                   db.execSQL(sql);
                }
                db.close();
            }
        }
+
        public static boolean BddPoseeAlgunRegistro(){
            SQLiteDatabase db = Vars.Base.getWritableDatabase();
            long numRows = DatabaseUtils.queryNumEntries(db, BaseSQL.NombreTabla);
@@ -132,7 +141,7 @@ public class Cofre {
             ArrayList<String> DESCRIPCION = new ArrayList<String>();
             ArrayList<String> URL = new ArrayList<String>();
             //Nos aseguramos de que existe al menos un registro
-            if (titulo.moveToFirst()&&descripcion.moveToFirst()&&url.moveToFirst()) {
+            if (titulo.moveToFirst() && descripcion.moveToFirst() && url.moveToFirst()) {
                 //Recorremos el cursor hasta que no haya más registros
                 do {
                     String ti = titulo.getString(0);
@@ -141,7 +150,7 @@ public class Cofre {
                     TITULO.add(ti);
                     DESCRIPCION.add(de);
                     URL.add(ur);
-                } while (titulo.moveToNext()&&descripcion.moveToNext()&&url.moveToNext());
+                } while (titulo.moveToNext() && descripcion.moveToNext() && url.moveToNext());
             }
             ArrayList<ArrayList> arr = new ArrayList<ArrayList>();
             arr.add(TITULO);
@@ -150,13 +159,12 @@ public class Cofre {
             return arr;
 
         }
-
-            public static boolean  VerificarExistenciadbs(Context c){
+       public static boolean  VerificarExistenciadbs(Context c){
                 //BaseSQL base =new BaseSQL(c,"NOTICIAS",null,1);
                 SQLiteDatabase db = Vars.Base.getWritableDatabase();
                 return (db!=null);
             }
-        public static void Arreglovacio(Activity activity, ListView listView){
+       public static void Arreglovacio(Activity activity, ListView listView){
 
             ArrayList<String> tituloSinInter = new ArrayList<String>();
             ArrayList<String> descripcionSinInter = new ArrayList<String>();
