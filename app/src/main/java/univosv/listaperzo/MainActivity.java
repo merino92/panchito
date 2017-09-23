@@ -143,8 +143,7 @@ public class MainActivity extends AppCompatActivity {
             Cofre.Funciones.GuardarNoticias(
                     handleXML.Titulo,
                     handleXML.Descripcion,
-                    handleXML.Enlace,
-                    getApplicationContext());
+                    handleXML.Enlace);
 
             overridePendingTransition(R.anim.zoom_forward_in,R.anim.zoom_forward_out);
           //  Cofre.Funciones.GuardarNotas(handleXML.Titulo,handleXML.Descripcion);
