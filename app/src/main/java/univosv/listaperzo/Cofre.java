@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
@@ -41,6 +42,7 @@ public class Cofre {
         public final static String NOMBRE_SHARED_PREFERENCE="PerfilDatosTemporales";
         public static   Gson gson = new Gson();
         public static ArrayList<Object> listanotas = new ArrayList<Object>();
+        public static String BorrarNoticias="TRUNCATE TABLE "+BaseSQL.NombreTabla;
         public static BaseSQL Base;
     }
 
@@ -106,15 +108,29 @@ public class Cofre {
            SQLiteDatabase db = Vars.Base.getWritableDatabase();
 
            if (db!=null){
-
+                    if(BddPoseeAlgunRegistro()){
+                        Log.i("entra","posee registro");
+                        db.execSQL(Vars.BorrarNoticias);
                for (int i=0;i<t.size();i++){
-
                    //String nombre = "Usuario" + i;
                    //Insertamos los datos en la tabla Usuarios
                    db.execSQL("INSERT INTO NOTICIAS (titulo, descripcion,url) " +
                            "VALUES (" + t.get(i) + ", '" +d.get(i) +",'"+u.get(i)+")");
+                   db.close();
+                   Log.i("si guarda", "GuardarNoticias: "+t.get(i));
                }
-               db.close();
+
+                    }else {
+
+                       /* for (int i=0;i<t.size();i++){
+                            //String nombre = "Usuario" + i;
+                            //Insertamos los datos en la tabla Usuarios
+                            db.execSQL("INSERT INTO NOTICIAS (titulo, descripcion,url) " +
+                                    "VALUES (" + t.get(i) + ", '" +d.get(i) +",'"+u.get(i)+")");
+                            db.close();
+                        }*/
+
+                    }
            }
        }
        public static boolean BddPoseeAlgunRegistro(){
@@ -122,26 +138,28 @@ public class Cofre {
            long numRows = DatabaseUtils.queryNumEntries(db, BaseSQL.NombreTabla);
            return (numRows>0);
        }
-       public static ArrayList<ArrayList> ObtenerNoticias(Context c){
+       public static ArrayList<ArrayList> ObtenerNoticias(){
             //BaseSQL base =new BaseSQL(c,"NOTICIAS",null,1);
             SQLiteDatabase db=Vars.Base.getReadableDatabase();
-            Cursor titulo = db.rawQuery(" SELECT titulo FROM NOTICIAS  ", null);
-            Cursor descripcion = db.rawQuery(" SELECT descripcion FROM NOTICIAS  ", null);
-            Cursor url = db.rawQuery(" SELECT url FROM NOTICIAS  ", null);
+            Cursor titulo = db.rawQuery(" SELECT titulo,descripcion,url FROM NOTICIAS  ", null);
+
             ArrayList<String> TITULO = new ArrayList<String>();
             ArrayList<String> DESCRIPCION = new ArrayList<String>();
             ArrayList<String> URL = new ArrayList<String>();
+           String t,d,u;
             //Nos aseguramos de que existe al menos un registro
-            if (titulo.moveToFirst()&&descripcion.moveToFirst()&&url.moveToFirst()) {
+            if (titulo.moveToFirst()) {
                 //Recorremos el cursor hasta que no haya más registros
                 do {
-                    String ti = titulo.getString(0);
-                    String de = descripcion.getString(0);
-                    String ur = url.getString(0);
-                    TITULO.add(ti);
-                    DESCRIPCION.add(de);
-                    URL.add(ur);
-                } while (titulo.moveToNext()&&descripcion.moveToNext()&&url.moveToNext());
+                    t=titulo.getString(0);
+                    d=titulo.getString(1);
+                    u=titulo.getString(2);
+                    TITULO.add(t);
+                    DESCRIPCION.add(d);
+                    URL.add(u);
+                    Log.i("carga",t);
+
+                } while (titulo.moveToNext());
             }
             ArrayList<ArrayList> arr = new ArrayList<ArrayList>();
             arr.add(TITULO);

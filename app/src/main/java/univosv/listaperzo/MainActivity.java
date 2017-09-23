@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences=getApplicationContext().
                 getSharedPreferences(Cofre.Vars.NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE);
         Cofre.Funciones.Iniciar(sharedPreferences,this);//inicia el sharedpreference
+        Boolean si=Cofre.Funciones.VerificarExistenciadbs(this);
 
     }
 
@@ -53,8 +54,9 @@ public class MainActivity extends AppCompatActivity {
         if(fechaActual.equals(fechaUltimaCarga)){
             //cargar de la BDD
 
-            if(Cofre.Funciones.VerificarExistenciadbs(this)){
+            if(!Cofre.Funciones.VerificarExistenciadbs(this)){
                 if(VerificarInternet()){
+                    Log.i("entra aqui","carga de internet");
                     String url=ObtenerUrlUnivoNews();
                     new CargarListaNoticias().execute(url);
                 }
@@ -65,10 +67,10 @@ public class MainActivity extends AppCompatActivity {
             else{//si la base no esta vacia
                 Log.i("cargando de la base","exito");
                 CargarNoticiasBDS();
-            }
-        }
-        else{//Carga de internet
-            if(VerificarInternet()){
+                                    }
+                 }
+                    else{//Carga de internet
+                    if(VerificarInternet()){
                 String url=ObtenerUrlUnivoNews();
                 new CargarListaNoticias().execute(url);
             }
@@ -261,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void CargarNoticiasBDS(){
 
-        ArrayList<ArrayList> lista=Cofre.Funciones.ObtenerNoticias(this);
+        ArrayList<ArrayList> lista=Cofre.Funciones.ObtenerNoticias();
 
         ArrayList<String>titulo=lista.get(0);
         ArrayList<String>descripcion=lista.get(1);

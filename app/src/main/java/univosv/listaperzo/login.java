@@ -42,23 +42,9 @@ public class login extends AppCompatActivity {
 
     }
     public void entrar(View view){
-        usuario=(EditText)findViewById(R.id.usuario);
-        contra=(EditText)findViewById(R.id.clave);
-        String contra1;
-        usuario1=usuario.getText().toString();
-        contra1=contra.getText().toString();
-
-
-        if (usuario1.equals("panchito")&& contra1.equals("panchito"))
-        {
-                guardar(usuario1,contra1);
-            Intent intent=new Intent(this,MainActivity.class);
-            startActivity(intent);
-        }
-        else
-        {
-            Toast.makeText(this,"ERROR USUARIO O CLAVE INCORRECTA",Toast.LENGTH_LONG).show();
-        }
+        String Usuario=Cofre.Funciones.InvocarUsuario();
+        String clave=Cofre.Funciones.InvocarClave();
+        VerificarClave(Usuario,clave);
     }
 
    private void guardar(String usuario,String clave){
@@ -67,5 +53,29 @@ public class login extends AppCompatActivity {
            Cofre.Funciones.GuardarUsuarioYClave(usuario,clave);
 
        }
+   }
+
+   private void VerificarClave(String codigo,String clave){
+         usuario=(EditText)findViewById(R.id.usuario);
+            contra=(EditText)findViewById(R.id.clave);
+            String contra1;
+            usuario1=usuario.getText().toString();
+            contra1=contra.getText().toString();
+        if(!codigo.equals("")&& !clave.equals("")){
+            Intent intent=new Intent(this,MainActivity.class);
+            startActivity(intent);
+           }
+           else
+                  {
+                if (usuario1.equals("panchito") && contra1.equals("panchito")) {
+                guardar(usuario1, contra1);
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+
+                }
+            else {
+                Toast.makeText(this, "ERROR USUARIO O CLAVE INCORRECTA", Toast.LENGTH_LONG).show();
+            }
+        }
    }
 }
