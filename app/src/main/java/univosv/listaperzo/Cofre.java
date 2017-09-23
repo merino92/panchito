@@ -102,8 +102,8 @@ public class Cofre {
         public static void GuardarNoticias(
                ArrayList<String>t,
                ArrayList<String>d,
-               ArrayList<String>u,
-               Context c){
+               ArrayList<String>u
+               ){
 
            SQLiteDatabase db = Vars.Base.getWritableDatabase();
 
