@@ -35,8 +35,8 @@ public class Notificacion extends IntentService {
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
-        intent= getIntent();
-        Bundle b = intento.getExtras();
+        //intent= getIntent();
+        Bundle b = intent.getExtras();
 
         if(b!=null)
         {
