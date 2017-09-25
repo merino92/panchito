@@ -136,7 +136,7 @@ public class Cofre {
            return (numRows>0);
        }
        public static ArrayList<ArrayList> ObtenerNoticias(Context c){
-            //BaseSQL base =new BaseSQL(c,"NOTICIAS",null,1);
+
             SQLiteDatabase db=Vars.Base.getReadableDatabase();
             Cursor titulo = db.rawQuery(" SELECT titulo FROM NOTICIAS  ", null);
             Cursor descripcion = db.rawQuery(" SELECT descripcion FROM NOTICIAS  ", null);
@@ -160,6 +160,7 @@ public class Cofre {
             arr.add(TITULO);
             arr.add(DESCRIPCION);
             arr.add(URL);
+
             return arr;
 
         }

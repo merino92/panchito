@@ -266,8 +266,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void CargarNoticiasBDS(){
-        ArrayList<ArrayList> lista=Cofre.Funciones.ObtenerNoticias(this);
 
+        ArrayList<ArrayList> lista=Cofre.Funciones.ObtenerNoticias(this);
         ArrayList<String>titulo=lista.get(0);
         ArrayList<String>descripcion=lista.get(1);
        final ArrayList<String>url=lista.get(2);
@@ -279,15 +279,16 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final int pos = position;
                 if(VerificarInternet()) {
+
                     MostrarNoticias(pos, url);//funcion que muestra la noticia
                 }
                 else {
+
                     ArrayList<String>vacio=new ArrayList<String>();
                     MostrarNoticias(pos, vacio);
                 }//verifica el internet y si hay muestra las noticia completa
 
             }
         });//carga las noticias desde la base de datos;
-
     }
 }
