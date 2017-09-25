@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                     handleXML.Enlace);
 
             overridePendingTransition(R.anim.zoom_forward_in,R.anim.zoom_forward_out);
-          //  Cofre.Funciones.GuardarNotas(handleXML.Titulo,handleXML.Descripcion);
+           Cofre.Funciones.GuardarNoticias(handleXML.Titulo,handleXML.Descripcion,handleXML.Enlace);
             ListaNoticias.setAdapter(adapter);
 
             ListaNoticias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
