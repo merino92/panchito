@@ -18,16 +18,27 @@ import univosv.listaperzo.R;
 
 
 public class Notificacion extends IntentService {
+
+
     public Notificacion(){
         super(Notificacion.class.getSimpleName());
     }
 
-    private void NotificacionPush(String titulo, String texto){
+
+
+    @Override
+    protected void onHandleIntent(@Nullable Intent intent) {
+        NotificacionPush("Titulo","Calendario");
+    }
+
+
+
+    private void NotificacionPush(String titulo, String texto ,int Nnotificacion){
 
         NotificationCompat.Builder builder;
         NotificationManager AdNotificaciones=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        int icono = R.mipmap.ic_launcher;
+        int icono = R.mipmap.logofab;
         Intent intent = new Intent(this, Horarios.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,intent, 0);
         builder = new NotificationCompat.Builder(this).
@@ -38,13 +49,8 @@ public class Notificacion extends IntentService {
                 setVibrate(new long[] {100, 250, 100, 500}).
                 setAutoCancel(true);
         //le agrega titutolo,despcripcion,el icono a la notificacion
-        AdNotificaciones.notify(1,builder.build());
+        AdNotificaciones.notify(Nnotificacion,builder.build());
         //lanza la notificacion
-    }
-
-    @Override
-    protected void onHandleIntent(@Nullable Intent intent) {
-        NotificacionPush("Titulo","Calendario");
     }
 }
 
