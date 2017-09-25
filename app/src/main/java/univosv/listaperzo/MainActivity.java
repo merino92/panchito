@@ -40,10 +40,8 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences=getApplicationContext().
                 getSharedPreferences(Cofre.Vars.NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE);
         Cofre.Funciones.Iniciar(sharedPreferences,this);//inicia el sharedpreference
-        Boolean si=Cofre.Funciones.VerificarExistenciadbs(this);
 
     }
-
 
     //de donde debemos cargar las noticias
     //base de datos BDD
@@ -52,41 +50,44 @@ public class MainActivity extends AppCompatActivity {
         String fechaActual=Cofre.Funciones.ObtenerFechaActual();
         String fechaUltimaCarga=Cofre.Funciones.InvocarFechaNoticias();
         if(fechaActual.equals(fechaUltimaCarga)){
+            Log.i("Fechas iguales","Cargar de la bdd");
             //cargar de la BDD
-
             if(!Cofre.Funciones.VerificarExistenciadbs(this)){
+                Log.i("No existe la bdd","Cargar de internet");
                 if(VerificarInternet()){
-                    Log.i("entra aqui","carga de internet");
                     String url=ObtenerUrlUnivoNews();
                     new CargarListaNoticias().execute(url);
                 }
                 else{
+                    Log.i("No tiene internet...","jajaja");
                     Cofre.Funciones.Arreglovacio(this,ListaNoticias);
                 }
             }
             else{//si la base no esta vacia
-                Log.i("cargando de la base","exito");
+                Log.i("Carga de la bdd","Si existe la bdd");
                 CargarNoticiasBDS();
-                                    }
-                 }
-                    else{//Carga de internet
-                    if(VerificarInternet()){
+            }
+        }
+        else{//Carga de internet
+            Log.i("Carga de internet","Fechas diferentes");
+            if(VerificarInternet()){
+                Log.i("Cargando de internet...","jajaja");
                 String url=ObtenerUrlUnivoNews();
                 new CargarListaNoticias().execute(url);
             }
             else{
+                Log.i("No tiene internet","Carga arreglo vacio");
                 Cofre.Funciones.Arreglovacio(this,ListaNoticias);
             }
         }
     }
+
     @Override
     protected void onStart(){
         super.onStart();
-        Log.i("carga","OnStar");
        DeDondeCargarNoticias();
     }//verifica internet y compara fecha del sistemas con las noticias
     /*codigo asincrono para cargar la lista de noticias*/
-
 
     private class CargarListaNoticias extends AsyncTask<String, Void, HandleXML> {
         @Override
@@ -98,8 +99,6 @@ public class MainActivity extends AppCompatActivity {
             progressDialog.show();
 
         }
-
-
 
         @Override
         protected HandleXML doInBackground(String... url) {
@@ -126,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
         // cosas.add(handleXML.ItemCompleto);
         return handleXML;
     }
+
     private void CargarNoticiasUnivo(final HandleXML handleXML){
        /* ArrayAdapter<String> adaptador =
                 new ArrayAdapter(
@@ -139,10 +139,12 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"vacio",Toast.LENGTH_SHORT);
         }else {
             AdapterItem adapter = new AdapterItem(this, handleXML.Titulo, handleXML.Descripcion);
-            ArrayList<String>t=handleXML.Titulo;
-            ArrayList<String>d=handleXML.Descripcion;
-            ArrayList<String>l=handleXML.Enlace;
-                Cofre.Funciones.GuardarNoticias(t,d,l);
+
+            Cofre.Funciones.GuardarNoticias(
+                    handleXML.Titulo,
+                    handleXML.Descripcion,
+                    handleXML.Enlace);
+
             overridePendingTransition(R.anim.zoom_forward_in,R.anim.zoom_forward_out);
           //  Cofre.Funciones.GuardarNotas(handleXML.Titulo,handleXML.Descripcion);
             ListaNoticias.setAdapter(adapter);
@@ -157,11 +159,13 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
+
     /*Obtiene de la conexion con el webservice
     * la dirección del feed rss de la univo news*/
     private String ObtenerUrlUnivoNews(){
         return "http://univonews.com/feed/";
     }
+
     private void MostrarNoticias(int posicion,HandleXML handleXML) {
 
        /* se crea la barra de cargando*/
@@ -262,8 +266,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void CargarNoticiasBDS(){
-
-        ArrayList<ArrayList> lista=Cofre.Funciones.ObtenerNoticias();
+        ArrayList<ArrayList> lista=Cofre.Funciones.ObtenerNoticias(this);
 
         ArrayList<String>titulo=lista.get(0);
         ArrayList<String>descripcion=lista.get(1);

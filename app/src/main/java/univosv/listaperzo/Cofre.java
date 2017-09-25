@@ -1,6 +1,7 @@
 package univosv.listaperzo;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -42,7 +43,6 @@ public class Cofre {
         public final static String NOMBRE_SHARED_PREFERENCE="PerfilDatosTemporales";
         public static   Gson gson = new Gson();
         public static ArrayList<Object> listanotas = new ArrayList<Object>();
-        public static String BorrarNoticias="TRUNCATE TABLE "+BaseSQL.NombreTabla;
         public static BaseSQL Base;
     }
 
@@ -108,58 +108,49 @@ public class Cofre {
            SQLiteDatabase db = Vars.Base.getWritableDatabase();
 
            if (db!=null){
-                    if(BddPoseeAlgunRegistro()){
-                        Log.i("entra","posee registro");
-                        db.execSQL(Vars.BorrarNoticias);
+               ContentValues contenedorDeValoresSql;
+               //funciona... pero hay que utilizar content values...
+               /*
+
+               * */
                for (int i=0;i<t.size();i++){
+                   contenedorDeValoresSql = new ContentValues();
                    //String nombre = "Usuario" + i;
                    //Insertamos los datos en la tabla Usuarios
-                   db.execSQL("INSERT INTO NOTICIAS (titulo, descripcion,url) " +
-                           "VALUES (" + t.get(i) + ", '" +d.get(i) +",'"+u.get(i)+")");
-                   db.close();
-                   Log.i("si guarda", "GuardarNoticias: "+t.get(i));
+                   String sql = "INSERT INTO NOTICIAS (titulo, descripcion,url) " +
+                           "VALUES ('" + t.get(i) + "', '" +d.get(i) +"','"+u.get(i)+"')";
+
+                   db.execSQL(sql);
                }
-
-                    }else {
-
-                       /* for (int i=0;i<t.size();i++){
-                            //String nombre = "Usuario" + i;
-                            //Insertamos los datos en la tabla Usuarios
-                            db.execSQL("INSERT INTO NOTICIAS (titulo, descripcion,url) " +
-                                    "VALUES (" + t.get(i) + ", '" +d.get(i) +",'"+u.get(i)+")");
-                            db.close();
-                        }*/
-
-                    }
+               db.close();
            }
        }
+
        public static boolean BddPoseeAlgunRegistro(){
            SQLiteDatabase db = Vars.Base.getWritableDatabase();
            long numRows = DatabaseUtils.queryNumEntries(db, BaseSQL.NombreTabla);
            return (numRows>0);
        }
-       public static ArrayList<ArrayList> ObtenerNoticias(){
+       public static ArrayList<ArrayList> ObtenerNoticias(Context c){
             //BaseSQL base =new BaseSQL(c,"NOTICIAS",null,1);
             SQLiteDatabase db=Vars.Base.getReadableDatabase();
-            Cursor titulo = db.rawQuery(" SELECT titulo,descripcion,url FROM NOTICIAS  ", null);
-
+            Cursor titulo = db.rawQuery(" SELECT titulo FROM NOTICIAS  ", null);
+            Cursor descripcion = db.rawQuery(" SELECT descripcion FROM NOTICIAS  ", null);
+            Cursor url = db.rawQuery(" SELECT url FROM NOTICIAS  ", null);
             ArrayList<String> TITULO = new ArrayList<String>();
             ArrayList<String> DESCRIPCION = new ArrayList<String>();
             ArrayList<String> URL = new ArrayList<String>();
-           String t,d,u;
             //Nos aseguramos de que existe al menos un registro
-            if (titulo.moveToFirst()) {
+            if (titulo.moveToFirst() && descripcion.moveToFirst() && url.moveToFirst()) {
                 //Recorremos el cursor hasta que no haya más registros
                 do {
-                    t=titulo.getString(0);
-                    d=titulo.getString(1);
-                    u=titulo.getString(2);
-                    TITULO.add(t);
-                    DESCRIPCION.add(d);
-                    URL.add(u);
-                    Log.i("carga",t);
-
-                } while (titulo.moveToNext());
+                    String ti = titulo.getString(0);
+                    String de = descripcion.getString(0);
+                    String ur = url.getString(0);
+                    TITULO.add(ti);
+                    DESCRIPCION.add(de);
+                    URL.add(ur);
+                } while (titulo.moveToNext() && descripcion.moveToNext() && url.moveToNext());
             }
             ArrayList<ArrayList> arr = new ArrayList<ArrayList>();
             arr.add(TITULO);
@@ -168,13 +159,12 @@ public class Cofre {
             return arr;
 
         }
-
-            public static boolean  VerificarExistenciadbs(Context c){
+       public static boolean  VerificarExistenciadbs(Context c){
                 //BaseSQL base =new BaseSQL(c,"NOTICIAS",null,1);
                 SQLiteDatabase db = Vars.Base.getWritableDatabase();
                 return (db!=null);
             }
-        public static void Arreglovacio(Activity activity, ListView listView){
+       public static void Arreglovacio(Activity activity, ListView listView){
 
             ArrayList<String> tituloSinInter = new ArrayList<String>();
             ArrayList<String> descripcionSinInter = new ArrayList<String>();
