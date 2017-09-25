@@ -28,7 +28,7 @@ public class Notificacion extends IntentService {
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
-        NotificacionPush("Titulo","Calendario");
+        NotificacionPush("Titulo","Calendario",1);
     }
 
 
