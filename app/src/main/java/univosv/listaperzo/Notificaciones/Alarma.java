@@ -29,7 +29,6 @@ public class Alarma {
     }
 
 
-
     public static void Crear(Context contexto, String Materia, String Aula, Date hora,int numero){
         AlarmManager alarmManager = (AlarmManager) contexto.getSystemService(Context.ALARM_SERVICE);
         Intent intento = new Intent(contexto,Notificacion.class);
