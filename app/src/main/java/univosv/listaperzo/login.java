@@ -13,6 +13,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import univosv.listaperzo.Notificaciones.Alarma;
 
 
@@ -38,7 +41,9 @@ public class login extends AppCompatActivity {
         String clave=Cofre.Funciones.InvocarClave();
         contra.setText(clave);
         usuario.setText(Usuario);
-        Alarma.Crear(this);
+        Calendar fecha = Calendar.getInstance();
+        Date fecha1=new Date(2017,9,25,10,45);
+        Alarma.Crear(this,"materia","Aula",fecha1,1);
 
     }
     public void entrar(View view){
