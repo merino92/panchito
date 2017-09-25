@@ -41,9 +41,12 @@ public class login extends AppCompatActivity {
         String clave=Cofre.Funciones.InvocarClave();
         contra.setText(clave);
         usuario.setText(Usuario);
-        Calendar fecha = Calendar.getInstance();
-        Date fecha1=new Date(2017,9,25,10,45);
-        Alarma.Crear(this,"materia","Aula",fecha1,1);
+
+        Calendar ahoraMismo = Calendar.getInstance();
+        ahoraMismo.add(Calendar.MINUTE,1);
+        Date fecha=new Date(ahoraMismo.getTimeInMillis());
+
+        Alarma.Crear(this,"materia","Aula",fecha,1);
 
     }
     public void entrar(View view){
