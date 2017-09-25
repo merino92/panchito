@@ -25,7 +25,7 @@ public class Notificacion extends IntentService {
     private String hora;
     private int Nnotificacion;
     public Notificacion(){
-        super(Notificacion.class.getSimpleName());
+        super(Notificacion.class.getSimpleName());//
     }
 
 
