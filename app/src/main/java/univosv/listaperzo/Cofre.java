@@ -117,10 +117,14 @@ public class Cofre {
                    contenedorDeValoresSql = new ContentValues();
                    //String nombre = "Usuario" + i;
                    //Insertamos los datos en la tabla Usuarios
-                   String sql = "INSERT INTO NOTICIAS (titulo, descripcion,url) " +
-                           "VALUES ('" + t.get(i) + "', '" +d.get(i) +"','"+u.get(i)+"')";
-
-                   db.execSQL(sql);
+                   contenedorDeValoresSql.put("titulo",t.get(i));
+                   contenedorDeValoresSql.put("descripcion",d.get(i));
+                   contenedorDeValoresSql.put("url",u.get(i));
+                   db.insert(BaseSQL.NombreTabla,null,contenedorDeValoresSql);
+                   //String sql = "INSERT INTO NOTICIAS (titulo, descripcion,url) " +
+                   //        "VALUES ('" + t.get(i) + "', '" +d.get(i) +"','"+u.get(i)+"')";
+                    Log.i("Guardando","noticias"+i);
+                   //db.execSQL(sql);
                }
                db.close();
            }
