@@ -2,10 +2,10 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:state_pressed="true"><shape>
-        <solid android:color="#bfcccccc" />
+        <solid android:color="#b7cccccc" />
     </shape></item>
     <item><shape>
-        <gradient android:angle="270" android:endColor="#b5cccccc" android:startColor="#b4ffffff" />
+        <gradient android:angle="270" android:endColor="#b3cccccc" android:startColor="#b4ffffff" />
         <corners android:radius="2dp" />
     </shape></item>
 </selector>

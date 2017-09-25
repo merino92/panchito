@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context="univosv.listaperzo.MainActivity"
+    android:background="@drawable/fondofullhd_opt"
     >
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lista"
-        android:background="#EAE7E7"
+
         android:layout_below="@+id/toolbar" />
 
     <com.github.clans.fab.FloatingActionMenu
@@ -27,15 +28,15 @@
         fab:menu_animationDelayPerItem="55"
         fab:menu_backgroundColor="@android:color/transparent"
         fab:menu_buttonSpacing="0dp"
-        fab:menu_colorNormal="#070748"
-        fab:menu_colorPressed="#3737B0"
+        fab:menu_colorNormal="#c9134cf7"
+        fab:menu_colorPressed="#d63737b0"
         fab:menu_colorRipple="#99d4d4d4"
         fab:menu_fab_label="Menu"
         fab:menu_fab_size="normal"
         fab:menu_icon="@mipmap/logofab"
         fab:menu_labels_colorNormal="#BD760B"
         fab:menu_labels_colorPressed="#E1AF63"
-        fab:menu_labels_colorRipple="#664279f1"
+        fab:menu_labels_colorRipple="#514279f1"
         fab:menu_labels_cornerRadius="3dp"
         fab:menu_labels_ellipsize="none"
         fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
@@ -62,7 +63,7 @@
             android:src="@drawable/ic_actualizar"
             fab:fab_label="Actualizar"
             fab:fab_size="mini"
-            app:fab_colorNormal="#BD760B"
+            app:fab_colorNormal="#ea009df9"
             android:onClick="actualizar"
             />
 
@@ -73,7 +74,7 @@
             android:src="@drawable/ic_usuario"
             fab:fab_label="Usuario"
             fab:fab_size="mini"
-            app:fab_colorNormal="#BD760B"
+            app:fab_colorNormal="#ea009df9"
             android:onClick="lanzarPerfil"
             />
 
@@ -84,7 +85,7 @@
             android:src="@drawable/ic_notas"
             fab:fab_label="Notas"
             fab:fab_size="mini"
-            app:fab_colorNormal="#3493f2"
+            app:fab_colorNormal="#ea009df9"
             android:onClick="lanzarNotas"
             />
         <com.github.clans.fab.FloatingActionButton
@@ -94,7 +95,7 @@
             android:src="@drawable/ic_pagos"
             fab:fab_label="Pagos"
             fab:fab_size="mini"
-            app:fab_colorNormal="#3493f2"
+            app:fab_colorNormal="#ea009df9"
             android:onClick="lanzarPagos"
             />
         <com.github.clans.fab.FloatingActionButton
@@ -104,7 +105,7 @@
             android:src="@drawable/ic_horario"
             fab:fab_label="Horarios"
             fab:fab_size="mini"
-            app:fab_colorNormal="#3493f2"
+            app:fab_colorNormal="#ea009df9"
             android:onClick="lanzarHorario"
             />
     </com.github.clans.fab.FloatingActionMenu>
@@ -115,9 +116,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#070748"
+        app:logo="@mipmap/logofab"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"/>
+        android:theme="?attr/actionBarTheme"
+        />
 
     <TextView
         android:id="@+id/textView2"

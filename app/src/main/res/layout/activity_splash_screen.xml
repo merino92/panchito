@@ -8,7 +8,6 @@
     android:background="@color/AzulUNIVO"
     >
 
-
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.AppCompat.ProgressBar"
@@ -49,6 +48,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        app:layout_constraintHorizontal_bias="0.461"
-        tools:layout_editor_absoluteY="107dp" />
+        app:layout_constraintHorizontal_bias="0.461" />
+
+
 </android.support.constraint.ConstraintLayout>

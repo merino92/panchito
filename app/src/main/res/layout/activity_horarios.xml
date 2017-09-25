@@ -38,7 +38,7 @@
         fab:menu_fab_label="Menu"
         fab:menu_fab_size="normal"
         fab:menu_icon="@mipmap/logofab"
-        fab:menu_labels_colorNormal="#ec277ff9"
+        fab:menu_labels_colorNormal="#BD760B"
         fab:menu_labels_colorPressed="#ed50ffb0"
         fab:menu_labels_colorRipple="#664279f1"
         fab:menu_labels_cornerRadius="3dp"
@@ -54,7 +54,7 @@
         fab:menu_labels_textColor="#fdd835"
         fab:menu_labels_textSize="15sp"
         fab:menu_openDirection="up"
-        fab:menu_shadowColor="#660abefa"
+        fab:menu_shadowColor="#580abefa"
         fab:menu_shadowRadius="4dp"
         fab:menu_shadowXOffset="1dp"
         fab:menu_shadowYOffset="4dp"
@@ -67,7 +67,7 @@
             android:src="@drawable/ic_actualizar"
             fab:fab_label="Actualizar"
             fab:fab_size="mini"
-            app:fab_colorNormal="#3493f2"
+            app:fab_colorNormal="#ea009df9"
             />
 
         <com.github.clans.fab.FloatingActionButton
@@ -77,7 +77,7 @@
             android:src="@drawable/ic_usuario"
             fab:fab_label="Usuario"
             fab:fab_size="mini"
-            app:fab_colorNormal="#3493f2"
+            app:fab_colorNormal="#ea009df9"
             android:onClick="lanzarPerfil"
             />
 
@@ -88,7 +88,7 @@
             android:src="@drawable/ic_notas"
             fab:fab_label="Notas"
             fab:fab_size="mini"
-            app:fab_colorNormal="#3493f2"
+            app:fab_colorNormal="#ea009df9"
             android:onClick="lanzarNotas"
             />
         <com.github.clans.fab.FloatingActionButton
@@ -98,7 +98,7 @@
             android:src="@drawable/ic_pagos"
             fab:fab_label="Pagos"
             fab:fab_size="mini"
-            app:fab_colorNormal="#3493f2"
+            app:fab_colorNormal="#ea009df9"
             android:onClick="lanzarPagos"
             />
         <com.github.clans.fab.FloatingActionButton
@@ -108,7 +108,7 @@
             android:src="@drawable/ic_noticia"
             fab:fab_label="Noticias"
             fab:fab_size="mini"
-            app:fab_colorNormal="#3493f2"
+            app:fab_colorNormal="#ea009df9"
             android:onClick="lanzarNoticias"
             />
     </com.github.clans.fab.FloatingActionMenu>
