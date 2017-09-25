@@ -26,7 +26,7 @@ public class Notificacion extends IntentService {
     /*private String materia,aula;
     private String hora;
     private int Nnotificacion;*/
-    private Intent inte;
+
     public Notificacion(){
         super(Notificacion.class.getSimpleName());//
     }
@@ -43,6 +43,9 @@ public class Notificacion extends IntentService {
             String materia =b.getString(Alarma.variable.MATERIA);
             String aula=b.getString(Alarma.variable.AULA);
             String hora=b.getString(Alarma.variable.HORA);
+            String descripcion=aula +"\n"+hora;
+            int  numeroN=b.getInt(Alarma.variable.Nnotificacion);
+            NotificacionPush(materia,descripcion,numeroN);
 
         }
 
