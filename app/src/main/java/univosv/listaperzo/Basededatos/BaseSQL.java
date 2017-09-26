@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class BaseSQL extends SQLiteOpenHelper{
     public static final String NombreTabla = "NOTICIAS";
+    public static final String EliminarDatosTabla="DELETE FROM "+NombreTabla;
 
     //Sentencia SQL para crear la tabla de Usuarios
     String CrearBase = "CREATE TABLE "+NombreTabla+" (titulo TEXT, descripcion TEXT,url TEXT)";
