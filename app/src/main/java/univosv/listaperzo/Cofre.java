@@ -110,9 +110,11 @@ public class Cofre {
            if (db!=null){
                ContentValues contenedorDeValoresSql;
                //funciona... pero hay que utilizar content values...
-               /*
+               if(BddPoseeAlgunRegistro()){
+                   String eliminarRegistro="DELETE FROM "+BaseSQL.NombreTabla;
+                   db.execSQL(eliminarRegistro);
+               }
 
-               * */
                for (int i=0;i<t.size();i++){
                    contenedorDeValoresSql = new ContentValues();
                    //String nombre = "Usuario" + i;
