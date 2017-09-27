@@ -38,19 +38,11 @@ public class ServiciosSegundoPlano extends Service {
 public void  LanzarAvisos(){
 
 
-    String[] dias={"Domingo","Lunes","Martes", "Miércoles","Jueves","Viernes","Sábado"};
-    Date hoy=new Date();
-    int numeroDia=0;
-    Calendar cal= Calendar.getInstance();
-    cal.setTime(hoy);
-    numeroDia=cal.get(Calendar.DAY_OF_WEEK);
-    //System.out.println("hoy es "+ dias[numeroDia - 1]);
-    String dia =dias[numeroDia - 1];
-    if (dia.equals("Lunes")){
 
 
 
-    }
+
+
 
 }
 
