@@ -41,7 +41,7 @@ public class FuncionesDeHorarios {
         Intent intent = new Intent(context, ServiciosSegundoPlano.class);
         alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
 
-// Poner alarma para comenzar a las 1:30 a.m.
+/// Poner alarma para comenzar a las 1:30 a.m.
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, 1);
