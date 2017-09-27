@@ -1,5 +1,13 @@
 package univosv.listaperzo.HorariosClases;
 
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+import univosv.listaperzo.Cofre;
+
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -7,6 +15,7 @@ import android.content.Intent;
 
 import java.util.Calendar;
 
+import univosv.listaperzo.Modelos.Materia;
 import univosv.listaperzo.ServiciosSegundoPlano;
 
 /**
@@ -19,9 +28,20 @@ public class FuncionesDeHorarios {
 
     }
 
+
     public static class Funciones{
+        public static void GuardarHorarios(
+                ArrayList<Materia> Materias){
+            SQLiteDatabase db = Cofre.Vars.Base.getWritableDatabase();
+            if(db != null){
 
-
+            }
+            else{
+                Log.e("BDD","No existe conexion a la bdd");
+            }
+        }
+        public static void ObtenerHorarios(){}
+        public static void ObtenerHorario(String materia){}
     }
 
     public static void LanzamientoDeNotificacionesHoriarios(){

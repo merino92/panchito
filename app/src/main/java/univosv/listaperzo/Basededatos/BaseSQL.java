@@ -16,7 +16,7 @@ public class BaseSQL extends SQLiteOpenHelper{
 
     //Sentencia SQL para crear la tabla de Usuarios
     String CrearBase = "CREATE TABLE "+NombreTabla+" (titulo TEXT, descripcion TEXT,url TEXT)";
-    String CrearHorarioTabla="CREATE TABLE "+NombreTablaHorarios+" (materia TEXT, dias TEXT, hora TIME)";
+    String CrearHorarioTabla="CREATE TABLE "+NombreTablaHorarios+" (materia TEXT, dias TEXT, hora BLOB)";
     public BaseSQL(Context contexto,
                    String nombre,
                    CursorFactory factory,
