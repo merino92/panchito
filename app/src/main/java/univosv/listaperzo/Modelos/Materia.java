@@ -11,5 +11,5 @@ import univosv.listaperzo.Cofre;
 
 public class Materia {
     public String Nombre;
-    public ArrayList<Clase> Clase;
+        public ArrayList<Clase> Clase;
 }

@@ -12,8 +12,13 @@ import android.support.v4.app.NotificationCompat;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
+import univosv.listaperzo.Modelos.Clase;
+import univosv.listaperzo.Modelos.Materia;
 import univosv.listaperzo.Notificaciones.Notificacion;
+
+import static java.lang.System.in;
 
 /**
  * Created by administrador on 11/9/17.
@@ -61,6 +66,18 @@ public class ServiciosSegundoPlano extends Service {
                 unDia, alarmIntent);
 
     }
-
+    /*
+    public void DispararNotificaciones(List<Materia> materias, Cofre.Vars.Dias hoy){
+        for(int i = 0;i<materias.size();i++){
+            Materia m = materias.get(i);
+            for(int j = 0;j<m.Clase.size();j++){
+                Clase c = m.Clase.get(j);
+                if(c.Dia.equals(hoy)){
+                    AlarmaDeClase(m.Nombre,c.hora);
+                }
+            }
+        }
+    }
+*/
 
 }
