@@ -40,24 +40,27 @@ public class ServiciosSegundoPlano extends Service {
         System.out.println("El servicio a Terminado");
     }
 
-    private void NotificacionPush(String materia,String aulayHora,int n ){
+    public void ArmarNotificaciones(Context context){
 
-        NotificationCompat.Builder builder;
-        NotificationManager AdNotificaciones=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        AlarmManager alarmMgr;
+        PendingIntent alarmIntent;
 
-        int icono = R.mipmap.logofab;
-        Intent intent = new Intent(this, Horarios.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,intent, 0);
-        builder = new NotificationCompat.Builder(this).
-                setContentIntent(pendingIntent).
-                setContentTitle(materia).
-                setContentText(aulayHora).
-                setSmallIcon(icono).
-                setVibrate(new long[] {100, 250, 100, 500}).
-                setAutoCancel(true);
-        //le agrega titutolo,despcripcion,el icono a la notificacion
-        AdNotificaciones.notify(n,builder.build());
-        //lanza la notificacion
+        alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context, ServiciosSegundoPlano.class);
+        alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+
+/// Poner alarma para comenzar a las 1:30 a.m.
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 1);
+        calendar.set(Calendar.MINUTE, 30);
+
+// setRepeating() permite definir el intervalo de repetición
+        long unDia = 1000 * 60 * 60 * 24;
+        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                unDia, alarmIntent);
+
     }
+
 
 }
