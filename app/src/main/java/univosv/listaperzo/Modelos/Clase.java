@@ -1,5 +1,7 @@
 package univosv.listaperzo.Modelos;
 
+import java.util.Date;
+
 import univosv.listaperzo.Cofre;
 
 /**
@@ -8,5 +10,5 @@ import univosv.listaperzo.Cofre;
 
 public class Clase {
     public Cofre.Vars.Dias Dia;
-    public String hora;//Verificar si hay una variable que almacene hora solamente.
+    public Date hora;//Verificar si hay una variable que almacene hora solamente.
 }

@@ -11,12 +11,16 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class BaseSQL extends SQLiteOpenHelper{
     public static final String NombreTabla = "NOTICIAS";
-    public static final String NombreTablaHorarios="HORARIOS";
+    public static final String NombreTablaMaterias="MATERIAS";
+    public static final String NombreTablaClase = "CLASES";
     public static final String EliminarDatosTabla="DELETE FROM "+NombreTabla;
+    public static final String EliminarDatosTablaMateria = "DELETE FROM "+NombreTablaMaterias;
+    public static final String EliminarDatosTablaClases = "DELETE FROM "+NombreTablaClase;
 
     //Sentencia SQL para crear la tabla de Usuarios
     String CrearBase = "CREATE TABLE "+NombreTabla+" (titulo TEXT, descripcion TEXT,url TEXT)";
-    String CrearHorarioTabla="CREATE TABLE "+NombreTablaHorarios+" (materia TEXT, dias TEXT, hora BLOB)";
+    String CrearTablaMaterias="CREATE TABLE "+NombreTablaMaterias+" (nombre TEXT)";
+    String CrearTablaClases="CREATE TABLE "+NombreTablaClase+" (idMateria INT, dia BLOB, hora BLOB)";
     public BaseSQL(Context contexto,
                    String nombre,
                    CursorFactory factory,
@@ -27,17 +31,20 @@ public class BaseSQL extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CrearBase);
-        db.execSQL(CrearHorarioTabla);
+        db.execSQL(CrearTablaMaterias);
+        db.execSQL(CrearTablaClases);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //Se elimina la versión anterior de la tabla
         db.execSQL("DROP TABLE IF EXISTS "+NombreTabla);
-        db.execSQL("DROP TABLE IF EXISTS "+NombreTablaHorarios);
+        db.execSQL("DROP TABLE IF EXISTS "+NombreTablaMaterias);
+        db.execSQL("DROP TABLE IF EXISTS "+NombreTablaClase);
 
         //Se crea la nueva versión de la tabla
         db.execSQL(CrearBase);
-        db.execSQL(CrearHorarioTabla);
+        db.execSQL(CrearTablaMaterias);
+        db.execSQL(CrearTablaClases);
     }
 }

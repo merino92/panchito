@@ -48,6 +48,8 @@ public class Cofre {
     }
 
     public static class Funciones{
+
+        //Guarda en sharedpreference
         public static void GuardarUsuarioYClave(String usuario,String clave){
             Vars.Editor=Vars.preferencias.edit();
             Vars.Editor.putString(Vars.USUARIO,usuario);
@@ -77,6 +79,7 @@ public class Cofre {
             return clave;
         }
 
+        //Guarda en sharedPreference
         public static void GuardarFechaNoticias(String fecha){
            Vars.Editor=Vars.preferencias.edit();
            Vars.Editor.putString(Vars.FECHANOTICIAS,fecha);
@@ -100,6 +103,7 @@ public class Cofre {
            return FechaActual;
         }
 
+        //Guarda en base de datos
         public static void GuardarNoticias(
                ArrayList<String>t,
                ArrayList<String>d,
@@ -110,9 +114,8 @@ public class Cofre {
 
            if (db!=null){
                ContentValues contenedorDeValoresSql;
-               //funciona... pero hay que utilizar content values...
-               if(BddPoseeAlgunRegistro()){
 
+               if(BddPoseeAlgunRegistro()){
                    db.execSQL(BaseSQL.EliminarDatosTabla);
                }
 
