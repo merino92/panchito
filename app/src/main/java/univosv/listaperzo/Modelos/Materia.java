@@ -1,5 +1,6 @@
 package univosv.listaperzo.Modelos;
 
+import android.content.ContentValues;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -19,12 +20,24 @@ public class Materia {
     public String Nombre;
     public ArrayList<Clase> Clase;
 
-    public static void GuardarMaterias(ArrayList<Materia> Materias)
+    public static void GuardarMaterias(ArrayList<Materia> materias)
     {
         SQLiteDatabase db = Cofre.Vars.Base.getWritableDatabase();
         if(db != null){
             if(TablaMateriasPoseeRegistros()){
-                //db.execSQL(BaseSQL.); borrar tablas materia y clase
+                db.execSQL(BaseSQL.EliminarDatosTablaClases);
+                db.execSQL(BaseSQL.EliminarDatosTablaMateria);
+            }
+            for (Materia materia:materias) {
+                ContentValues datos = new ContentValues();
+                datos.put("nombre",materia.Nombre);
+                long id = db.insert(BaseSQL.NombreTablaMaterias,null,datos);
+                for(Clase clase:materia.Clase){
+                    ContentValues datosClase = new ContentValues();
+                    datosClase.put("dia",clase.Dia.toString());
+                    datosClase.put("aula",clase.Aula);
+                    //datosClase.put("hora",getD);
+                }
             }
         }
         else{
