@@ -39,7 +39,7 @@ public class ServiciosSegundoPlano extends Service {
     }
     public void onStart(Intent intent, int startId){
         System.out.println("El servicio a Comenzado");
-        ///DispararNotificaciones();
+        ////DispararNotificaciones();
         this.stopSelf();
     }
     public void onDestroy(){
