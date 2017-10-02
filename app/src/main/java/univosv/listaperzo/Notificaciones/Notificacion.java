@@ -5,11 +5,13 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 
 import java.util.Date;
 
+import univosv.listaperzo.Cofre;
 import univosv.listaperzo.Horarios;
 import univosv.listaperzo.R;
 
@@ -21,9 +23,10 @@ import univosv.listaperzo.R;
 
 public class Notificacion extends IntentService {
 
-   private String materia,aula;
+    /*private String materia,aula;
     private String hora;
-    private int Nnotificacion;
+    private int Nnotificacion;*/
+
     public Notificacion(){
         super(Notificacion.class.getSimpleName());//
     }
@@ -32,17 +35,23 @@ public class Notificacion extends IntentService {
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
+        //intent= getIntent();
+        Bundle b = intent.getExtras();
 
-        Intent intent1=new Intent();
-        materia=intent1.getStringExtra(Alarma.variable.MATERIA);
-        aula=intent1.getStringExtra(Alarma.variable.AULA);
-        hora=intent1.getStringExtra(Alarma.variable.HORA);
-        intent1.getIntExtra(Alarma.variable.Nnotificacion,Nnotificacion);
-        String descripcion= aula+""+"\n"+hora;
-        NotificacionPush(materia,descripcion,Nnotificacion);
+        if(b!=null)
+        {
+            String materia =b.getString(Alarma.variable.MATERIA);
+            String aula=b.getString(Alarma.variable.AULA);
+            String hora=b.getString(Alarma.variable.HORA);
+            String descripcion=aula +"\n"+hora;
+            int  numeroN=b.getInt(Alarma.variable.Nnotificacion);
+            NotificacionPush(materia,descripcion,numeroN);
+
+        }
+
+
+
     }
-
-
 
     private void NotificacionPush(String titulo, String texto ,int Nnotificacion){
 
@@ -63,5 +72,8 @@ public class Notificacion extends IntentService {
         AdNotificaciones.notify(Nnotificacion,builder.build());
         //lanza la notificacion
     }
+
+
+
 }
 

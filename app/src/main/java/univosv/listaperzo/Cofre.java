@@ -44,6 +44,7 @@ public class Cofre {
         public static   Gson gson = new Gson();
         public static ArrayList<Object> listanotas = new ArrayList<Object>();
         public static BaseSQL Base;
+        public enum Dias{Lunes,Martes,Miercoles,Jueves,Viernes,Sabado,Domingo}
     }
 
     public static class Funciones{
@@ -110,9 +111,11 @@ public class Cofre {
            if (db!=null){
                ContentValues contenedorDeValoresSql;
                //funciona... pero hay que utilizar content values...
-               /*
+               if(BddPoseeAlgunRegistro()){
 
-               * */
+                   db.execSQL(BaseSQL.EliminarDatosTabla);
+               }
+
                for (int i=0;i<t.size();i++){
                    contenedorDeValoresSql = new ContentValues();
                    //String nombre = "Usuario" + i;
