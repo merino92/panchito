@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#baffffff">
+    android:background="@drawable/fondoprueba">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
                         android:layout_height="wrap_content"
                         android:padding="5px"
                         android:text="materia"
-                        android:textColor="#031bef"
+                        android:textColor="#BD760B"
                         android:textSize="25sp" />
                     <FrameLayout
                         android:id="@+id/LineaCabecera1"
@@ -58,7 +58,7 @@
                             android:layout_height="wrap_content"
                             android:padding="5px"
                             android:text="Hora"
-                            android:textColor="#0223f5"
+                            android:textColor="#BD760B"
                             android:textSize="26sp" />
 
                         <TextView
@@ -68,7 +68,7 @@
                             android:layout_gravity="center_horizontal"
                             android:padding="5px"
                             android:text="Dia"
-                            android:textColor="#0420f4"
+                            android:textColor="#BD760B"
                             android:textSize="26sp" />
 
                         <TextView
@@ -77,7 +77,7 @@
                             android:layout_height="wrap_content"
                             android:padding="5px"
                             android:text="Aula"
-                            android:textColor="#062af7"
+                            android:textColor="#BD760B"
                             android:textSize="26sp" />
 
 
