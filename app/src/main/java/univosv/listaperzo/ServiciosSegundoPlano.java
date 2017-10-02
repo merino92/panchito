@@ -12,8 +12,14 @@ import android.support.v4.app.NotificationCompat;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
+import univosv.listaperzo.Modelos.Clase;
+import univosv.listaperzo.Modelos.Materia;
+import univosv.listaperzo.Notificaciones.Alarma;
 import univosv.listaperzo.Notificaciones.Notificacion;
+
+import static java.lang.System.in;
 
 /**
  * Created by administrador on 11/9/17.
@@ -33,6 +39,7 @@ public class ServiciosSegundoPlano extends Service {
     }
     public void onStart(Intent intent, int startId){
         System.out.println("El servicio a Comenzado");
+        ////DispararNotificaciones();
         this.stopSelf();
     }
     public void onDestroy(){
@@ -40,27 +47,39 @@ public class ServiciosSegundoPlano extends Service {
         System.out.println("El servicio a Terminado");
     }
 
-    public void ArmarNotificaciones(Context context){
+
+
+
+    public void DispararNotificaciones(List<Materia> materias, Cofre.Vars.Dias hoy){
+        for(int i = 0;i<materias.size();i++){
+            Materia m = materias.get(i);
+            for(int j = 0;j<m.Clase.size();j++){
+                Clase c = m.Clase.get(j);
+                if(c.Dia.equals(hoy)){
+                    //AlarmaDeClase(this,m.Nombre,c.hora);
+                }
+            }
+        }
+    }
+    public void AlarmaDeClase(Context context,Date hora,String materia,String aula){
 
         AlarmManager alarmMgr;
         PendingIntent alarmIntent;
-
+         int  HoraRecortada=hora.getMinutes()-15;
         alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(context, ServiciosSegundoPlano.class);
-        alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+        Intent intent = new Intent(context, Notificacion.class);
+        intent.putExtra(Alarma.variable.MATERIA,materia);
+        intent.putExtra(Alarma.variable.AULA,aula);
+        intent.putExtra(Alarma.variable.HORA,hora);
 
-/// Poner alarma para comenzar a las 1:30 a.m.
+        alarmIntent =  PendingIntent.getService(context, Alarma.variable.INDEX, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 1);
-        calendar.set(Calendar.MINUTE, 30);
+        calendar.set(Calendar.HOUR_OF_DAY,hora.getHours() );
+        calendar.set(Calendar.MINUTE, HoraRecortada);
+        alarmMgr.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
 
-// setRepeating() permite definir el intervalo de repetición
-        long unDia = 1000 * 60 * 60 * 24;
-        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                unDia, alarmIntent);
 
     }
-
 
 }
