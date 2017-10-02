@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context="univosv.listaperzo.Pagos"
-    android:background="#EAE7E7">
+    android:background="@drawable/fondoprueba">
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/Tabla"
@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:padding="5px"
                 android:text="Ciclo"
-                android:textColor="#072de7"
+                android:textColor="#BD760B"
                 android:textSize="26sp" />
 
             <TextView
@@ -35,7 +35,7 @@
                 android:layout_gravity="center_horizontal"
                 android:padding="5px"
                 android:text="Recibo"
-                android:textColor="#0111ed"
+                android:textColor="#BD760B"
                 android:textSize="26sp" />
 
             <TextView
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:padding="5px"
                 android:text="Descripcion"
-                android:textColor="#020ff7"
+                android:textColor="#BD760B"
                 android:textSize="26sp" />
 
             <TextView
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:padding="5px"
                 android:text="Saldo"
-                android:textColor="#020af4"
+                android:textColor="#BD760B"
                 android:textSize="26sp" />
 
 
@@ -85,7 +85,7 @@
                 android:gravity="center"
                 android:text="01"
                 android:textSize="20sp"
-                android:textColor="#ffffff"/>
+                android:textColor="#060606"/>
 
             <TextView
                 android:id="@+id/Recibo1"
@@ -94,7 +94,7 @@
                 android:gravity="center"
                 android:text="0301"
                 android:textSize="20sp"
-                android:textColor="#ffffff"/>
+                android:textColor="#060606"/>
 
             <TextView
                 android:id="@+id/Des1"
@@ -103,7 +103,7 @@
                 android:gravity="center"
                 android:text="Cueta 1"
                 android:textSize="20sp"
-                android:textColor="#ffffff"/>
+                android:textColor="#060606"/>
             <TextView
                 android:id="@+id/Saldo1"
                 android:layout_width="wrap_content"
@@ -111,7 +111,7 @@
                 android:gravity="center"
                 android:text="$90"
                 android:textSize="20sp"
-                android:textColor="#ffffff"/>
+                android:textColor="#060606"/>
         </TableRow>
 
         <TableRow
@@ -125,6 +125,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="02"
+                android:textColor="#060606"
                 android:textSize="20sp" />
 
             <TextView
@@ -133,6 +134,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="0302"
+                android:textColor="#060606"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/Des2"
@@ -140,6 +142,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Parcial"
+                android:textColor="#060606"
                 android:textSize="20sp" />
 
             <TextView
@@ -149,6 +152,7 @@
                 android:layout_column="3"
                 android:gravity="center"
                 android:text="$25"
+                android:textColor="#060606"
                 android:textSize="20sp" />
         </TableRow>
 

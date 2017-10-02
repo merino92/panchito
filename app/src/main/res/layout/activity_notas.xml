@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context="univosv.listaperzo.Notas"
-    android:background="#EAE7E7">
+    android:background="@drawable/fondoprueba"
+    >
 
     <ScrollView
 
@@ -18,7 +19,7 @@
 
         android:scrollbars="horizontal"
 
-        android:layout_weight="1">
+        android:layout_weight="4">
 
 
 
@@ -35,6 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/post_border_style"
                 >
 
@@ -52,7 +54,7 @@
                         android:layout_height="wrap_content"
                         android:text="Notas"
                         android:textSize="45dp"
-                        android:textColor="#062ef9"
+                        android:textColor="#BD760B"
                         ></TextView>
                 </TableRow>
 
@@ -64,9 +66,9 @@
                     <FrameLayout
                         android:id="@+id/LineaCabecera1"
                         android:layout_width="fill_parent"
-                        android:layout_height="2px"
+                        android:layout_height="7px"
                         android:layout_span="6"
-                        android:background="#FFFFFF" >
+                        android:background="#82ffffff" >
                     </FrameLayout>
 
                     <TableRow
@@ -79,7 +81,7 @@
                             android:id="@+id/materia"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="5dp"
+                            android:padding="9dp"
                             android:text="Materia"
                             android:textColor="#f903afff"
                             android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
@@ -88,7 +90,7 @@
                             android:id="@+id/labuno"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="5dp"
+                            android:padding="9dp"
                             android:text="Lab1"
                             android:textColor="#f903afff"
                             android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
@@ -97,7 +99,7 @@
                             android:id="@+id/labdos"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="5dp"
+                            android:padding="9dp"
                             android:text="Lab2"
                             android:textColor="#f903afff"
                             android:textAppearance="?android:attr/textAppearanceMedium">
@@ -107,7 +109,7 @@
                             android:id="@+id/labtres"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="5dp"
+                            android:padding="9dp"
                             android:text="Lab3"
                             android:textColor="#f903afff"
                             android:textAppearance="?android:attr/textAppearanceMedium">
@@ -117,7 +119,7 @@
                             android:id="@+id/paruno"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="5dp"
+                            android:padding="9dp"
                             android:text="Par1"
                             android:textColor="#f903afff"
                             android:textAppearance="?android:attr/textAppearanceMedium">
@@ -127,7 +129,7 @@
                             android:id="@+id/pardos"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="5dp"
+                            android:padding="9dp"
                             android:text="Par2"
                             android:textColor="#f903afff"
                             android:textAppearance="?android:attr/textAppearanceMedium">
@@ -137,7 +139,7 @@
                             android:id="@+id/partres"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="5dp"
+                            android:padding="9dp"
                             android:text="Par3"
                             android:textColor="#f903afff"
                             android:textAppearance="?android:attr/textAppearanceMedium">
@@ -147,7 +149,7 @@
                             android:id="@+id/repo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="5dp"
+                            android:padding="9dp"
                             android:text="Reposiciòn"
                             android:textColor="#f903afff"
                             android:textAppearance="?android:attr/textAppearanceMedium">
@@ -157,7 +159,7 @@
                             android:id="@+id/nf"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="5dp"
+                            android:padding="9dp"
                             android:text="Nota final"
                             android:textColor="#f903afff"
                             android:textAppearance="?android:attr/textAppearanceMedium">

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context="univosv.listaperzo.Perfil"
-    android:background="#EAE7E7">
+    android:background="@drawable/fondoprueba">
 
 
     <com.github.clans.fab.FloatingActionMenu
