@@ -44,6 +44,9 @@ public class Cofre {
         public static   Gson gson = new Gson();
         public static ArrayList<Object> listanotas = new ArrayList<Object>();
         public static BaseSQL Base;
+
+
+
         public enum Dias{Lunes,Martes,Miercoles,Jueves,Viernes,Sabado,Domingo}
     }
 
@@ -189,6 +192,11 @@ public class Cofre {
                     new AdapterItem(activity, tituloSinInter, descripcionSinInter);
             listView.setAdapter(adapter);
 
+        }
+
+
+        public static void GuardarNotasBdd(){
+            SQLiteDatabase db=Vars.Base.getReadableDatabase();
         }
     }//cierre de clase funciones
 }
