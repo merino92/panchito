@@ -19,6 +19,9 @@ import univosv.listaperzo.Cofre;
 public class Materia {
     public String Nombre;
     public ArrayList<Clase> Clase;
+    public Materia(String nombre){
+        Nombre = nombre;
+    }
 
     public static void GuardarMaterias(ArrayList<Materia> materias)
     {

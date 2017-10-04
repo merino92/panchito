@@ -15,6 +15,11 @@ public class Clase {
         Aula = "NA";
         Hora = "00:00";
     }
+    public Clase(Cofre.Vars.Dias dia,String aula,String hora){
+        Dia = dia;
+        Aula = aula;
+        Hora = hora;
+    }
     public Cofre.Vars.Dias Dia;
     public String Hora;//Verificar si hay una variable que almacene hora solamente.
     public String Aula;
