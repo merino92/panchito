@@ -31,23 +31,29 @@ public class Materia {
             for (Materia materia:materias) {
                 ContentValues datos = new ContentValues();
                 datos.put("nombre",materia.Nombre);
-                long id = db.insert(BaseSQL.NombreTablaMaterias,null,datos);
+                long idMateria = db.insert(BaseSQL.NombreTablaMaterias,null,datos);
+                Log.i("sqlite","Registro de materia insertado");
                 for(Clase clase:materia.Clase){
                     ContentValues datosClase = new ContentValues();
                     datosClase.put("dia",clase.Dia.toString());
                     datosClase.put("aula",clase.Aula);
-                    //datosClase.put("hora",getD);
+                    datosClase.put("hora",clase.Hora);
+                    datosClase.put("idMateria",idMateria);
+                    db.insert(BaseSQL.NombreTablaClase,null,datosClase);
+                    Log.i("sqlite","Registro de clase insertado");
                 }
             }
+            db.close();
         }
         else{
-            Log.e("BDD","No existe conexion a la bdd");
+            Log.e("sqlite","No existe conexion a la bdd");
         }
     }
 
     public static boolean TablaMateriasPoseeRegistros(){
         SQLiteDatabase db = Cofre.Vars.Base.getWritableDatabase();
         long numRows = DatabaseUtils.queryNumEntries(db, BaseSQL.NombreTablaMaterias);
+        db.close();
         return (numRows>0);
     }
 
