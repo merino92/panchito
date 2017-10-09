@@ -1,9 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="350dp"
+    android:layout_margin="@dimen/fab_margin"
     android:layout_height="match_parent"
-    tools:context="univosv.listaperzo.alertadesarrollaroderes">
+    tools:context="univosv.listaperzo.alertadesarrollaroderes"
+    android:background="#EAE7E7">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="288dp"
+            android:layout_height="196dp"
+            app:srcCompat="@drawable/logo1_opt"
+            tools:layout_editor_absoluteX="31dp"
+            tools:layout_editor_absoluteY="32dp"
+            android:layout_above="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp" />
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UNIVO App"
+            android:textColor="@android:color/background_dark"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="100dp"
+            tools:layout_editor_absoluteY="249dp"
+            android:layout_above="@+id/textView3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="35dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Desarrollado por:"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="84dp"
+            tools:layout_editor_absoluteY="302dp"
+            android:layout_above="@+id/textView5"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alfredo Merino."
+            android:textColor="@color/AzulUNIVO"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="113dp"
+            tools:layout_editor_absoluteY="404dp"
+            android:layout_above="@+id/textView7"
+            android:layout_alignRight="@+id/textView7"
+            android:layout_alignEnd="@+id/textView7"
+            android:layout_marginBottom="28dp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adolfo Herrera."
+            android:textColor="@color/AzulUNIVO"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="114dp"
+            tools:layout_editor_absoluteY="439dp"
+            android:layout_above="@+id/textView6"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="31dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rafael Zelaya."
+            android:textColor="@color/AzulUNIVO"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="118dp"
+            tools:layout_editor_absoluteY="369dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="52dp" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
