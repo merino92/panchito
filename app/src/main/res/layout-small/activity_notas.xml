@@ -44,18 +44,16 @@
                 <TableRow
                     android:id="@+id/tabla_cabecera"
                     android:layout_width="match_parent"
-                    android:layout_height="49dp"
-                    android:gravity=""
-                    >
+                    android:layout_height="wrap_content"
+                    android:gravity="">
 
                     <TextView
                         android:id="@+id/Titulo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Notas"
-                        android:textSize="45dp"
                         android:textColor="#BD760B"
-                        ></TextView>
+                        android:textSize="20dp"></TextView>
                 </TableRow>
 
                 <TableLayout
@@ -81,55 +79,61 @@
                             android:id="@+id/materia"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="9dp"
+                            android:padding="5dp"
                             android:text="Materia"
                             android:textColor="#f903afff"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="17dp"></TextView>
 
                         <TextView
                             android:id="@+id/labuno"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="9dp"
+                            android:padding="5dp"
                             android:text="Lab1"
                             android:textColor="#f903afff"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="17dp"
+                            ></TextView>
 
                         <TextView
                             android:id="@+id/labdos"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="9dp"
+                            android:padding="5dp"
                             android:text="Lab2"
                             android:textColor="#f903afff"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="17dp">
 
                         </TextView>
                         <TextView
                             android:id="@+id/labtres"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="9dp"
+                            android:padding="5dp"
                             android:text="Lab3"
                             android:textColor="#f903afff"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp">
 
                         </TextView>
                         <TextView
                             android:id="@+id/paruno"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="9dp"
+                            android:padding="5dp"
                             android:text="Par1"
                             android:textColor="#f903afff"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp">
 
                         </TextView>
                         <TextView
                             android:id="@+id/pardos"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="9dp"
+                            android:padding="5dp"
                             android:text="Par2"
                             android:textColor="#f903afff"
                             android:textAppearance="?android:attr/textAppearanceMedium">
@@ -139,7 +143,7 @@
                             android:id="@+id/partres"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="9dp"
+                            android:padding="5dp"
                             android:text="Par3"
                             android:textColor="#f903afff"
                             android:textAppearance="?android:attr/textAppearanceMedium">
@@ -149,7 +153,7 @@
                             android:id="@+id/repo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="9dp"
+                            android:padding="5dp"
                             android:text="Reposiciòn"
                             android:textColor="#f903afff"
                             android:textAppearance="?android:attr/textAppearanceMedium">
@@ -159,7 +163,7 @@
                             android:id="@+id/nf"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="9dp"
+                            android:padding="5dp"
                             android:text="Nota final"
                             android:textColor="#f903afff"
                             android:textAppearance="?android:attr/textAppearanceMedium">
@@ -187,7 +191,8 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="Contabilidad I"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp"></TextView>
 
                         <TextView
                             android:id="@+id/lab1m1"
@@ -195,7 +200,8 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp"></TextView>
 
 
                         <TextView
@@ -204,9 +210,11 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/lab3m1"
                             android:layout_width="wrap_content"
@@ -216,13 +224,15 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par1m1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp">
 
                         </TextView>
                         <TextView
@@ -276,12 +286,22 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/lab2m3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="TextView"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp"></TextView>
+
+                        <TextView
                             android:id="@+id/materia2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="Programación IV"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp"></TextView>
 
                         <TextView
                             android:id="@+id/lab1m2"
@@ -289,7 +309,8 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp"></TextView>
 
                         <TextView
                             android:id="@+id/lab2m2"
@@ -297,7 +318,8 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp">
 
                         </TextView>
                         <TextView
@@ -306,7 +328,8 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp">
 
                         </TextView>
                         <TextView
@@ -315,7 +338,8 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp">
 
                         </TextView>
                         <TextView
@@ -376,7 +400,8 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="Sociologia"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp"></TextView>
 
                         <TextView
                             android:id="@+id/lab1m3"
@@ -384,15 +409,8 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
-
-                        <TextView
-                            android:id="@+id/lab2m3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp"></TextView>
 
                         <TextView
                             android:id="@+id/lab3m3"
@@ -400,7 +418,8 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp">
 
                         </TextView>
                         <TextView
@@ -409,7 +428,8 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp">
 
                         </TextView>
                         <TextView
@@ -469,7 +489,8 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="OyM"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp"></TextView>
 
                         <TextView
                             android:id="@+id/lab1m4"
@@ -477,7 +498,8 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp"></TextView>
 
                         <TextView
                             android:id="@+id/lab2m4"
@@ -485,7 +507,8 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp"></TextView>
 
                         <TextView
                             android:id="@+id/lab3m4"
@@ -493,16 +516,19 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par1m4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp">
 
                         </TextView>
                         <TextView
@@ -563,7 +589,8 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="Sistemas Electricos"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp"></TextView>
 
                         <TextView
                             android:id="@+id/lab1m5"
@@ -571,7 +598,8 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp"></TextView>
 
                         <TextView
                             android:id="@+id/lab2m5"
@@ -579,7 +607,8 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp"></TextView>
 
                         <TextView
                             android:id="@+id/lab3m5"
@@ -587,18 +616,22 @@
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par1m5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
                             android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="14dp">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par2m5"
                             android:layout_width="wrap_content"
@@ -650,7 +683,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="11dp"
-        android:layout_marginLeft="11dp"
         android:layout_marginRight="11dp"
         fab:menu_animationDelayPerItem="55"
         fab:menu_backgroundColor="@android:color/transparent"

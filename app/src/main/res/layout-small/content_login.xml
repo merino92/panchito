@@ -80,7 +80,7 @@
         <Button
             android:id="@+id/button"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="30dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
@@ -94,7 +94,7 @@
         <CheckBox
             android:id="@+id/checquesito"
             style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-            android:layout_width="189dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="20dp"
@@ -102,8 +102,9 @@
             android:textAlignment="center"
             android:textColor="@color/blancocajatext"
             android:textStyle="bold"
-            app:buttonTint="@color/blancocajatext"
-            android:layout_weight="0.10" />
+            android:buttonTint="@color/blancocajatext"
+            android:layout_weight="0.06"
+            android:textSize="10dp"/>
         <TextView
             android:id="@+id/link_signup"
             android:layout_width="fill_parent"
@@ -112,7 +113,7 @@
             android:gravity="center"
             android:text="DESARROLLADORES"
             android:textColor="@color/mostazaU"
-            android:textSize="16dip"
+            android:textSize="12dip"
             android:layout_weight="0.27" />
 
 

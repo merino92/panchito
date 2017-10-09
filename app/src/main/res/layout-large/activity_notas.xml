@@ -19,7 +19,10 @@
 
         android:scrollbars="horizontal"
 
-        android:layout_weight="4">
+        android:layout_weight="4"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
 
 
@@ -45,7 +48,9 @@
                     android:id="@+id/tabla_cabecera"
                     android:layout_width="match_parent"
                     android:layout_height="49dp"
-                    android:gravity=""
+                    android:gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/fab_margin"
+                    android:layout_margin="@dimen/fab_margin"
                     >
 
                     <TextView
@@ -60,16 +65,18 @@
 
                 <TableLayout
                     android:id="@+id/tabla_cuerpo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="964dp"
+                    android:layout_height="352dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/fab_margin"
                     android:background="@drawable/post_border_style">
+
                     <FrameLayout
                         android:id="@+id/LineaCabecera1"
                         android:layout_width="fill_parent"
                         android:layout_height="7px"
                         android:layout_span="6"
-                        android:background="#82ffffff" >
-                    </FrameLayout>
+                        android:background="#82ffffff"></FrameLayout>
 
                     <TableRow
                         android:id="@+id/tableRow1"
@@ -83,8 +90,8 @@
                             android:layout_height="wrap_content"
                             android:padding="9dp"
                             android:text="Materia"
-                            android:textColor="#f903afff"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="#f903afff"></TextView>
 
                         <TextView
                             android:id="@+id/labuno"
@@ -92,8 +99,8 @@
                             android:layout_height="wrap_content"
                             android:padding="9dp"
                             android:text="Lab1"
-                            android:textColor="#f903afff"
-                            android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="#f903afff"></TextView>
 
                         <TextView
                             android:id="@+id/labdos"
@@ -101,85 +108,90 @@
                             android:layout_height="wrap_content"
                             android:padding="9dp"
                             android:text="Lab2"
-                            android:textColor="#f903afff"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="#f903afff">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/labtres"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="9dp"
                             android:text="Lab3"
-                            android:textColor="#f903afff"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="#f903afff">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/paruno"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="9dp"
                             android:text="Par1"
-                            android:textColor="#f903afff"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="#f903afff">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/pardos"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="9dp"
                             android:text="Par2"
-                            android:textColor="#f903afff"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="#f903afff">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/partres"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="9dp"
                             android:text="Par3"
-                            android:textColor="#f903afff"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="#f903afff">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/repo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="9dp"
                             android:text="Reposiciòn"
-                            android:textColor="#f903afff"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="#f903afff">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/nf"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="9dp"
                             android:text="Nota final"
-                            android:textColor="#f903afff"
-                            android:textAppearance="?android:attr/textAppearanceMedium">
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="#f903afff">
 
                         </TextView>
 
                     </TableRow>
+
                     <FrameLayout
                         android:id="@+id/LineaCabecera2"
                         android:layout_width="fill_parent"
                         android:layout_height="2px"
                         android:layout_span="6"
-                        android:background="#FFFFFF" >
-                    </FrameLayout>
+                        android:background="#FFFFFF"></FrameLayout>
 
                     <TableRow
                         android:id="@+id/tableRow2"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
+                        android:layout_height="wrap_content">
 
                         <TextView
                             android:id="@+id/materia1"
@@ -207,6 +219,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/lab3m1"
                             android:layout_width="wrap_content"
@@ -216,6 +229,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par1m1"
                             android:layout_width="wrap_content"
@@ -225,6 +239,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par2m1"
                             android:layout_width="wrap_content"
@@ -234,6 +249,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par3m1"
                             android:layout_width="wrap_content"
@@ -243,6 +259,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/repoconta"
                             android:layout_width="wrap_content"
@@ -252,6 +269,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/nfm1"
                             android:layout_width="wrap_content"
@@ -262,13 +280,13 @@
 
                         </TextView>
                     </TableRow>
+
                     <FrameLayout
                         android:id="@+id/LineaCabecera3"
                         android:layout_width="fill_parent"
                         android:layout_height="2px"
                         android:layout_span="6"
-                        android:background="#FFFFFF" >
-                    </FrameLayout>
+                        android:background="#FFFFFF"></FrameLayout>
 
                     <TableRow
                         android:id="@+id/tableRow3"
@@ -300,6 +318,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/lab3m2"
                             android:layout_width="wrap_content"
@@ -309,6 +328,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par1m2"
                             android:layout_width="wrap_content"
@@ -318,6 +338,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par2m2"
                             android:layout_width="wrap_content"
@@ -327,6 +348,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par3m2"
                             android:layout_width="wrap_content"
@@ -336,6 +358,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/repopro"
                             android:layout_width="wrap_content"
@@ -357,18 +380,18 @@
                         </TextView>
 
                     </TableRow>
+
                     <FrameLayout
                         android:id="@+id/LineaCabecera4"
                         android:layout_width="fill_parent"
                         android:layout_height="2px"
                         android:layout_span="6"
-                        android:background="#FFFFFF" >
-                    </FrameLayout>
+                        android:background="#FFFFFF"></FrameLayout>
 
                     <TableRow
                         android:id="@+id/tableRow4"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/materia3"
@@ -403,6 +426,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par1m3"
                             android:layout_width="wrap_content"
@@ -412,6 +436,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par2m3"
                             android:layout_width="wrap_content"
@@ -421,6 +446,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par3m3"
                             android:layout_width="wrap_content"
@@ -430,6 +456,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/reposocio"
                             android:layout_width="wrap_content"
@@ -450,13 +477,13 @@
 
                         </TextView>
                     </TableRow>
+
                     <FrameLayout
                         android:id="@+id/LineaCabecera5"
                         android:layout_width="fill_parent"
                         android:layout_height="2px"
                         android:layout_span="6"
-                        android:background="#FFFFFF" >
-                    </FrameLayout>
+                        android:background="#FFFFFF"></FrameLayout>
 
                     <TableRow
                         android:id="@+id/tableRow5"
@@ -496,6 +523,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par1m4"
                             android:layout_width="wrap_content"
@@ -505,6 +533,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par2m4"
                             android:layout_width="wrap_content"
@@ -514,6 +543,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par3m4"
                             android:layout_width="wrap_content"
@@ -523,6 +553,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/repooym"
                             android:layout_width="wrap_content"
@@ -549,8 +580,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="2px"
                         android:layout_span="6"
-                        android:background="#FFFFFF" >
-                    </FrameLayout>
+                        android:background="#FFFFFF"></FrameLayout>
 
                     <TableRow
                         android:id="@+id/tableRow6"
@@ -590,6 +620,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par1m5"
                             android:layout_width="wrap_content"
@@ -599,6 +630,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par2m5"
                             android:layout_width="wrap_content"
@@ -608,6 +640,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/par3m5"
                             android:layout_width="wrap_content"
@@ -617,6 +650,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
+
                         <TextView
                             android:id="@+id/reposis"
                             android:layout_width="wrap_content"
