@@ -20,7 +20,8 @@ public class BaseSQL extends SQLiteOpenHelper{
     //Sentencia SQL para crear la tabla de Usuarios
     String CrearBase = "CREATE TABLE "+NombreTabla+" (titulo TEXT, descripcion TEXT,url TEXT)";
     String CrearTablaMaterias="CREATE TABLE "+NombreTablaMaterias+" (nombre TEXT)";
-    String CrearTablaClases="CREATE TABLE "+NombreTablaClase+" (idMateria INT, dia DATETIME, hora BLOB,aula TEXT)";
+    //insert into CLASES(idMateria,diaSemana,hora,aula) values(1,'Lunes','16:20','CT-4');
+    String CrearTablaClases="CREATE TABLE "+NombreTablaClase+" (idMateria INT, diaSemana TEXT, hora TEXT,aula TEXT)";
     public BaseSQL(Context contexto,
                    String nombre,
                    CursorFactory factory,

@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,14 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
+import univosv.listaperzo.Modelos.Clase;
+import univosv.listaperzo.Modelos.Materia;
 /**
  * Created by root on 07-30-17.
  */
@@ -39,6 +48,28 @@ public class Horarios extends Activity {
 
         list.setAdapter(customAdapter);
         //Toast.makeText(this,"hola2",Toast.LENGTH_LONG).show();
+    }
+
+    //Obtiene las materias del WebService.
+    private List<Materia> ObtenerMateriasWs(){
+        List<Materia> listaMaterias = new ArrayList<>();
+        Materia materia;
+
+        materia = new Materia("Estructura de Datos");
+        materia.Clase.add(new Clase(Cofre.Vars.Dias.Lunes,"CT-7","8:50"));
+        materia.Clase.add(new Clase(Cofre.Vars.Dias.Miercoles,"CT-7","8:50"));
+        listaMaterias.add(materia);
+
+        materia = new Materia("Investigacion de Operaciones");
+        materia.Clase.add(new Clase(Cofre.Vars.Dias.Martes,"A2-4","10:40"));
+        materia.Clase.add(new Clase(Cofre.Vars.Dias.Jueves,"A2-4","10:40"));
+        listaMaterias.add(materia);
+
+        materia = new Materia("Sistemas Digitales");
+        materia.Clase.add(new Clase(Cofre.Vars.Dias.Viernes,"CJP-12","16:20"));
+        listaMaterias.add(materia);
+
+        return listaMaterias;
     }
     public void lanzarNoticias(View view) {
         Intent i = new Intent(this, MainActivity.class );
