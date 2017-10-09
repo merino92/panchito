@@ -44,8 +44,9 @@
         <activity
             android:name=".login"
             android:label="UNIVO app"
-            android:theme="@style/AppTheme"></activity>
-        <activity android:name=".desarrolladores"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".desarrolladores" />
+        <activity android:name=".alertadesarrollaroderes"></activity>
     </application>
 
 </manifest>

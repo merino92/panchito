@@ -11,8 +11,8 @@
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.AppCompat.ProgressBar"
-        android:layout_width="163dp"
-        android:layout_height="154dp"
+        android:layout_width="144dp"
+        android:layout_height="131dp"
         android:backgroundTint="@color/blancocajatext"
         android:foregroundTint="@color/blancocajatext"
         android:progressBackgroundTint="@color/blancocajatext"
@@ -27,7 +27,8 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.501" />
+        app:layout_constraintHorizontal_bias="0.501"
+        tools:layout_editor_absoluteY="576dp" />
 
     <ImageView
         android:id="@+id/imageView3"
