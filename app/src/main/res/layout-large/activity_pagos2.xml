@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    tools:context="univosv.listaperzo.Pagos"
+    android:background="@drawable/fondoprueba">
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/Tabla"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1" >
+
+        <TableRow
+            android:id="@+id/Cabecera"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/Columnaciclo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5px"
+                android:text="Ciclo"
+                android:textColor="#BD760B"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/Columnarecibo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="5px"
+                android:text="Recibo"
+                android:textColor="#BD760B"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/ColumnaDescripcion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5px"
+                android:text="Descripcion"
+                android:textColor="#BD760B"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/Saldo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5px"
+                android:text="Saldo"
+                android:textColor="#BD760B"
+                android:textSize="26sp" />
+
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/SeparadorCabecera"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <FrameLayout
+                android:id="@+id/LineaCabecera"
+                android:layout_width="fill_parent"
+                android:layout_height="2px"
+                android:layout_span="6"
+                android:background="#FFFFFF" >
+            </FrameLayout>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/Fila1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/ciclo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="01"
+                android:textSize="20sp"
+                android:textColor="#060606"/>
+
+            <TextView
+                android:id="@+id/Recibo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0301"
+                android:textSize="20sp"
+                android:textColor="#060606"/>
+
+            <TextView
+                android:id="@+id/Des1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Cueta 1"
+                android:textSize="20sp"
+                android:textColor="#060606"/>
+            <TextView
+                android:id="@+id/Saldo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="$90"
+                android:textSize="20sp"
+                android:textColor="#060606"/>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/Fila2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/Ciclo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="02"
+                android:textColor="#060606"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/Recibo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0302"
+                android:textColor="#060606"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/Des2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Parcial"
+                android:textColor="#060606"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/Saldo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:gravity="center"
+                android:text="$25"
+                android:textColor="#060606"
+                android:textSize="20sp" />
+        </TableRow>
+
+
+        <TableRow
+            android:id="@+id/SeparadorTotales"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <FrameLayout
+                android:id="@+id/LineaTotales"
+                android:layout_width="fill_parent"
+                android:layout_height="2px"
+                android:layout_span="5"
+                android:background="#FFFFFF" >
+            </FrameLayout>
+        </TableRow>
+
+
+    </TableLayout>
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/material_design_android_floating_action_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        fab:menu_animationDelayPerItem="55"
+        fab:menu_backgroundColor="@android:color/transparent"
+        fab:menu_buttonSpacing="0dp"
+        fab:menu_colorNormal="#d3134cf7"
+        fab:menu_colorPressed="#38e0f2"
+        fab:menu_colorRipple="#99d4d4d4"
+        fab:menu_fab_label="Menu"
+        fab:menu_fab_size="normal"
+        fab:menu_icon="@mipmap/logofab"
+        fab:menu_labels_colorNormal="#BD760B"
+        fab:menu_labels_colorPressed="#ed50ffb0"
+        fab:menu_labels_colorRipple="#664279f1"
+        fab:menu_labels_cornerRadius="3dp"
+        fab:menu_labels_ellipsize="none"
+        fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
+        fab:menu_labels_margin="0dp"
+        fab:menu_labels_maxLines="-1"
+        fab:menu_labels_padding="8dp"
+        fab:menu_labels_position="left"
+        fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
+        fab:menu_labels_showShadow="true"
+        fab:menu_labels_singleLine="false"
+        fab:menu_labels_textColor="#fdd835"
+        fab:menu_labels_textSize="15sp"
+        fab:menu_openDirection="up"
+        fab:menu_shadowColor="#4d0abefa"
+        fab:menu_shadowRadius="4dp"
+        fab:menu_shadowXOffset="1dp"
+        fab:menu_shadowYOffset="4dp"
+        fab:menu_showShadow="true">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/material_design_floating_action_menu_item1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_actualizar"
+            fab:fab_label="Actualizar"
+            fab:fab_size="mini"
+            app:fab_colorNormal="#ea009df9"
+            />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/material_design_floating_action_menu_item2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_usuario"
+            fab:fab_label="Usuario"
+            fab:fab_size="mini"
+            app:fab_colorNormal="#ea009df9"
+            android:onClick="lanzarPerfil"
+            />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/material_design_floating_action_menu_item3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_notas"
+            fab:fab_label="Notas"
+            fab:fab_size="mini"
+            app:fab_colorNormal="#ea009df9"
+            android:onClick="lanzarNotas"
+            />
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/material_design_floating_action_menu_item4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_noticia"
+            fab:fab_label="Noticias"
+            fab:fab_size="mini"
+            app:fab_colorNormal="#ea009df9"
+            android:onClick="lanzarNoticias"
+            />
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/material_design_floating_action_menu_item5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_horario"
+            fab:fab_label="Horarios"
+            fab:fab_size="mini"
+            app:fab_colorNormal="#ea009df9"
+            android:onClick="lanzarHorario"
+            />
+    </com.github.clans.fab.FloatingActionMenu>
+</RelativeLayout>

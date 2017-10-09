@@ -1,0 +1,129 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    tools:context="univosv.listaperzo.login"
+    android:background="@drawable/fondofullhd_opt"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="56dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="60dp"
+            android:layout_height="10dp"
+            android:text="normal"
+            android:textColor="@color/blancocajatext"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="120dp"
+            android:layout_height="81dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="2dp"
+            android:src="@drawable/univologo"
+            android:layout_weight="0.16" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:text="UNIVO APP"
+            android:textAlignment="center"
+            android:textColor="@color/blancocajatext"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Email Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            >
+
+            <EditText
+                android:id="@+id/usuario"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:backgroundTint="@color/blancocajatext"
+                android:hint="Codigo"
+                android:inputType="textEmailAddress"
+                android:singleLine="false"
+                android:textColor="@color/blancocajatext"
+                android:textColorLink="@color/AzulUNIVO" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Password Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="25dp">
+
+            <EditText
+                android:id="@+id/clave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/blancocajatext"
+                android:hint="Clave"
+                android:inputType="textPassword"
+                android:textColor="@color/AzulUNIVO"
+                android:textColorLink="@color/AzulUNIVO" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/btncircular"
+            android:backgroundTint="@color/btntramsparente"
+            android:onClick="entrar"
+            android:text="ENTRAR"
+            android:textColor="@color/mostazaU" />
+
+
+        <CheckBox
+            android:id="@+id/checquesito"
+            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+            android:layout_width="217dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:text="Recordar Usuario Y Clave?"
+            android:textAlignment="center"
+            android:textColor="@color/blancocajatext"
+            android:textStyle="bold"
+            app:buttonTint="@color/blancocajatext" />
+        <TextView
+            android:id="@+id/link_signup"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:text="DESARROLLADORES"
+            android:textColor="@color/mostazaU"
+            android:textSize="16dip"
+            android:layout_weight="0.27" />
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>

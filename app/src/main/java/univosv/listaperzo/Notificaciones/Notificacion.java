@@ -46,7 +46,7 @@ public class Notificacion extends IntentService {
             String descripcion=aula +"\n"+hora;
             int  numeroN=b.getInt(Alarma.variable.Nnotificacion);
             NotificacionPush(materia,descripcion,numeroN);
-
+//
         }
 
 
