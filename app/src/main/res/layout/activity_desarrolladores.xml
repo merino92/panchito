@@ -1,9 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="univosv.listaperzo.desarrolladores">
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    tools:context="univosv.listaperzo.Pagos"
+    android:background="@drawable/fondoprueba">
 
-</android.support.constraint.ConstraintLayout>
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/Tabla"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1" >
+
+        <TableRow
+            android:id="@+id/Cabecera"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/Columnaciclo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="19px"
+                android:text="Ing. Rafael Alfredo Zelaya"
+                android:textColor="#BD760B"
+                android:textSize="26sp"
+                />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="95dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_toLeftOf="@+id/texto"
+                android:layout_toStartOf="@+id/texto"
+                android:layout_weight="0.19"
+                android:adjustViewBounds="true"
+                android:maxHeight="45dp"
+                android:maxWidth="65dp"
+                app:srcCompat="@mipmap/uni" />
+
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/SeparadorCabecera"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+            <FrameLayout
+                android:id="@+id/LineaCabecera"
+                android:layout_width="fill_parent"
+                android:layout_height="2px"
+                android:layout_span="6"
+                android:background="#FFFFFF" >
+            </FrameLayout>
+
+    </TableLayout>
+
+</RelativeLayout>

@@ -55,6 +55,8 @@ public class login extends AppCompatActivity {
         VerificarClave(Usuario,clave);
     }
 
+
+
    private void guardar(String usuario,String clave){
 
        if (cheque.isChecked()){
@@ -86,4 +88,9 @@ public class login extends AppCompatActivity {
             }
         }
    }
+    public void LanzarDesarrolladores(View view) {
+        Intent i = new Intent(this, desarrolladores.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.zoom_forward_in,R.anim.zoom_forward_out);
+    }
 }

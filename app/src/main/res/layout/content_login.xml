@@ -111,7 +111,8 @@
             android:text="DESARROLLADORES"
             android:textColor="@color/mostazaU"
             android:textSize="16dip"
-            android:layout_weight="0.27" />
+            android:layout_weight="0.27"
+            android:onClick="LanzarDesarrolladores"/>
 
 
 
