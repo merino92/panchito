@@ -40,15 +40,15 @@
                     <ImageView
                         android:id="@+id/imageView"
                         android:layout_width="match_parent"
-                        android:layout_height="95dp"
+                        android:layout_height="75dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_toLeftOf="@+id/texto"
                         android:layout_toStartOf="@+id/texto"
                         android:layout_weight="0.19"
                         android:adjustViewBounds="true"
-                        android:maxHeight="45dp"
-                        android:maxWidth="65dp"
+                        android:maxHeight="25dp"
+                        android:maxWidth="34dp"
                         app:srcCompat="@mipmap/uni" />
                 </LinearLayout>
 
@@ -70,7 +70,7 @@
                         android:text="Titulo Frase"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="#BD760B"
-                        android:textSize="14sp"
+                        android:textSize="10sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -84,7 +84,7 @@
                         android:layout_toRightOf="@+id/imageView4"
                         android:text="Texto Frase"
                         android:textColor="#000000"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
 
                 </LinearLayout>

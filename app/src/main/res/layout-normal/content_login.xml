@@ -119,7 +119,8 @@
             android:textColor="@color/mostazaU"
             android:textSize="16dip"
             android:layout_weight="0.48"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:onClick="desarrolladores"/>
 
 
 

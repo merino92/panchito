@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -85,5 +86,12 @@ public class login extends AppCompatActivity {
                 Toast.makeText(this, "ERROR USUARIO O CLAVE INCORRECTA", Toast.LENGTH_LONG).show();
             }
         }
+   }
+
+   public void desarrolladores(View view){
+       AlertDialog.Builder alert = new AlertDialog.Builder(login.this);
+       View enview1=getLayoutInflater().inflate(R.layout.activity_alertadesarrollaroderes,null);
+       AlertDialog alerta=alert.create();
+       alerta.show();//muestra la noticia
    }
 }
