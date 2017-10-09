@@ -11,16 +11,19 @@ import univosv.listaperzo.Cofre;
 
 public class Clase {
     public Clase(){
-        Dia = Cofre.Vars.Dias.Lunes;
+        Dia = Cofre.Vars.Dias.L;
         Aula = "NA";
-        Hora = "00:00";
+        HoraInicio = "00:00";
+        HoraFin = "00:00";
     }
-    public Clase(Cofre.Vars.Dias dia,String aula,String hora){
+    public Clase(Cofre.Vars.Dias dia,String aula,String horaInicio, String horaFin){
         Dia = dia;
         Aula = aula;
-        Hora = hora;
+        HoraInicio = horaInicio;
+        HoraFin = horaFin;
     }
     public Cofre.Vars.Dias Dia;
-    public String Hora;//Verificar si hay una variable que almacene hora solamente.
+    public String HoraInicio;//Verificar si hay una variable que almacene hora solamente.
+    public String HoraFin;
     public String Aula;
 }
