@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="200dp"
-            android:layout_height="150dp"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="2dp"
             android:layout_weight="0.16"
@@ -29,26 +29,25 @@
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:text="UNIVO APP"
             android:textAlignment="center"
             android:textColor="@color/blancocajatext"
-            android:textSize="55sp"
+            android:textSize="45sp"
             android:textStyle="bold" />
 
         <!-- Email Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_height="65dp"
             android:layout_marginBottom="8dp"
-            >
+            android:layout_marginTop="8dp">
 
             <EditText
                 android:id="@+id/usuario"
                 style="@style/Widget.AppCompat.EditText"
                 android:layout_width="match_parent"
-                android:layout_height="93dp"
+                android:layout_height="55dp"
 
                 android:backgroundTint="@color/blancocajatext"
                 android:hint="Codigo"
@@ -81,7 +80,7 @@
         <Button
             android:id="@+id/button"
             android:layout_width="fill_parent"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
@@ -97,7 +96,7 @@
             android:id="@+id/checquesito"
             style="@style/Widget.AppCompat.CompoundButton.CheckBox"
             android:layout_width="350dp"
-            android:layout_height="130dp"
+            android:layout_height="72dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="20dp"
             android:text="Recordar Usuario Y Clave?"
@@ -114,10 +113,10 @@
             android:layout_marginBottom="24dp"
             android:layout_weight="0.27"
             android:gravity="center"
+            android:onClick="desarrolladores"
             android:text="DESARROLLADORES"
             android:textColor="@color/mostazaU"
-            android:textSize="21sp"
-            android:onClick="desarrolladores"/>
+            android:textSize="20sp" />
 
 
 

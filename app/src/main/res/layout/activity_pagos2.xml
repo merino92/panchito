@@ -26,7 +26,7 @@
                 android:padding="5px"
                 android:text="Ciclo"
                 android:textColor="#BD760B"
-                android:textSize="26sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/Columnarecibo"
@@ -36,7 +36,7 @@
                 android:padding="5px"
                 android:text="Recibo"
                 android:textColor="#BD760B"
-                android:textSize="26sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/ColumnaDescripcion"
@@ -45,7 +45,7 @@
                 android:padding="5px"
                 android:text="Descripcion"
                 android:textColor="#BD760B"
-                android:textSize="26sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/Saldo"
@@ -54,7 +54,7 @@
                 android:padding="5px"
                 android:text="Saldo"
                 android:textColor="#BD760B"
-                android:textSize="26sp" />
+                android:textSize="18sp" />
 
 
         </TableRow>
@@ -104,14 +104,15 @@
                 android:text="Cueta 1"
                 android:textSize="20sp"
                 android:textColor="#060606"/>
+
             <TextView
                 android:id="@+id/Saldo1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="$90"
-                android:textSize="20sp"
-                android:textColor="#060606"/>
+                android:textColor="#060606"
+                android:textSize="17sp" />
         </TableRow>
 
         <TableRow
