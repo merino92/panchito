@@ -10,11 +10,11 @@
     >
 
     <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/lista"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-        android:layout_below="@+id/toolbar" />
+        android:layout_below="@+id/textView2" />
 
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/material_design_android_floating_action_menu"
@@ -108,15 +108,16 @@
     </com.github.clans.fab.FloatingActionMenu>
 
     <android.support.v7.widget.Toolbar
+
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/barranoticias_heigth"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        app:logo="@mipmap/logofab"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:logo="@mipmap/logofab" />
-
+        android:layout_above="@+id/lista" />
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"

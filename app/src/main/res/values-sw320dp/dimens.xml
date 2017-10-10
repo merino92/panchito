@@ -1,0 +1,43 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="logo_univo_with">202dp</dimen>
+    <dimen name="logo_univo_heigth">160dp</dimen>
+    <dimen name="barra_with">66dp</dimen>
+    <dimen name="barra_heigth">53dp</dimen>
+    <!-- dimensiones del splash activity 1-->
+
+    <dimen name="logo_univo_login_with">65dp</dimen>
+    <dimen name="logo_univo_login_heigth">62dp</dimen>
+    <dimen name="Texto_UNIVOAPP">24dp</dimen>
+    <dimen name="size_tex_univapp">18sp</dimen>
+
+    <dimen name="caja_de_text_heigth">30dp</dimen>
+    <dimen name="hint_heigth">21dp</dimen>
+
+    <dimen name="boton_entrar_heigth">30dp</dimen>
+    <dimen name="check_box_with">214dp</dimen>
+
+    <dimen name="texto_size">12sp</dimen>
+    <!-- dimensiones del login-->
+
+
+
+    <dimen name="barranoticias_heigth">50dp</dimen>
+    <dimen name="size_titulobarra">20sp</dimen>
+    <dimen name="imagen_news_heigth">75dp</dimen>
+    <dimen name="size_titulo">14sp</dimen>
+    <dimen name="size_descripcion">12sp</dimen>
+    <!-- dimensiones del noticias-->
+
+    <dimen name="texto_size_notas">20sp</dimen>
+    <dimen name="texto_encabezado">17sp</dimen>
+    <dimen name="texto_materiasynotas">14sp</dimen>
+    <!-- dimensiones de notas-->
+
+    <dimen name="texto_size_titulo">18sp</dimen>
+    <dimen name="texto_filas">17sp</dimen>
+    <!-- dimensiones de pagos-->
+
+
+</resources>
