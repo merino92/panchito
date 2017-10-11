@@ -30,7 +30,7 @@ import univosv.listaperzo.Basededatos.BaseSQL;
  */
 
 public class Cofre {
-//
+////
     public static class Vars{
         public static final String USUARIO="USUARIO";
         public static final String CLAVE="CLAVE";
