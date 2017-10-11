@@ -70,7 +70,7 @@ public class Horarios extends Activity {
             Horas[i] = "";
             Dias[i] = "";
             Aulas[i] = "";
-            String separador = " ^ ";
+            String separadorV = " ~ ";
             boolean esMismaAula = false;
             String aulaTemporal = "";
             //Iteración de clases.
@@ -79,12 +79,12 @@ public class Horarios extends Activity {
                 //Quita la "|" antes de la última inserción.
                 if(j+1 == m.Clase.size())
                 {
-                    separador = "";
+                    separadorV = "";
                 }
                 //Guarda en una misma posición todas las clases
-                Horas[i] += c.HoraInicio + "-" + c.HoraFin + separador;
-                Dias[i] += c.Dia+separador;
-                Aulas[i] += c.Aula+separador;
+                Horas[i] += c.HoraInicio + "-" + c.HoraFin + separadorV;
+                Dias[i] += c.Dia+separadorV;
+                Aulas[i] += c.Aula+separadorV;
                 if(j>0)//Determina si es la misma aula todas las clases.
                 {
                     if(aulaTemporal == c.Aula){
