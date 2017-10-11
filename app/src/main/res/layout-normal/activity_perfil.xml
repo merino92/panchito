@@ -13,6 +13,28 @@
 
         android:orientation="vertical">
 
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            app:logo="@mipmap/logofab"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            android:background="#92030e63"
+            >
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#92817bf4"
+                android:text="Configuracion" />
+
+        </android.support.v7.widget.Toolbar>
+
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="match_parent"
