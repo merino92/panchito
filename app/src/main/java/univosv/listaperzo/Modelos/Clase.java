@@ -11,7 +11,7 @@ import univosv.listaperzo.Cofre;
 
 public class Clase {
     public Clase(){
-        Dia = Cofre.Vars.Dias.L;
+        Dia = Cofre.Vars.Dias.Lu;
         Aula = "NA";
         HoraInicio = "00:00";
         HoraFin = "00:00";

@@ -44,7 +44,7 @@ public class Cofre {
         public static   Gson gson = new Gson();
         public static ArrayList<Object> listanotas = new ArrayList<Object>();
         public static BaseSQL Base;
-        public enum Dias{L,Ma,Mi,J,V,S,D}
+        public enum Dias{Lu,Ma,Mi,Ju,Vi,Sa,Do}
     }
 
     public static class Funciones{
