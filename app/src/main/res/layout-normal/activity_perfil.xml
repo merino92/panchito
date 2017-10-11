@@ -26,6 +26,7 @@
             android:background="@drawable/post_border_background"
             android:orientation="vertical">
 
+
             <LinearLayout
                 android:id="@+id/box_container"
                 android:layout_width="match_parent"
@@ -33,6 +34,7 @@
                 android:layout_margin="2dp"
                 android:background="@drawable/post_border_style"
                 android:orientation="horizontal">
+
 
                 <LinearLayout
                     android:id="@+id/single_post_circuito_linearbox"
@@ -62,8 +64,39 @@
 
                     </LinearLayout>
 
+
                 </LinearLayout>
+
+
             </LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/txtncum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:drawablePadding="7dp"
+        android:drawableLeft="@drawable/ic_check"
+        android:textColor="#020000"
+        android:gravity="center"
+        android:text="Cum: " />
+
+
+            <TextView
+                android:id="@+id/txtCum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+
+                android:textColor="#020000"
+                android:gravity="center"
+                android:text="7.5" />
+
+        </LinearLayout>
+
         </LinearLayout>
 
 
@@ -111,7 +144,35 @@
 
                 </LinearLayout>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/txtnpla"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:drawablePadding="7dp"
+                    android:drawableLeft="@drawable/ic_check"
+                    android:textColor="#020000"
+                    android:gravity="center"
+                    android:text="Plan: " />
+
+
+                <TextView
+                    android:id="@+id/txtPlan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+
+                    android:textColor="#020000"
+                    android:gravity="center"
+                    android:text="003" />
+
+            </LinearLayout>
+
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -160,6 +221,7 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
 
     </LinearLayout>
     <com.github.clans.fab.FloatingActionMenu
