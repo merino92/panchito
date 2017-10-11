@@ -1,6 +1,7 @@
 package univosv.listaperzo.Modelos;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -69,6 +70,26 @@ public class Materia {
     //TODO Retorna las materias con sus clases y horarios
     public static List<Materia> ObtenerMaterias(){
         List<Materia> materias = new ArrayList<>();
+        SQLiteDatabase db= Cofre.Vars.Base.getReadableDatabase();
+        Cursor bddatos = db.rawQuery(" SELECT  FROM "+BaseSQL.NombreTablaMaterias, null);
+        List<Clase> clases = new ArrayList<>();
+        Materia materiaTemp = new Materia();
+        //Nos aseguramos de que existe al menos un registro
+        if (bddatos.moveToFirst() ) {
+            //Recorremos el cursor hasta que no haya más registros
+            do {
+               /* String idmateria = bddatos.getString(1);
+                String nombre;
+                materiaTemp.Nombre = nombre;
+                clases = Clase.ObtenerClases(idmateria);
+                materiaTemp.Clase = clases;
+                materias.add(materiaTemp);*/
+
+            } while (bddatos.moveToNext() );
+        }
+
+
+
         return materias;
     }
 
