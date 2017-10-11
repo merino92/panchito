@@ -30,7 +30,7 @@ import univosv.listaperzo.Basededatos.BaseSQL;
  */
 
 public class Cofre {
-
+////
     public static class Vars{
         public static final String USUARIO="USUARIO";
         public static final String CLAVE="CLAVE";
@@ -44,10 +44,7 @@ public class Cofre {
         public static   Gson gson = new Gson();
         public static ArrayList<Object> listanotas = new ArrayList<Object>();
         public static BaseSQL Base;
-
-
-
-        public enum Dias{Lunes,Martes,Miercoles,Jueves,Viernes,Sabado,Domingo}
+        public enum Dias{L,Ma,Mi,J,V,S,D}
     }
 
     public static class Funciones{

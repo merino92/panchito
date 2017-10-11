@@ -10,16 +10,16 @@
     >
 
     <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/lista"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-        android:layout_below="@+id/toolbar" />
+        android:layout_below="@+id/textView2" />
 
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/material_design_android_floating_action_menu"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="11dp"
@@ -60,67 +60,64 @@
             android:id="@+id/material_design_floating_action_menu_item1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_actualizar"
-            fab:fab_label="Actualizar"
-            fab:fab_size="mini"
-            app:fab_colorNormal="#ea009df9"
             android:onClick="actualizar"
-            />
+            android:src="@drawable/ic_actualizar"
+            app:fab_colorNormal="#ea009df9"
+            fab:fab_label="Actualizar"
+            fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/material_design_floating_action_menu_item2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_usuario"
-            fab:fab_label="Usuario"
-            fab:fab_size="mini"
-            app:fab_colorNormal="#ea009df9"
             android:onClick="lanzarPerfil"
-            />
+            android:src="@drawable/ic_usuario"
+            app:fab_colorNormal="#ea009df9"
+            fab:fab_label="Usuario"
+            fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/material_design_floating_action_menu_item3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_notas"
-            fab:fab_label="Notas"
-            fab:fab_size="mini"
-            app:fab_colorNormal="#ea009df9"
             android:onClick="lanzarNotas"
-            />
+            android:src="@drawable/ic_notas"
+            app:fab_colorNormal="#ea009df9"
+            fab:fab_label="Notas"
+            fab:fab_size="mini" />
+
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/material_design_floating_action_menu_item4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_pagos"
-            fab:fab_label="Pagos"
-            fab:fab_size="mini"
-            app:fab_colorNormal="#ea009df9"
             android:onClick="lanzarPagos"
-            />
+            android:src="@drawable/ic_pagos"
+            app:fab_colorNormal="#ea009df9"
+            fab:fab_label="Pagos"
+            fab:fab_size="mini" />
+
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/material_design_floating_action_menu_item5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_horario"
-            fab:fab_label="Horarios"
-            fab:fab_size="mini"
-            app:fab_colorNormal="#ea009df9"
             android:onClick="lanzarHorario"
-            />
+            android:src="@drawable/ic_horario"
+            app:fab_colorNormal="#ea009df9"
+            fab:fab_label="Horarios"
+            fab:fab_size="mini" />
     </com.github.clans.fab.FloatingActionMenu>
 
     <android.support.v7.widget.Toolbar
+
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         app:logo="@mipmap/logofab"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        />
-
+        android:layout_above="@+id/lista" />
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -131,7 +128,7 @@
         android:text="UNIVO News"
         android:textAlignment="center"
         android:textColor="#BD760B"
-        android:textSize="15sp"
+        android:textSize="@dimen/size_titulobarra"
         android:textStyle="bold" />
 
 

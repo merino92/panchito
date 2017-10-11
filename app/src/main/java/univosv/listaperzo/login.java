@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -55,8 +56,6 @@ public class login extends AppCompatActivity {
         VerificarClave(Usuario,clave);
     }
 
-
-
    private void guardar(String usuario,String clave){
 
        if (cheque.isChecked()){
@@ -88,9 +87,11 @@ public class login extends AppCompatActivity {
             }
         }
    }
-    public void LanzarDesarrolladores(View view) {
-        Intent i = new Intent(this, desarrolladores.class);
-        startActivity(i);
-        overridePendingTransition(R.anim.zoom_forward_in,R.anim.zoom_forward_out);
-    }
+
+   public void desarrolladores(View view){
+       AlertDialog.Builder alert = new AlertDialog.Builder(login.this);
+       View enview1=getLayoutInflater().inflate(R.layout.activity_alertadesarrollaroderes,null);
+       AlertDialog alerta=alert.create();
+       alerta.show();//muestra la noticia
+   }
 }

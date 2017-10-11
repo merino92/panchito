@@ -19,9 +19,13 @@ import univosv.listaperzo.Cofre;
 public class Materia {
     public String Nombre;
     public ArrayList<Clase> Clase;
-    public Materia(){}
+    public Materia(){
+        Clase = new ArrayList<>();
+    }
+
     public Materia(String nombre){
         Nombre = nombre;
+        Clase = new ArrayList<>();
     }
 
     public static void GuardarMaterias(ArrayList<Materia> materias)
@@ -41,7 +45,8 @@ public class Materia {
                     ContentValues datosClase = new ContentValues();
                     datosClase.put("dia",clase.Dia.toString());
                     datosClase.put("aula",clase.Aula);
-                    datosClase.put("hora",clase.Hora);
+                    datosClase.put("horaInicio",clase.HoraInicio);
+                    datosClase.put("horaFin",clase.HoraFin);
                     datosClase.put("idMateria",idMateria);
                     db.insert(BaseSQL.NombreTablaClase,null,datosClase);
                     Log.i("sqlite","Registro de clase insertado");
@@ -61,12 +66,13 @@ public class Materia {
         return (numRows>0);
     }
 
-    //Retorna las materias con sus clases y horarios
+    //TODO Retorna las materias con sus clases y horarios
     public static List<Materia> ObtenerMaterias(){
         List<Materia> materias = new ArrayList<>();
         return materias;
     }
 
+    //TODO
     public static Materia ObtenerMateria(String nombreMateria){
         Materia materia = new Materia();
         return materia;

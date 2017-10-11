@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="65dp"
-            android:layout_height="62dp"
+            android:layout_width="@dimen/logo_univo_login_with"
+            android:layout_height="@dimen/logo_univo_login_heigth"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="2dp"
             android:src="@drawable/univologo"
@@ -29,17 +29,17 @@
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/Texto_UNIVOAPP"
             android:text="UNIVO APP"
             android:textAlignment="center"
             android:textColor="@color/blancocajatext"
-            android:textSize="18sp"
+            android:textSize="@dimen/size_tex_univapp"
             android:textStyle="bold" />
 
         <!-- Email Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="@dimen/caja_de_text_heigth"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp">
 
@@ -47,7 +47,7 @@
                 android:id="@+id/usuario"
                 style="@style/Widget.AppCompat.EditText"
                 android:layout_width="match_parent"
-                android:layout_height="21dp"
+                android:layout_height="@dimen/hint_heigth"
 
                 android:backgroundTint="@color/blancocajatext"
                 android:hint="Codigo"
@@ -61,14 +61,14 @@
         <!-- Password Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="28dp"
+            android:layout_height="@dimen/caja_de_text_heigth"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="25dp">
 
             <EditText
                 android:id="@+id/clave"
                 android:layout_width="match_parent"
-                android:layout_height="21dp"
+                android:layout_height="@dimen/hint_heigth"
                 android:backgroundTint="@color/blancocajatext"
                 android:hint="Clave"
                 android:textSize="12sp"
@@ -80,7 +80,7 @@
         <Button
             android:id="@+id/button"
             android:layout_width="fill_parent"
-            android:layout_height="30dp"
+            android:layout_height="@dimen/boton_entrar_heigth"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
@@ -88,33 +88,36 @@
             android:backgroundTint="@color/btntramsparente"
             android:onClick="entrar"
             android:text="ENTRAR"
-            android:textColor="@color/mostazaU" />
+            android:textColor="@color/mostazaU"
+            android:textSize="12sp" />
 
 
         <CheckBox
             android:id="@+id/checquesito"
             style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/check_box_with"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="20dp"
+            android:layout_weight="0.02"
+            android:buttonTint="@color/blancocajatext"
             android:text="Recordar Usuario Y Clave?"
             android:textAlignment="center"
             android:textColor="@color/blancocajatext"
-            android:textStyle="bold"
-            android:buttonTint="@color/blancocajatext"
-            android:layout_weight="0.06"
-            android:textSize="10dp"/>
+            android:textSize="@dimen/texto_size"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/link_signup"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
+            android:layout_weight="0.27"
             android:gravity="center"
+            android:onClick="desarrolladores"
             android:text="DESARROLLADORES"
             android:textColor="@color/mostazaU"
-            android:textSize="12dip"
-            android:layout_weight="0.27" />
+            android:textSize="@dimen/texto_size" />
 
 
 
