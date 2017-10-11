@@ -34,7 +34,7 @@
         fab:menu_fab_label="Menu"
         fab:menu_fab_size="normal"
         fab:menu_icon="@mipmap/logofab"
-        fab:menu_labels_colorNormal="#BD760B"
+        fab:menu_labels_colorNormal="#62051859"
         fab:menu_labels_colorPressed="#E1AF63"
         fab:menu_labels_colorRipple="#514279f1"
         fab:menu_labels_cornerRadius="3dp"

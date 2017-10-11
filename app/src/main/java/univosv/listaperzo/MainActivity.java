@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute(){
             progressDialog = new ProgressDialog(MainActivity.this);
-            progressDialog.setIcon(R.mipmap.ic_launcher);
+            progressDialog.setIcon(R.mipmap.ic_launcher_round);
             progressDialog.setMessage("Cargando...");
             progressDialog.setCancelable(true);
             progressDialog.show();
@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 progressDialog = new ProgressDialog(MainActivity.this);
-                progressDialog.setIcon(R.mipmap.ic_launcher);
+                progressDialog.setIcon(R.mipmap.ic_launcher_round);
                 progressDialog.setMessage("Cargando...");
                 progressDialog.setCancelable(true);
                 progressDialog.show();
