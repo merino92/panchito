@@ -16,15 +16,150 @@
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="match_parent"
-            android:layout_height="304dp"
+            android:layout_height="250dp"
             android:background="@mipmap/ic_launcher_round" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
-            android:text="José Adolfo Herrera Funes" />
+            android:layout_margin="5dp"
+            android:background="@drawable/post_border_background"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/box_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:background="@drawable/post_border_style"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/single_post_circuito_linearbox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtNombre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="25dp"
+                            android:textColor="#020000"
+                            android:drawablePadding="5dp"
+                            android:drawableLeft="@drawable/ic_contacts"
+                            android:text="José Adolfo Herrera Funes" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/post_border_background"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/box_container1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:background="@drawable/post_border_style"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/single_post_circuito_linearbox1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtCarrera"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="25dp"
+                            android:drawableLeft="@drawable/ic_group"
+                            android:drawablePadding="5dp"
+                            android:textColor="#000000"
+                            android:text="Ingenieria en sistemas informaticos" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/post_border_background"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/box_container2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:background="@drawable/post_border_style"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/single_post_circuito_linearbox2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtCodigo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="25dp"
+                            android:drawablePadding="5dp"
+                            android:drawableLeft="@drawable/ic_bubble"
+                            android:textColor="#020000"
+                            android:gravity="center"
+                            android:text="U20151477" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
 
 
     </LinearLayout>
