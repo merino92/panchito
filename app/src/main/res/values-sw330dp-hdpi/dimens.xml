@@ -1,8 +1,8 @@
 <resources>
-    <dimen name="logo_univo_with">350dp</dimen>
-    <dimen name="logo_univo_heigth">250dp</dimen>
-    <dimen name="barra_with">60dp</dimen>
-    <dimen name="barra_heigth">60dp</dimen>
+    <dimen name="logo_univo_with">370dp</dimen>
+    <dimen name="logo_univo_heigth">260dp</dimen>
+    <dimen name="barra_with">70dp</dimen>
+    <dimen name="barra_heigth">70dp</dimen>
     <!-- dimensiones del splash activity 1-->
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="logo_univo_login_with">250dp</dimen>
