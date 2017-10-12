@@ -52,7 +52,14 @@ public class Horarios extends Activity {
         super.onStart();
         ListView list = (ListView)findViewById(R.id.Listahorarios);
         List<Materia> materias;
-        if(Materia.TablaMateriasPoseeRegistros()){
+        materias = ObtenerMateriasWs();
+        FormatearHorariosParaMostrar(materias);
+        CustomAdapter customAdapter =
+                new CustomAdapter(this,Materias,Horas,Dias,Aulas);
+
+        list.setAdapter(customAdapter);
+
+        /*if(Materia.TablaMateriasPoseeRegistros()){
             materias= Materia.ObtenerMaterias();
             FormatearHorariosParaMostrar(materias);
             CustomAdapter customAdapter =
@@ -69,7 +76,7 @@ public class Horarios extends Activity {
 
             list.setAdapter(customAdapter);
 
-        }
+        }*/
 
     }
     private void FormatearHorariosParaMostrar(List<Materia> materias){
