@@ -26,20 +26,23 @@
             android:theme="?attr/actionBarTheme"
             android:background="#92030e63"
             >
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#92817bf4"
-                android:text="Configuracion" />
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="38dp"
+                android:layout_height="42dp"
+                fab:srcCompat="@drawable/config"
+                android:background="@drawable/btnredondo"
+                android:layout_marginLeft="270dp"/>
 
         </android.support.v7.widget.Toolbar>
 
+
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:background="@mipmap/ic_launcher_round" />
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@mipmap/ic_launcher_round"
+            android:layout_gravity="center"/>
 
         <LinearLayout
             android:layout_width="match_parent"
