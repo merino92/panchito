@@ -11,13 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:background="@mipmap/ic_launcher_round" />
+            android:layout_width="150dp"
+            android:layout_height="120dp"
+            android:background="@mipmap/ic_launcher_round"
+            android:layout_gravity="center"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,7 +64,8 @@
                             android:textColor="#020000"
                             android:drawablePadding="7dp"
                             android:drawableLeft="@drawable/ic_contacts"
-                            android:text="José Adolfo Herrera Funes" />
+                            android:text="José Adolfo Herrera Funes"
+                            />
 
                     </LinearLayout>
 
@@ -73,27 +78,29 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TextView
                     android:id="@+id/txtncum"
-                    android:layout_width="wrap_content"
+                    android:layout_width="124dp"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:drawablePadding="7dp"
                     android:drawableLeft="@drawable/ic_check"
-                    android:textColor="#020000"
+                    android:drawablePadding="7dp"
                     android:gravity="center"
-                    android:text="Cum: " />
+                    android:text="Cum: "
+                    android:textColor="#020000"
+                    android:textSize="20dp" />
 
 
                 <TextView
                     android:id="@+id/txtCum"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
-
-                    android:textColor="#020000"
                     android:gravity="center"
-                    android:text="7.5" />
+
+                    android:text="7.5"
+                    android:textAlignment="textStart"
+                    android:textColor="#020000"
+                    android:textSize="20dp" />
 
             </LinearLayout>
 
@@ -133,13 +140,13 @@
 
                         <TextView
                             android:id="@+id/txtCarrera"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="20dp"
                             android:drawableLeft="@drawable/ic_group"
                             android:drawablePadding="5dp"
+                            android:text="Ingenieria en sistemas informaticos"
                             android:textColor="#000000"
-                            android:text="Ingenieria en sistemas informaticos" />
+                            android:textSize="20dp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -161,13 +168,14 @@
 
                 <TextView
                     android:id="@+id/txtPlan"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
-
-                    android:textColor="#020000"
                     android:gravity="center"
-                    android:text="003" />
+
+                    android:text="003"
+                    android:textAlignment="textStart"
+                    android:textColor="#020000"
+                    android:textSize="20dp" />
 
             </LinearLayout>
 
@@ -207,7 +215,7 @@
 
                         <TextView
                             android:id="@+id/txtCodigo"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="20dp"
                             android:drawablePadding="5dp"
