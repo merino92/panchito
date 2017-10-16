@@ -32,7 +32,7 @@
             android:layout_height="31dp"
             android:text="UNIVO APP"
             android:textAlignment="center"
-            android:textColor="@color/blancocajatext"
+            android:textColor="#fff"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -54,7 +54,7 @@
                 android:hint="Codigo"
                 android:inputType="textEmailAddress"
                 android:singleLine="false"
-                android:textColor="@color/blancocajatext"
+                android:textColor="#fff"
                 android:textColorLink="@color/AzulUNIVO" />
         </android.support.design.widget.TextInputLayout>
 
@@ -72,7 +72,7 @@
                 android:backgroundTint="@color/blancocajatext"
                 android:hint="Clave"
                 android:inputType="textPassword"
-                android:textColor="@color/AzulUNIVO"
+                android:textColor="#fff"
                 android:textColorLink="@color/AzulUNIVO" />
         </android.support.design.widget.TextInputLayout>
 
@@ -101,10 +101,10 @@
             android:layout_weight="0.32"
             android:text="Recordar Usuario Y Clave?"
             android:textAlignment="center"
-            android:textColor="@color/blancocajatext"
+            android:textColor="#fff"
             android:textSize="15dp"
             android:textStyle="bold"
-            app:buttonTint="@color/blancocajatext" />
+            app:buttonTint="#fff" />
 
         <TextView
             android:id="@+id/link_signup"
@@ -112,10 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:gravity="center"
-            android:text="
-
-
-  DESARROLLADORES"
+            android:text="DESARROLLADORES"
             android:textColor="@color/mostazaU"
             android:textSize="16dip"
             android:layout_weight="0.48"
