@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondoprueba">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,7 +41,11 @@
                         android:padding="5px"
                         android:text="materia"
                         android:textColor="#BD760B"
-                        android:textSize="25sp" />
+                        android:textSize="25sp"
+                        android:gravity="center"
+                        android:drawablePadding="1dp"
+                        android:drawableLeft="@drawable/ic_mate"
+                        />
                     <FrameLayout
                         android:id="@+id/LineaCabecera1"
                         android:layout_width="fill_parent"

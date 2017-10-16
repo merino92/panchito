@@ -8,11 +8,33 @@
     tools:context="univosv.listaperzo.Pagos"
     android:background="@drawable/fondoprueba">
 
+
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/Tabla"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:stretchColumns="1" >
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            app:logo="@mipmap/logofab"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            android:background="#92030e63"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="PAGOS          "
+                android:textSize="25dp"
+                android:textColor="#BD760B"
+                android:gravity="center"
+                />
+
+        </android.support.v7.widget.Toolbar>
 
         <TableRow
             android:id="@+id/Cabecera"

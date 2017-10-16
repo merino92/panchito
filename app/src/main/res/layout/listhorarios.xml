@@ -11,6 +11,7 @@
         android:background="@drawable/post_border_style"
         android:orientation="vertical" >
 
+
         <LinearLayout
             android:id="@+id/box_container"
             android:layout_width="match_parent"
@@ -39,7 +40,11 @@
                         android:padding="5px"
                         android:text="materia"
                         android:textColor="#BD760B"
-                        android:textSize="18sp" />
+                        android:textSize="25sp"
+                        android:gravity="center"
+                        android:drawablePadding="1dp"
+                        android:drawableLeft="@drawable/ic_mate"
+                        />
                     <FrameLayout
                         android:id="@+id/LineaCabecera1"
                         android:layout_width="fill_parent"
