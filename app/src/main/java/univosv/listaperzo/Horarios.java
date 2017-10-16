@@ -24,6 +24,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+import WS.WebService;
 import univosv.listaperzo.Modelos.Clase;
 import univosv.listaperzo.Modelos.Materia;
 
@@ -64,7 +65,7 @@ public class Horarios extends Activity {
 
 
         }else {
-           materias = ObtenerMateriasWs();
+           materias = WebService.ObtenerMateriasWs();
             FormatearHorariosParaMostrar(materias);
             CustomAdapter customAdapter =
                     new CustomAdapter(this,Materias,Horas,Dias,Aulas);
@@ -120,27 +121,7 @@ public class Horarios extends Activity {
         }
     }
 
-    //Obtiene las materias del WebService.
-    private List<Materia> ObtenerMateriasWs(){
-        List<Materia> listaMaterias = new ArrayList<>();
-        Materia materia;
 
-        materia = new Materia("Estructura de Datos");
-        materia.Clase.add(new Clase(Cofre.Vars.Dias.Lu,"CT-7","8:50","10:30"));
-        materia.Clase.add(new Clase(Cofre.Vars.Dias.Mi,"CT-7","13:50","15:40"));
-        listaMaterias.add(materia);
-
-        materia = new Materia("Investigacion de Operaciones");
-        materia.Clase.add(new Clase(Cofre.Vars.Dias.Ma,"A2-4","10:50","12:20"));
-        materia.Clase.add(new Clase(Cofre.Vars.Dias.Ju,"A2-3","10:50","12:20"));
-        listaMaterias.add(materia);
-
-        materia = new Materia("Sistemas Digitales");
-        materia.Clase.add(new Clase(Cofre.Vars.Dias.Vi,"CJP-12","16:20","6:00"));
-        listaMaterias.add(materia);
-
-        return listaMaterias;
-    }
     public void lanzarNoticias(View view) {
         Intent i = new Intent(this, MainActivity.class );
         startActivity(i);
