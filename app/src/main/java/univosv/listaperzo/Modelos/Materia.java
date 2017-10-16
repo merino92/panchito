@@ -60,11 +60,11 @@ public class Materia {
 
                 }
             }
-
+            db.close();
         }
         else{
             Log.e("sqlite","No existe conexion a la bdd");
-            db.close();
+
         }
 
     }
