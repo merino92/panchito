@@ -44,6 +44,7 @@ public class Cofre {
         public static   Gson gson = new Gson();
         public static ArrayList<Object> listanotas = new ArrayList<Object>();
         public static BaseSQL Base;
+        public static String NombreBdd = "UNIVOBDD";
         public enum Dias{Lu,Ma,Mi,Ju,Vi,Sa,Do}
     }
 
@@ -68,7 +69,10 @@ public class Cofre {
 
         public static void Iniciar(SharedPreferences sharedPreferences,Context contexto){
             Vars.preferencias=sharedPreferences;
-            Vars.Base = new BaseSQL(contexto,"NOTICIAS",null,1);
+            Vars.Base = new BaseSQL(contexto,Vars.NombreBdd,null,2);
+        }
+        public static void IniciarBdd(Context context){
+            Vars.Base=new BaseSQL(context,Vars.NombreBdd,null,2);
         }
 
         public static String InvocarClave(){

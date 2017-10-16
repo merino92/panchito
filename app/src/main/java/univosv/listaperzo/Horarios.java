@@ -44,6 +44,7 @@ public class Horarios extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_horarios);
+        Cofre.Funciones.IniciarBdd(this);
 
     }
 
@@ -52,14 +53,8 @@ public class Horarios extends Activity {
         super.onStart();
         ListView list = (ListView)findViewById(R.id.Listahorarios);
         List<Materia> materias;
-        materias = ObtenerMateriasWs();
-        FormatearHorariosParaMostrar(materias);
-        CustomAdapter customAdapter =
-                new CustomAdapter(this,Materias,Horas,Dias,Aulas);
-
-        list.setAdapter(customAdapter);
-
-        /*if(Materia.TablaMateriasPoseeRegistros()){
+        Cofre.Funciones.IniciarBdd(this);
+        if(Materia.TablaMateriasPoseeRegistros()){
             materias= Materia.ObtenerMaterias();
             FormatearHorariosParaMostrar(materias);
             CustomAdapter customAdapter =
@@ -75,8 +70,9 @@ public class Horarios extends Activity {
                     new CustomAdapter(this,Materias,Horas,Dias,Aulas);
 
             list.setAdapter(customAdapter);
+            Materia.GuardarMaterias(materias);
 
-        }*/
+        }
 
     }
     private void FormatearHorariosParaMostrar(List<Materia> materias){

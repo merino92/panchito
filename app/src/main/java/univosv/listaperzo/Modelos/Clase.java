@@ -23,16 +23,17 @@ public class Clase {
         HoraFin = "00:00";
     }
     //TODO HACER LA FUNCION
-    public static List<Clase> ObtenerClases(int idMateria){
+    public static List<Clase> ObtenerClases(String idMateria){
         List<Clase> clases = new ArrayList<>();
         SQLiteDatabase db= Cofre.Vars.Base.getReadableDatabase();
-        Cursor bddatos = db.rawQuery(" SELECT  FROM "+ BaseSQL.NombreTablaClase, null);
+        int id=Integer.parseInt(idMateria);
+        Cursor bddatos = db.rawQuery(" SELECT  FROM "+ BaseSQL.NombreTablaClase +"WHERE idMateria ="+id, null);
 
         //Nos aseguramos de que existe al menos un registro
         if (bddatos.moveToFirst() ) {
             //Recorremos el cursor hasta que no haya más registros
             do {
-                String idmateria = bddatos.getString(1);
+                String idmaterias = bddatos.getString(1);
                 String dia = bddatos.getString(2);
                 String inicio =bddatos.getString(2);
                 String fin = bddatos.getString(3);
