@@ -35,7 +35,7 @@ import static java.lang.System.out;
  */
 
 public class Horarios extends Activity {
-    // private ListView list;
+     private ListView list;
     String[] Materias = {"Estructura de Datos","Investigacion de Operaciones", "Sistemas Digitales"};
     String[] Horas = {"8:50 a.m. a 10:30 a.m.","10:40 a.m. a 12:20 p.m.",
             "4:20 p.m. a 6:00 p.m."};
@@ -52,7 +52,7 @@ public class Horarios extends Activity {
     @Override
     protected void onStart(){
         super.onStart();
-        ListView list = (ListView)findViewById(R.id.Listahorarios);
+        list = (ListView)findViewById(R.id.Listahorarios);
         List<Materia> materias;
         Cofre.Funciones.IniciarBdd(this);
         if(Materia.TablaMateriasPoseeRegistros()){
@@ -72,7 +72,6 @@ public class Horarios extends Activity {
 
             list.setAdapter(customAdapter);
             Materia.GuardarMaterias(materias);
-
         }
 
     }
@@ -192,5 +191,14 @@ public class Horarios extends Activity {
             //Log.d("cadenas",Materias[i]);
             return view;
         }
+    }
+    private void Refrescar(){
+        List<Materia>materias = WebService.ObtenerMateriasWs();
+        FormatearHorariosParaMostrar(materias);
+        CustomAdapter customAdapter =
+                new CustomAdapter(this,Materias,Horas,Dias,Aulas);
+
+        list.setAdapter(customAdapter);
+        Materia.GuardarMaterias(materias);
     }
 }

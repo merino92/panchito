@@ -135,6 +135,7 @@
             app:fab_colorNormal="#ea009df9"
             android:onClick="lanzarNoticias"
             />
+
     </com.github.clans.fab.FloatingActionMenu>
 
 
