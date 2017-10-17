@@ -27,7 +27,7 @@ public class Clase {
         List<Clase> clases = new ArrayList<>();
         SQLiteDatabase db= Cofre.Vars.Base.getReadableDatabase();
         int id=Integer.parseInt(idMateria);
-        Cursor bddatos = db.rawQuery(" SELECT  FROM "+ BaseSQL.NombreTablaClase +"WHERE idMateria ="+id, null);
+        Cursor bddatos = db.rawQuery(" SELECT * FROM "+ BaseSQL.NombreTablaClase +" WHERE idMateria ="+id, null);
 
         //Nos aseguramos de que existe al menos un registro
         if (bddatos.moveToFirst() ) {

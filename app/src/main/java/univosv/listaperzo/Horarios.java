@@ -77,6 +77,9 @@ public class Horarios extends Activity {
     }
     private void FormatearHorariosParaMostrar(List<Materia> materias){
         Materias = new String[materias.size()];
+        Horas = new String[materias.size()];
+        Dias = new String[materias.size()];
+        Aulas = new String[materias.size()];
         int i = 0;
         //Iteración de materias
         for(Materia m:materias){
