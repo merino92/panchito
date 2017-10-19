@@ -194,7 +194,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="9.0"
                             android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
 
 
@@ -203,7 +203,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="8.5"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -212,7 +212,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="-"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -221,7 +221,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="7"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -230,7 +230,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="8.3"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -239,7 +239,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="-"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -257,7 +257,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="6.2"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -288,7 +288,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="10"
                             android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
 
                         <TextView
@@ -296,7 +296,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="8.9"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -305,7 +305,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="-"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -314,7 +314,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="10"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -323,7 +323,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="7.7"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -332,7 +332,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="-"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -351,7 +351,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="5.5"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -383,7 +383,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="9"
                             android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
 
                         <TextView
@@ -391,7 +391,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="6.7"
                             android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
 
                         <TextView
@@ -399,7 +399,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="-"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -408,7 +408,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="4.3"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -417,7 +417,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="10"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -426,7 +426,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="-"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -445,7 +445,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="5.3"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -476,7 +476,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="7.5"
                             android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
 
                         <TextView
@@ -484,7 +484,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="8"
                             android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
 
                         <TextView
@@ -492,7 +492,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="-"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -501,7 +501,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="9.7"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -510,7 +510,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="10"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -519,7 +519,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="-"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -538,7 +538,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="4.7"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -570,7 +570,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="4.5"
                             android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
 
                         <TextView
@@ -578,7 +578,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="7.3"
                             android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
 
                         <TextView
@@ -586,7 +586,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="-"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -595,7 +595,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="6.5"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -604,7 +604,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="10"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -613,7 +613,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="-"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
@@ -632,7 +632,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="5dp"
-                            android:text="TextView"
+                            android:text="5"
                             android:textAppearance="?android:attr/textAppearanceMedium">
 
                         </TextView>
