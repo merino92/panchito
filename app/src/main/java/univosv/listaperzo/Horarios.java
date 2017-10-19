@@ -65,7 +65,8 @@ public class Horarios extends Activity {
 
 
         }else {
-           materias = WebService.ObtenerMateriasWs();
+            materias = WebService.ObtenerMaterias();
+
             FormatearHorariosParaMostrar(materias);
             CustomAdapter customAdapter =
                     new CustomAdapter(this,Materias,Horas,Dias,Aulas);
@@ -128,7 +129,6 @@ public class Horarios extends Activity {
             i++;
         }
     }
-
 
     public void lanzarNoticias(View view) {
         Intent i = new Intent(this, MainActivity.class );
@@ -202,7 +202,7 @@ public class Horarios extends Activity {
         }
     }
     private void Refrescar(){
-        List<Materia>materias = WebService.ObtenerMateriasWs();
+        List<Materia>materias = WebService.ObtenerMaterias();
         FormatearHorariosParaMostrar(materias);
         CustomAdapter customAdapter =
                 new CustomAdapter(this,Materias,Horas,Dias,Aulas);

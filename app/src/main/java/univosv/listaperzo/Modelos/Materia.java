@@ -22,7 +22,7 @@ import static android.content.ContentValues.TAG;
 public class Materia {
 
     public String Nombre;
-    public static List<Clase> Clase;
+    public List<Clase> Clase;
     public Materia(){
         Clase = new ArrayList<>();
     }
