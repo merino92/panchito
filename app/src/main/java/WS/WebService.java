@@ -14,7 +14,7 @@ import univosv.listaperzo.Modelos.Materia;
 public class WebService {
 
     //Obtiene las materias del WebService.
-  public static List<Materia> ObtenerMateriasWs(){
+  public static List<Materia> ObtenerMaterias(){
         List<Materia> listaMaterias = new ArrayList<>();
         Materia materia;
 
