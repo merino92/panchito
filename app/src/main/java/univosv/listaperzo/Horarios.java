@@ -54,19 +54,16 @@ public class Horarios extends Activity {
         super.onStart();
         list = (ListView)findViewById(R.id.Listahorarios);
         List<Materia> materias;
-       /* Cofre.Funciones.IniciarBdd(this);
+        Cofre.Funciones.IniciarBdd(this);
         if(Materia.TablaMateriasPoseeRegistros()){
+
             materias= Materia.ObtenerMaterias();
             FormatearHorariosParaMostrar(materias);
             CustomAdapter customAdapter =
                     new CustomAdapter(this,Materias,Horas,Dias,Aulas);
-
             list.setAdapter(customAdapter);
-
-
         }else {
             materias = WebService.ObtenerMaterias();
-
             FormatearHorariosParaMostrar(materias);
             CustomAdapter customAdapter =
                     new CustomAdapter(this,Materias,Horas,Dias,Aulas);
@@ -74,13 +71,7 @@ public class Horarios extends Activity {
             list.setAdapter(customAdapter);
             Materia.GuardarMaterias(materias);
         }
-*/
-        materias = WebService.ObtenerMateriasWs();
-        FormatearHorariosParaMostrar(materias);
-        CustomAdapter customAdapter =
-                new CustomAdapter(this,Materias,Horas,Dias,Aulas);
 
-        list.setAdapter(customAdapter);
     }
     private void FormatearHorariosParaMostrar(List<Materia> materias){
         Materias = new String[materias.size()];

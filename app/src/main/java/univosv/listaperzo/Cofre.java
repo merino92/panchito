@@ -69,10 +69,10 @@ public class Cofre {
 
         public static void Iniciar(SharedPreferences sharedPreferences,Context contexto){
             Vars.preferencias=sharedPreferences;
-            Vars.Base = new BaseSQL(contexto,Vars.NombreBdd,null,2);
+            Vars.Base = new BaseSQL(contexto,Vars.NombreBdd,null,3);
         }
         public static void IniciarBdd(Context context){
-            Vars.Base=new BaseSQL(context,Vars.NombreBdd,null,2);
+            Vars.Base=new BaseSQL(context,Vars.NombreBdd,null,3);
         }
 
         public static String InvocarClave(){

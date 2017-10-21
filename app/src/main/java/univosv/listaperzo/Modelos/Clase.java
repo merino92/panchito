@@ -33,11 +33,11 @@ public class Clase {
         if (bddatos.moveToFirst() ) {
             //Recorremos el cursor hasta que no haya más registros
             do {
-                String idmaterias = bddatos.getString(1);
-                String dia = bddatos.getString(2);
+                String idmaterias = bddatos.getString(0);
+                String dia = bddatos.getString(1);
                 String inicio =bddatos.getString(2);
                 String fin = bddatos.getString(3);
-                String aula = bddatos.getString(4);
+                String aula = bddatos.getString(4);ad
 
             } while (bddatos.moveToNext() );
         }
