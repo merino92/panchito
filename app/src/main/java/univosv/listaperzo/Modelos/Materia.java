@@ -62,9 +62,7 @@ public class Materia {
         }
         else{
             Log.e("sqlite","No existe conexion a la bdd");
-
         }
-
     }
 
     public static boolean TablaMateriasPoseeRegistros(){
