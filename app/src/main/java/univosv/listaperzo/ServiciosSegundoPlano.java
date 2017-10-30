@@ -66,7 +66,7 @@ public class ServiciosSegundoPlano extends Service {
             }
         }
     }
-    public void AlarmaDeClase(Context context,Date hora,String materia,String aula){
+    public void AlarmaDeClase(Context context,Date hora,String materia,String aula,String horita){
 
         AlarmManager alarmMgr;
         PendingIntent alarmIntent;

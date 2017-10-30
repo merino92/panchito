@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.icu.text.DateFormat;
+import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -18,13 +22,16 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
 import WS.WebService;
+import univosv.listaperzo.Basededatos.BaseSQL;
 import univosv.listaperzo.Modelos.Clase;
 import univosv.listaperzo.Modelos.Materia;
 
@@ -200,5 +207,29 @@ public class Horarios extends Activity {
 
         list.setAdapter(customAdapter);
         Materia.GuardarMaterias(materias);
+    }
+
+    private void ArmarNotificaciones(){
+        SQLiteDatabase bd=Cofre.Vars.Base.getReadableDatabase();
+        List<Materia> materias=Materia.ObtenerMaterias();
+        for(Materia m:materias){
+            String Nombre=m.Nombre;
+           Date hora;
+
+            for(Clase c:m.Clase){
+                String horas,parte1,parte2,aula,horaCompleta;
+                aula=c.Aula;
+                horas=c.HoraInicio;
+                horaCompleta=horas+"-"+horas;
+                String [] part=horas.split(":");
+                parte1=part[0];
+                parte2=part[1];
+
+
+            }
+
+        }
+
+
     }
 }
