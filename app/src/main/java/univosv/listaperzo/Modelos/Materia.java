@@ -49,11 +49,11 @@ public class Materia {
                 Log.i("sqlite","Registro de materia insertado");
                 for(Clase clase:materia.Clase){
                     ContentValues datosClase = new ContentValues();
-                    datosClase.put("diaSemana",clase.Dia.toString());
-                    datosClase.put("aula",clase.Aula);
-                    datosClase.put("horaInicio",clase.HoraInicio);
-                    datosClase.put("horaFin",clase.HoraFin);
-                    datosClase.put("idMateria",idMateria);
+                    datosClase.put(BaseSQL.diaSemana,clase.Dia.toString());
+                    datosClase.put(BaseSQL.aula,clase.Aula);
+                    datosClase.put(BaseSQL.horaInicio,clase.HoraInicio);
+                    datosClase.put(BaseSQL.horaFin,clase.HoraFin);
+                    datosClase.put(BaseSQL.idMateria,idMateria);
                     db1.insert(BaseSQL.NombreTablaClase,null,datosClase);
                     Log.i("sqlite","Registro de clase insertado");
                 }

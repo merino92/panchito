@@ -37,7 +37,7 @@ public class Clase {
                 String dia = bddatos.getString(1);
                 String inicio =bddatos.getString(2);
                 String fin = bddatos.getString(3);
-                String aula = bddatos.getString(4);ad
+                String aula = bddatos.getString(4);
 
             } while (bddatos.moveToNext() );
         }

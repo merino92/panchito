@@ -16,13 +16,27 @@ public class BaseSQL extends SQLiteOpenHelper{
     public static final String EliminarDatosTabla="DELETE FROM "+NombreTabla;
     public static final String EliminarDatosTablaMateria = "DELETE FROM "+NombreTablaMaterias;
     public static final String EliminarDatosTablaClases = "DELETE FROM "+NombreTablaClase;
-
+    //campos de la tabla noticias
+    public static final String CampoTitulo="titulo";
+    public static final String CampoDescripcion="descripcion";
+    public static final String CampoUrl="url";
+    //campos de la tabla materias
+    public static final String CampoId="id";
+    public static final String CampoNombre="nombre";
+    //campos de la tabla clases
+    public static final String idMateria="idMateria";
+    public static final String diaSemana="diaSemana";
+    public static final String horaInicio="horaInicio";
+    public static final String horaFin="horaFin";
+    public static final String aula="aula";
     //Sentencia SQL para crear la tabla de Usuarios
-    String CrearBase = "CREATE TABLE "+NombreTabla+" (titulo TEXT, descripcion TEXT,url TEXT)";
-    String CrearTablaMaterias="CREATE TABLE "+NombreTablaMaterias+" (id INTEGER PRIMARY KEY,nombre TEXT)";
+    String CrearBase = "CREATE TABLE "+NombreTabla
+                    +" ("+CampoTitulo+" TEXT,"+CampoDescripcion+" TEXT,"+CampoUrl+" TEXT)";
+    String CrearTablaMaterias="CREATE TABLE "+NombreTablaMaterias
+                        +" ("+CampoId+" INTEGER PRIMARY KEY,"+CampoNombre+" TEXT)";
     //insert into CLASES(idMateria,diaSemana,hora,aula) values(1,'Lunes','16:20','CT-4');
     String CrearTablaClases="CREATE TABLE "+NombreTablaClase
-            + " (idMateria INT, diaSemana TEXT, horaInicio TEXT,horaFin TEXT,aula TEXT)";
+            + " ("+idMateria+" INT, "+ diaSemana+" TEXT, "+horaInicio+" TEXT,"+horaFin+" TEXT,"+aula+" TEXT)";
 
     public BaseSQL(Context contexto,
                    String nombre,
