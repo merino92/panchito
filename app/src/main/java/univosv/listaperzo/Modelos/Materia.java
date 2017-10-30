@@ -68,7 +68,7 @@ public class Materia {
     public static boolean TablaMateriasPoseeRegistros(){
         SQLiteDatabase db = Cofre.Vars.Base.getWritableDatabase();
         long numRows = DatabaseUtils.queryNumEntries(db, BaseSQL.NombreTablaMaterias);
-        db.close();
+        //db.close();
         return (numRows>0);
     }
 
