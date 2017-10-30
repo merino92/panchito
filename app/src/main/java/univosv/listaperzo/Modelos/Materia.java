@@ -41,11 +41,11 @@ public class Materia {
                 db.execSQL(BaseSQL.EliminarDatosTablaMateria);
                 Log.i(TAG, "borra los datos ");
             }
-            SQLiteDatabase db1 = Cofre.Vars.Base.getWritableDatabase();
+            //SQLiteDatabase db1 = Cofre.Vars.Base.getWritableDatabase();
             for (Materia materia:materias) {
                 ContentValues datos = new ContentValues();
                 datos.put("nombre",materia.Nombre);
-                long idMateria = db1.insert(BaseSQL.NombreTablaMaterias,null,datos);
+                long idMateria = db.insert(BaseSQL.NombreTablaMaterias,null,datos);
                 Log.i("sqlite","Registro de materia insertado");
                 for(Clase clase:materia.Clase){
                     ContentValues datosClase = new ContentValues();
@@ -54,7 +54,7 @@ public class Materia {
                     datosClase.put(BaseSQL.horaInicio,clase.HoraInicio);
                     datosClase.put(BaseSQL.horaFin,clase.HoraFin);
                     datosClase.put(BaseSQL.idMateria,idMateria);
-                    db1.insert(BaseSQL.NombreTablaClase,null,datosClase);
+                    db.insert(BaseSQL.NombreTablaClase,null,datosClase);
                     Log.i("sqlite","Registro de clase insertado");
                 }
             }
@@ -78,11 +78,12 @@ public class Materia {
         SQLiteDatabase db= Cofre.Vars.Base.getReadableDatabase();
         Cursor bddatos = db.rawQuery(" SELECT * FROM "+BaseSQL.NombreTablaMaterias, null);
         List<Clase> clases = new ArrayList<>();
-        Materia materiaTemp = new Materia();
+
         //Nos aseguramos de que existe al menos un registro
         if (bddatos.moveToFirst() ) {
             //Recorremos el cursor hasta que no haya más registros
             do {
+                Materia materiaTemp = new Materia();
                 String idmateria = bddatos.getString(0);
                 String nombre=bddatos.getString(1);
                 materiaTemp.Nombre = nombre;
@@ -93,8 +94,7 @@ public class Materia {
             } while (bddatos.moveToNext() );
         }
 
-
-
+        db.close();
         return materias;
     }
 
