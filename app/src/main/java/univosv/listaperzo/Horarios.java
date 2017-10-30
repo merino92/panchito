@@ -103,7 +103,7 @@ public class Horarios extends Activity {
                 Aulas[i] += c.Aula+separadorV;
                 if(j>0)//Determina si es la misma aula todas las clases.
                 {
-                    if(aulaTemporal == c.Aula){
+                    if(aulaTemporal.equals(c.Aula)){
                         esMismaAula = true;
                     }
                     else{
