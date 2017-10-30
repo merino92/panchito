@@ -26,21 +26,28 @@ public class Clase {
     public static List<Clase> ObtenerClases(String idMateria){
         List<Clase> clases = new ArrayList<>();
         SQLiteDatabase db= Cofre.Vars.Base.getReadableDatabase();
-        int id=Integer.parseInt(idMateria);
-        Cursor bddatos = db.rawQuery(" SELECT * FROM "+ BaseSQL.NombreTablaClase +" WHERE idMateria ="+id, null);
+        //int id=Integer.parseInt(idMateria);
+        Cursor bddatos = db.rawQuery(" SELECT * FROM "+ BaseSQL.NombreTablaClase +" WHERE idMateria ="+idMateria, null);
 
         //Nos aseguramos de que existe al menos un registro
         if (bddatos.moveToFirst() ) {
             //Recorremos el cursor hasta que no haya más registros
             do {
+                Clase clase = new Clase();
                 String idmaterias = bddatos.getString(0);
                 String dia = bddatos.getString(1);
                 String inicio =bddatos.getString(2);
                 String fin = bddatos.getString(3);
                 String aula = bddatos.getString(4);
-
+                //insertando datos en la clase temporal
+                clase.Dia=Cofre.Vars.Dias.valueOf(dia);
+                clase.Aula=aula;
+                clase.HoraInicio=inicio;
+                clase.HoraFin=fin;
+                clases.add(clase);
             } while (bddatos.moveToNext() );
         }
+        db.close();
         return clases;
     }
     public Clase(Cofre.Vars.Dias dia,String aula,String horaInicio, String horaFin){
