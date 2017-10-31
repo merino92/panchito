@@ -41,11 +41,9 @@ public class Notificacion extends IntentService {
         if(b!=null)
         {
             String materia =b.getString(Alarma.variable.MATERIA);
-            String aula=b.getString(Alarma.variable.AULA);
-            String hora=b.getString(Alarma.variable.HORA);
-            String descripcion=aula +"\n"+hora;
+            String texto=b.getString(Alarma.variable.AULA);
             int  numeroN=b.getInt(Alarma.variable.Nnotificacion);
-            NotificacionPush(materia,descripcion,numeroN);
+            NotificacionPush(materia,texto,numeroN);
 //
         }
 

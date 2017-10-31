@@ -1,41 +1,24 @@
 package univosv.listaperzo;
 
 import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.icu.text.DateFormat;
-import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 import WS.WebService;
-import univosv.listaperzo.Basededatos.BaseSQL;
 import univosv.listaperzo.Modelos.Clase;
 import univosv.listaperzo.Modelos.Materia;
-
-import static java.lang.System.out;
+import univosv.listaperzo.Notificaciones.Alarma;
 
 /**
  * Created by root on 07-30-17.
@@ -215,21 +198,44 @@ public class Horarios extends Activity {
         for(Materia m:materias){
             String Nombre=m.Nombre;
            Date hora;
-
+                int i=1;
+                if(i==5){i=1;}
             for(Clase c:m.Clase){
                 String horas,parte1,parte2,aula,horaCompleta;
                 aula=c.Aula;
                 horas=c.HoraInicio;
-                horaCompleta=horas+"-"+horas;
+                horaCompleta="Inicia a las"+horas+"-"+" aula:"+aula;
                 String [] part=horas.split(":");
                 parte1=part[0];
                 parte2=part[1];
-
-
+                int hour,minuto;
+                hour=Integer.parseInt(parte1);
+                minuto=Integer.parseInt(parte2);
+                ArrayList list=new ArrayList();
+                list.add(hour);
+                list.add(minuto);
+                List<Integer> Horasformateadas=ArregloDeHoras(list);
+                Alarma.Crear(this,Nombre,horaCompleta,Horasformateadas,i);
+                i++;
             }
 
         }
 
 
+    }
+    private List<Integer> ArregloDeHoras(List<Integer>horas){
+        int hora,minuto;
+        hora=horas.get(0);
+        minuto= horas.get(1);
+        if(minuto==0){
+            hora=hora-1;
+            minuto=minuto+45;
+        }
+        List<Integer>formateado=new ArrayList<Integer>();
+        formateado.add(hora);
+        formateado.add(minuto);
+
+
+        return formateado;
     }
 }

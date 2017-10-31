@@ -9,6 +9,7 @@ import android.util.Log;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by administrador on 11/9/17.
@@ -29,18 +30,21 @@ public class Alarma {
     }
 
 
-    public static void Crear(Context contexto, String Materia, String Aula, Date hora,int numero){
+    public static void Crear(Context contexto, String Materia,String Horacompleta, List<Integer> hora, int numero){
 
         AlarmManager alarmManager = (AlarmManager) contexto.getSystemService(Context.ALARM_SERVICE);
         Intent intento = new Intent(contexto,Notificacion.class);
         intento.putExtra(variable.MATERIA,Materia);
-        intento.putExtra(variable.AULA,Aula);
-        intento.putExtra(variable.HORA,hora);
+        intento.putExtra(variable.AULA,Horacompleta);
         intento.putExtra(variable.Nnotificacion,numero);
+        int horas,minuto;
+        horas=hora.get(0);
+        minuto=hora.get(1);
         PendingIntent intentoPendiente =
                 PendingIntent.getService(contexto, variable.INDEX, intento, PendingIntent.FLAG_UPDATE_CURRENT);
         Calendar calendario = Calendar.getInstance();
-        calendario.setTime(hora);
+        calendario.set(Calendar.HOUR_OF_DAY,horas);
+        calendario.set(Calendar.MINUTE,minuto);
 
         //calendario.add(calendario.MINUTE, hora.getMinutes());
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
