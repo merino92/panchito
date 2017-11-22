@@ -47,12 +47,11 @@ public class Alarma {
         calendario.set(Calendar.MINUTE,minuto);
 
         //calendario.add(calendario.MINUTE, hora.getMinutes());
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendario.getTimeInMillis(), intentoPendiente);
-            }
-            else {
-                alarmManager.set(AlarmManager.RTC_WAKEUP, calendario.getTimeInMillis(), intentoPendiente);
-            }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendario.getTimeInMillis(), intentoPendiente);
+        }
+        else {
+            alarmManager.set(AlarmManager.RTC_WAKEUP, calendario.getTimeInMillis(), intentoPendiente);
+        }
     }
-
 }

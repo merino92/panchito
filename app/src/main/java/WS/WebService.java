@@ -13,6 +13,10 @@ import univosv.listaperzo.Modelos.Materia;
 
 public class WebService {
 
+      public static boolean Login(String usuario,String clave){
+            if(usuario.equals("univo") && clave.equals("1")){return true;}
+            else return false;
+      }
     //Obtiene las materias del WebService.
   public static List<Materia> ObtenerMaterias(){
         List<Materia> listaMaterias = new ArrayList<>();

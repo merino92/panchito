@@ -47,7 +47,7 @@ public class login extends AppCompatActivity {
         ahoraMismo.add(Calendar.MILLISECOND,1000);
         Date fecha=new Date(ahoraMismo.getTimeInMillis());
 
-        Alarma.Crear(this,"materia","Aula",fecha,1);
+        //Alarma.Crear(this,"materia","Aula",fecha,1);
 
     }
     public void entrar(View view){
