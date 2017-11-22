@@ -9,6 +9,7 @@ import univosv.listaperzo.Modelos.Materia;
 
 /**
  * Created by administrador on 16/10/17.
+ * https://www.codeproject.com/Articles/304302/Calling-Asp-Net-Webservice-ASMX-From-an-Android-Ap
  */
 
 public class WebService {
