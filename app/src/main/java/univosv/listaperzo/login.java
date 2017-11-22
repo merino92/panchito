@@ -17,6 +17,7 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.Date;
 
+import WS.CallSoap;
 import univosv.listaperzo.Notificaciones.Alarma;
 
 
@@ -49,11 +50,18 @@ public class login extends AppCompatActivity {
 
         //Alarma.Crear(this,"materia","Aula",fecha,1);
 
+
+    }
+    public void PruebaWebService(){
+        CallSoap callSoap = new CallSoap();
+        String respuesta = callSoap.Call("admin_ws","@dminWS2017","U20120453","univo");
+        Toast.makeText(this,respuesta,Toast.LENGTH_LONG);
     }
     public void entrar(View view){
         String Usuario=Cofre.Funciones.InvocarUsuario();
         String clave=Cofre.Funciones.InvocarClave();
         VerificarClave(Usuario,clave);
+        PruebaWebService();
     }
 
    private void guardar(String usuario,String clave){

@@ -24,18 +24,32 @@ public class CallSoap {
     {
     }
     /**/
-    public String Call(int a, int b)
+    public String Call(String ws_user,String ws_pass,String carnet,String contrasenia)
     {
         SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE,OPERATION_NAME);
+
         PropertyInfo pi=new PropertyInfo();
-        pi.setName("a");
-        pi.setValue(a);
-        pi.setType(Integer.class);
+        pi.setName("ws_user");
+        pi.setValue(ws_user);
+        pi.setType(String.class);
         request.addProperty(pi);
+
         pi=new PropertyInfo();
-        pi.setName("b");
-        pi.setValue(b);
-        pi.setType(Integer.class);
+        pi.setName("ws_pass");
+        pi.setValue(ws_pass);
+        pi.setType(String.class);
+        request.addProperty(pi);
+
+        pi=new PropertyInfo();
+        pi.setName("carnet");
+        pi.setValue(carnet);
+        pi.setType(String.class);
+        request.addProperty(pi);
+
+        pi=new PropertyInfo();
+        pi.setName("contrasenia");
+        pi.setValue(contrasenia);
+        pi.setType(String.class);
         request.addProperty(pi);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
