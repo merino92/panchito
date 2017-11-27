@@ -12,12 +12,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.Date;
 
 import WS.CallSoap;
+import WS.WebService;
 import univosv.listaperzo.Notificaciones.Alarma;
 
 
@@ -53,14 +55,17 @@ public class login extends AppCompatActivity {
 
     }
     public void PruebaWebService(){
-        CallSoap callSoap = new CallSoap();
+        /*CallSoap callSoap = new CallSoap();
         String respuesta = callSoap.Call("admin_ws","@dminWS2017","U20120453","univo");
-        Toast.makeText(this,respuesta,Toast.LENGTH_LONG);
+        Toast.makeText(this,respuesta,Toast.LENGTH_LONG);*/
+        String [] arreglo={"admin_ws","@dminWS2017","U20120453","univo"};
+        new CallSoap.llamadaWs().execute(arreglo);
+        ((TextView)findViewById(R.id.link_signup)).setText(Cofre.Vars.RespuestaWebService);
     }
     public void entrar(View view){
         String Usuario=Cofre.Funciones.InvocarUsuario();
         String clave=Cofre.Funciones.InvocarClave();
-        VerificarClave(Usuario,clave);
+        //VerificarClave(Usuario,clave);
         PruebaWebService();
     }
 

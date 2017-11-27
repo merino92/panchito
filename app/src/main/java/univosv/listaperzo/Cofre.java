@@ -46,6 +46,7 @@ public class Cofre {
         public static BaseSQL Base;
         public static String NombreBdd = "UNIVOBDD";
         public enum Dias{Lu,Ma,Mi,Ju,Vi,Sa,Do}
+        public static String RespuestaWebService="";
     }
 
     public static class Funciones{
