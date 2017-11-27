@@ -7,6 +7,8 @@ import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
+import org.kxml2.kdom.Element;
+import org.kxml2.kdom.Node;
 
 import univosv.listaperzo.Cofre;
 
@@ -14,8 +16,10 @@ import univosv.listaperzo.Cofre;
  * Created by administrador on 22/11/17.
  */
 //import org.ksoap2.*;
+    //https://es.androids.help/q21713
+    //https://stackoverflow.com/questions/14955227/ksoap2-header-in-out
 public class CallSoap {
-    public static final String SOAP_ACTION = "http://app.univo.edu.sv/obtener_json_demo_alumno";
+    public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/obtener_json_demo_alumno";
 
     public  static final String OPERATION_NAME = "obtener_json_demo_alumno";
 
@@ -31,9 +35,9 @@ public class CallSoap {
     public  static String Call (String ws_user,String ws_pass,String carnet,String contrasenia)
     {
         SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE,OPERATION_NAME);
-        request.addProperty("ws_user",ws_user);
-        request.addProperty("ws_pass",ws_pass);
-        PropertyInfo pi=new PropertyInfo();
+        //request.addProperty("ws_user",ws_user);
+        //request.addProperty("ws_pass",ws_pass);
+        PropertyInfo pi;
       /*  pi.setName("ws_user");
         pi.setValue(ws_user);
         pi.setType(String.class);
@@ -60,7 +64,8 @@ public class CallSoap {
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
                 SoapEnvelope.VER11);
         envelope.dotNet = true;
-
+        envelope.headerOut = new Element[1];
+        envelope.headerOut[0] = ConstruirCabecera(ws_user,ws_pass);
         envelope.setOutputSoapObject(request);
 
         HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS);
@@ -80,7 +85,17 @@ public class CallSoap {
 
     /**/
     }
+    private static Element ConstruirCabecera(String user,String password){
+        Element h = new Element().createElement(WSDL_TARGET_NAMESPACE, "AuthHeader");
+        Element username = new Element().createElement(WSDL_TARGET_NAMESPACE, "ws_user");
+        username.addChild(Node.TEXT, user);
+        h.addChild(Node.ELEMENT, username);
+        Element pass = new Element().createElement(WSDL_TARGET_NAMESPACE, "ws_pass");
+        pass.addChild(Node.TEXT, password);
+        h.addChild(Node.ELEMENT, pass);
 
+        return h;
+    }
     public static class llamadaWs extends AsyncTask<String,Void,Void>{
 
         protected Void doInBackground(String... arreglo) {
@@ -93,8 +108,5 @@ public class CallSoap {
 
             return null;
         }
-
-
-
     }
 }
