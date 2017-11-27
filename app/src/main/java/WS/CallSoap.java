@@ -19,15 +19,14 @@ import univosv.listaperzo.Cofre;
     //https://es.androids.help/q21713
     //https://stackoverflow.com/questions/14955227/ksoap2-header-in-out
 public class CallSoap {
-    public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/obtener_json_demo_alumno";
-
+    /*public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/obtener_json_demo_alumno";
     public  static final String OPERATION_NAME = "obtener_json_demo_alumno";
-
-
-
     public  static final String WSDL_TARGET_NAMESPACE = "http://app.univo.edu.sv/";
-
-    public static final String SOAP_ADDRESS = "http://app.univo.edu.sv/WS_APP.asmx";
+    public static final String SOAP_ADDRESS = "http://app.univo.edu.sv/WS_APP.asmx";*/
+    public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/obtener_json_demo_alumno";
+    public  static final String OPERATION_NAME = "obtener_json_demo_alumno";
+    public  static final String WSDL_TARGET_NAMESPACE = "http://www.promario.somee.com/";
+    public static final String SOAP_ADDRESS = "http://www.promario.somee.com/WS_APP.asmx";
     public CallSoap()
     {
     }
