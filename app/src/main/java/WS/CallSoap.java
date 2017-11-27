@@ -63,9 +63,11 @@ public class CallSoap {
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
                 SoapEnvelope.VER11);
         envelope.dotNet = true;
+
+        envelope.setOutputSoapObject(request);
+        envelope.bodyOut = request;
         envelope.headerOut = new Element[1];
         envelope.headerOut[0] = ConstruirCabecera(ws_user,ws_pass);
-        envelope.setOutputSoapObject(request);
 
         HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS);
         Object response=null;
@@ -85,7 +87,9 @@ public class CallSoap {
     /**/
     }
     private static Element ConstruirCabecera(String user,String password){
-        Element h = new Element().createElement(WSDL_TARGET_NAMESPACE, "AuthHeader");
+
+        Element h = new Element().createElement(WSDL_TARGET_NAMESPACE,"Cabecera");
+        //Element h = new Element().createElement(WSDL_TARGET_NAMESPACE, "AuthHeader");
         Element username = new Element().createElement(WSDL_TARGET_NAMESPACE, "ws_user");
         username.addChild(Node.TEXT, user);
         h.addChild(Node.ELEMENT, username);
