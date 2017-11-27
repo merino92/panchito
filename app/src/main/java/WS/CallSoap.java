@@ -31,9 +31,10 @@ public class CallSoap {
     public  static String Call (String ws_user,String ws_pass,String carnet,String contrasenia)
     {
         SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE,OPERATION_NAME);
-
+        request.addProperty("ws_user",ws_user);
+        request.addProperty("ws_pass",ws_pass);
         PropertyInfo pi=new PropertyInfo();
-        pi.setName("ws_user");
+      /*  pi.setName("ws_user");
         pi.setValue(ws_user);
         pi.setType(String.class);
         request.addProperty(pi);
@@ -42,7 +43,7 @@ public class CallSoap {
         pi.setName("ws_pass");
         pi.setValue(ws_pass);
         pi.setType(String.class);
-        request.addProperty(pi);
+        request.addProperty(pi);*/
 
         pi=new PropertyInfo();
         pi.setName("carnet");
