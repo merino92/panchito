@@ -2,6 +2,7 @@ package WS;
 
 import android.os.AsyncTask;
 
+import org.ksoap2.HeaderProperty;
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
@@ -9,6 +10,8 @@ import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 import org.kxml2.kdom.Element;
 import org.kxml2.kdom.Node;
+
+import java.util.ArrayList;
 
 import univosv.listaperzo.Cofre;
 
@@ -24,16 +27,16 @@ public class CallSoap {
     public  static final String WSDL_TARGET_NAMESPACE = "http://app.univo.edu.sv/";
     public static final String SOAP_ADDRESS = "http://app.univo.edu.sv/WS_APP.asmx";*/
     public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/obtener_json_demo_alumno";
-    public  static final String OPERATION_NAME = "obtener_json_demo_alumno";
-    public  static final String WSDL_TARGET_NAMESPACE = "http://www.promario.somee.com/";
-    public static final String SOAP_ADDRESS = "http://www.promario.somee.com/WS_APP.asmx";
+    public  static final String FUNCION = "obtener_json_demo_alumno";
+    public  static final String NAMESPACE = "http://ws_app.univo.edu.sv/";
+    public static final String URL = "http://www.promario.somee.com/WS_APP.asmx";
     public CallSoap()
     {
     }
     /**/
     public  static String Call (String ws_user,String ws_pass,String carnet,String contrasenia)
     {
-        SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE,OPERATION_NAME);
+        SoapObject request = new SoapObject(NAMESPACE,FUNCION);
         //request.addProperty("ws_user",ws_user);
         //request.addProperty("ws_pass",ws_pass);
         PropertyInfo pi;
@@ -69,12 +72,16 @@ public class CallSoap {
         envelope.headerOut = new Element[1];
         envelope.headerOut[0] = ConstruirCabecera(ws_user,ws_pass);
 
-        HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS);
+        HttpTransportSE httpTransport = new HttpTransportSE(URL);
         Object response=null;
 
-
+        
         try
         {
+            /*ArrayList<HeaderProperty> headerProperty = new ArrayList<HeaderProperty>();
+            headerProperty.add(new HeaderProperty("ws_user",ws_user));
+            headerProperty.add(new HeaderProperty("ws_pass",ws_pass));*/
+
             httpTransport.call(SOAP_ACTION, envelope);
             response = envelope.getResponse();
         }
@@ -88,12 +95,12 @@ public class CallSoap {
     }
     private static Element ConstruirCabecera(String user,String password){
 
-        Element h = new Element().createElement(WSDL_TARGET_NAMESPACE,"Cabecera");
+        Element h = new Element().createElement(NAMESPACE,"Cabecera");
         //Element h = new Element().createElement(WSDL_TARGET_NAMESPACE, "AuthHeader");
-        Element username = new Element().createElement(WSDL_TARGET_NAMESPACE, "ws_user");
+        Element username = new Element().createElement(NAMESPACE, "ws_user");
         username.addChild(Node.TEXT, user);
         h.addChild(Node.ELEMENT, username);
-        Element pass = new Element().createElement(WSDL_TARGET_NAMESPACE, "ws_pass");
+        Element pass = new Element().createElement(NAMESPACE, "ws_pass");
         pass.addChild(Node.TEXT, password);
         h.addChild(Node.ELEMENT, pass);
 
