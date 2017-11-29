@@ -16,11 +16,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import WS.CallSoap;
 import WS.WebService;
+import univosv.listaperzo.Modelos.Estudiante;
 import univosv.listaperzo.Notificaciones.Alarma;
 
 
@@ -52,10 +59,9 @@ public class login extends AppCompatActivity {
         Date fecha=new Date(ahoraMismo.getTimeInMillis());
 
         //Alarma.Crear(this,"materia","Aula",fecha,1);
-//
 
     }
-    public void PruebaWebService(){
+    public void PruebaWebService() throws JSONException {
         /*CallSoap callSoap = new CallSoap();
         String respuesta = callSoap.Call("admin_ws","@dminWS2017","U20120453","univo");
         Toast.makeText(this,respuesta,Toast.LENGTH_LONG);*/
@@ -63,12 +69,35 @@ public class login extends AppCompatActivity {
         new CallSoap.llamadaWs().execute(arreglo);
         Log.i("RespuestaWS",Cofre.Vars.RespuestaWebService);
         ((TextView)findViewById(R.id.link_signup)).setText(Cofre.Vars.RespuestaWebService);
+        if(!Cofre.Vars.RespuestaWebService.isEmpty()){
+            List<Estudiante> lista = ObtenerEstudiantesDeJson(Cofre.Vars.RespuestaWebService);
+            for (Estudiante estudiante :
+                    lista) {
+                Toast.makeText(this, estudiante.Carnet + " - " +
+                        estudiante.Nombre + " - "+estudiante.Carrera,Toast.LENGTH_LONG).show();
+            }
+        }
     }
+
+    public List<Estudiante> ObtenerEstudiantesDeJson(String json) throws JSONException {
+        List<Estudiante> listaEstudiante = new ArrayList<>();
+        JSONArray objects = new JSONArray(json);
+        //JSONArray jsonArray = object.optJSONArray()
+        for(int i =0;i<objects.length();i++){
+            listaEstudiante.add(new Estudiante(objects.getJSONObject(i)));
+        }
+        return listaEstudiante;
+    }
+
     public void entrar(View view){
         String Usuario=Cofre.Funciones.InvocarUsuario();
         String clave=Cofre.Funciones.InvocarClave();
         //VerificarClave(Usuario,clave);
-        PruebaWebService();
+        try{
+            PruebaWebService();
+        }
+        catch (Exception e){ Log.e("Error Json",e.getMessage());}
+
     }
 
    private void guardar(String usuario,String clave){
