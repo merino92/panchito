@@ -45,8 +45,8 @@ public class Horarios extends Activity {
         list = (ListView)findViewById(R.id.Listahorarios);
         List<Materia> materias;
         Cofre.Funciones.IniciarBdd(this);
-        if(Materia.TablaMateriasPoseeRegistros()){
 
+        if(Materia.TablaMateriasPoseeRegistros()){
             materias= Materia.ObtenerMaterias();
             FormatearHorariosParaMostrar(materias);
             CustomAdapter customAdapter =

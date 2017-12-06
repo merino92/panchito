@@ -24,9 +24,6 @@ public class Alarma {
         public static  final String AULA="aula";
         public static final String HORA="hora";
         public static final String Nnotificacion="Nnotificacion";
-
-
-
     }
 
 

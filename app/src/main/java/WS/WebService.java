@@ -42,7 +42,6 @@ public class WebService {
         materia.Clase.add(new Clase(Cofre.Vars.Dias.Mi,"CT-7","7:50","10:30"));
         listaMaterias.add(materia);
 
-
         return listaMaterias;
     }
 }
