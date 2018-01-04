@@ -1,6 +1,7 @@
 package WS;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.ksoap2.HeaderProperty;
 import org.ksoap2.SoapEnvelope;
@@ -11,9 +12,12 @@ import org.ksoap2.transport.HttpTransportSE;
 import org.kxml2.kdom.Element;
 import org.kxml2.kdom.Node;
 
+import java.io.Console;
 import java.util.ArrayList;
 
 import univosv.listaperzo.Cofre;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by administrador on 22/11/17.
@@ -26,13 +30,14 @@ public class CallSoap {
     public  static final String OPERATION_NAME = "obtener_json_demo_alumno";
     public  static final String WSDL_TARGET_NAMESPACE = "http://app.univo.edu.sv/";
     public static final String SOAP_ADDRESS = "http://app.univo.edu.sv/WS_APP.asmx";*/
+
    /* public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/obtener_json_demo_alumno";
     public  static final String FUNCION = "obtener_json_demo_alumno";
     public  static final String NAMESPACE = "http://ws_app.univo.edu.sv/";
     public static final String URL = "http://www.promario.somee.com/WS_APP.asmx";*/
-    public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/iniciar_sesion_app";
+   public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/iniciar_sesion_app";
     public  static final String FUNCION = "iniciar_sesion_app";
-    public  static final String NAMESPACE = "http://ws_app.univo.edu.sv";
+    public  static final String NAMESPACE = "http://ws_app.univo.edu.sv/";
     public static final String URL = "http://app.univo.edu.sv/WS_APP.asmx";
 
 
@@ -109,7 +114,7 @@ public class CallSoap {
         Element pass = new Element().createElement(NAMESPACE, "ws_pass");
         pass.addChild(Node.TEXT, password);
         h.addChild(Node.ELEMENT, pass);
-
+        Log.i(TAG, "ConstruirCabecera:"+h);
         return h;
     }
     public static class llamadaWs extends AsyncTask<String,Void,Void>{
