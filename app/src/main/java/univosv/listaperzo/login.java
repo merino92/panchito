@@ -65,7 +65,7 @@ public class login extends AppCompatActivity {
         /*CallSoap callSoap = new CallSoap();
         String respuesta = callSoap.Call("admin_ws","@dminWS2017","U20120453","univo");
         Toast.makeText(this,respuesta,Toast.LENGTH_LONG);*/
-        String [] arreglo={"admin_ws","@dminWS2017","U20140536","univo"};
+        String [] arreglo={"admin_ws","@dminWS2017","U20120453","260992"};
         new CallSoap.llamadaWs().execute(arreglo);
         Log.i("RespuestaWS",Cofre.Vars.RespuestaWebService);
         ((TextView)findViewById(R.id.link_signup)).setText(Cofre.Vars.RespuestaWebService);

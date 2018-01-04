@@ -26,10 +26,16 @@ public class CallSoap {
     public  static final String OPERATION_NAME = "obtener_json_demo_alumno";
     public  static final String WSDL_TARGET_NAMESPACE = "http://app.univo.edu.sv/";
     public static final String SOAP_ADDRESS = "http://app.univo.edu.sv/WS_APP.asmx";*/
-    public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/obtener_json_demo_alumno";
+   /* public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/obtener_json_demo_alumno";
     public  static final String FUNCION = "obtener_json_demo_alumno";
     public  static final String NAMESPACE = "http://ws_app.univo.edu.sv/";
-    public static final String URL = "http://www.promario.somee.com/WS_APP.asmx";
+    public static final String URL = "http://www.promario.somee.com/WS_APP.asmx";*/
+    public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/iniciar_sesion_app";
+    public  static final String FUNCION = "iniciar_sesion_app";
+    public  static final String NAMESPACE = "http://ws_app.univo.edu.sv";
+    public static final String URL = "http://app.univo.edu.sv/WS_APP.asmx";
+
+
     public CallSoap()
     {
     }
@@ -37,8 +43,8 @@ public class CallSoap {
     public  static String Call (String ws_user,String ws_pass,String carnet,String contrasenia)
     {
         SoapObject request = new SoapObject(NAMESPACE,FUNCION);
-        //request.addProperty("ws_user",ws_user);
-        //request.addProperty("ws_pass",ws_pass);
+        request.addProperty("ws_user",ws_user);
+        request.addProperty("ws_pass",ws_pass);
         PropertyInfo pi;
       /*  pi.setName("ws_user");
         pi.setValue(ws_user);
