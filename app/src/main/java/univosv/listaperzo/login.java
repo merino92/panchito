@@ -65,18 +65,21 @@ public class login extends AppCompatActivity {
         /*CallSoap callSoap = new CallSoap();
         String respuesta = callSoap.Call("admin_ws","@dminWS2017","U20120453","univo");
         Toast.makeText(this,respuesta,Toast.LENGTH_LONG);*/
-        String [] arreglo={"admin_ws","@dminWS2017","U20120453","260992"};
-        new CallSoap.llamadaWs().execute(arreglo);
-        Log.i("RespuestaWS",Cofre.Vars.RespuestaWebService);
+        String [] arreglo={usuario.toString(),contra.toString()};
+        new CallSoap.LoginWS().execute(arreglo);
+
         ((TextView)findViewById(R.id.link_signup)).setText(Cofre.Vars.RespuestaWebService);
-        if(!Cofre.Vars.RespuestaWebService.isEmpty()){
-            List<Estudiante> lista = ObtenerEstudiantesDeJson(Cofre.Vars.RespuestaWebService);
-            for (Estudiante estudiante :
-                    lista) {
-                Toast.makeText(this, estudiante.Carnet + " - " +
-                        estudiante.Nombre + " - "+estudiante.Carrera,Toast.LENGTH_LONG).show();
+        Boolean respuesta=Boolean.valueOf(Cofre.Vars.RespuestaWebService);
+
+        if(respuesta==true){
+
+            Intent intent=new Intent(this,MainActivity.class);
+            startActivity(intent);
             }
+            else{
+            Toast.makeText(this,Cofre.Vars.RespuestaWebService+""+respuesta.toString(),Toast.LENGTH_LONG).show();
         }
+
     }
 
     public List<Estudiante> ObtenerEstudiantesDeJson(String json) throws JSONException {
