@@ -1,9 +1,10 @@
 package WS;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
-import org.ksoap2.HeaderProperty;
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
@@ -12,12 +13,12 @@ import org.ksoap2.transport.HttpTransportSE;
 import org.kxml2.kdom.Element;
 import org.kxml2.kdom.Node;
 
-import java.io.Console;
-import java.util.ArrayList;
-
 import univosv.listaperzo.Cofre;
+import univosv.listaperzo.MainActivity;
+import univosv.listaperzo.login;
 
 import static android.content.ContentValues.TAG;
+import static android.support.v4.content.ContextCompat.startActivity;
 
 /**
  * Created by administrador on 22/11/17.
@@ -86,13 +87,21 @@ public class CallSoap {
         Log.i(TAG, "ConstruirCabecera:"+h);
         return h;
     }
-    public static class LoginWS extends AsyncTask<String,Void,Void>{
+    public static class LoginWS extends AsyncTask<String, Void, String> {
 
-        protected Void doInBackground(String... arreglo) {
+        protected String doInBackground(String... arreglo) {
             String carnet=arreglo[0];
             String clave=arreglo[1];
-            Cofre.Vars.RespuestaWebService = Call(carnet,clave);
-            return null;
+           String respuesta = Call(carnet,clave);
+            return respuesta;
+        }
+
+        protected void onPostExecute(String result){
+            Boolean respuesta=Boolean.parseBoolean(result);
+            login login=new login();
+
+
+
         }
     }
 }

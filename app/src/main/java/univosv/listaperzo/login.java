@@ -68,17 +68,6 @@ public class login extends AppCompatActivity {
         String [] arreglo={usuario.toString(),contra.toString()};
         new CallSoap.LoginWS().execute(arreglo);
 
-        Boolean respuesta=Boolean.valueOf(Cofre.Vars.RespuestaWebService);
-
-        if(respuesta==true){
-
-            Intent intent=new Intent(this,MainActivity.class);
-            startActivity(intent);
-            }
-            else{
-            Toast.makeText(this,Cofre.Vars.RespuestaWebService+""+respuesta.toString(),Toast.LENGTH_LONG).show();
-        }
-
     }
 
     public List<Estudiante> ObtenerEstudiantesDeJson(String json) throws JSONException {
@@ -110,28 +99,15 @@ public class login extends AppCompatActivity {
        }
    }
 
-   private void VerificarClave(String codigo,String clave){
-         usuario=(EditText)findViewById(R.id.usuario);
-            contra=(EditText)findViewById(R.id.clave);
-            String contra1;
-            usuario1=usuario.getText().toString();
-            contra1=contra.getText().toString();
-        if(!codigo.equals("")&& !clave.equals("")){
-            Intent intent=new Intent(this,MainActivity.class);
-            startActivity(intent);
-           }
-           else
-                  {
-                if (usuario1.equals("panchito") && contra1.equals("panchito")) {
-                guardar(usuario1, contra1);
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
+   public void VerificarClave(Boolean respuesta){
+       if(respuesta==true){
 
-                }
-            else {
-                Toast.makeText(this, "ERROR USUARIO O CLAVE INCORRECTA", Toast.LENGTH_LONG).show();
-            }
-        }
+           Intent intent=new Intent(this,MainActivity.class);
+       }
+       else{
+           Toast.makeText(this, Cofre.Vars.RespuestaWebService+""+respuesta.toString(),Toast.LENGTH_LONG).show();
+       }
+
    }
 
    public void desarrolladores(View view){
