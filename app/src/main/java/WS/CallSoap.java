@@ -22,45 +22,20 @@ import static android.content.ContentValues.TAG;
 /**
  * Created by administrador on 22/11/17.
  */
-//import org.ksoap2.*;
-    //https://es.androids.help/q21713
-    //https://stackoverflow.com/questions/14955227/ksoap2-header-in-out
 public class CallSoap {
-    /*public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/obtener_json_demo_alumno";
-    public  static final String OPERATION_NAME = "obtener_json_demo_alumno";
-    public  static final String WSDL_TARGET_NAMESPACE = "http://app.univo.edu.sv/";
-    public static final String SOAP_ADDRESS = "http://app.univo.edu.sv/WS_APP.asmx";*/
-
-   /* public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/obtener_json_demo_alumno";
-    public  static final String FUNCION = "obtener_json_demo_alumno";
-    public  static final String NAMESPACE = "http://ws_app.univo.edu.sv/";
-    public static final String URL = "http://www.promario.somee.com/WS_APP.asmx";*/
-   public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/iniciar_sesion_app";
+    public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/iniciar_sesion_app";
     public  static final String FUNCION = "iniciar_sesion_app";
     public  static final String NAMESPACE = "http://ws_app.univo.edu.sv/";
     public static final String URL = "http://app.univo.edu.sv/WS_APP.asmx";
-
-
+    private static final String WS_USER="admin_ws";
+    private static final String WS_PASS="@dminWS2017";
     public CallSoap()
     {
     }
-    /**/
-    public  static String Call (String ws_user,String ws_pass,String carnet,String contrasenia)
+    public static String Call(String carnet,String contrasenia)
     {
         SoapObject request = new SoapObject(NAMESPACE,FUNCION);
-        //request.addProperty("ws_user",ws_user);
-        //request.addProperty("ws_pass",ws_pass);
         PropertyInfo pi;
-      /*  pi.setName("ws_user");
-        pi.setValue(ws_user);
-        pi.setType(String.class);
-        request.addProperty(pi);
-
-        pi=new PropertyInfo();
-        pi.setName("ws_pass");
-        pi.setValue(ws_pass);
-        pi.setType(String.class);
-        request.addProperty(pi);*/
 
         pi=new PropertyInfo();
         pi.setName("carnet");
@@ -81,18 +56,13 @@ public class CallSoap {
         envelope.setOutputSoapObject(request);
         envelope.bodyOut = request;
         envelope.headerOut = new Element[1];
-        envelope.headerOut[0] = ConstruirCabecera(ws_user,ws_pass);
+        envelope.headerOut[0] = ConstruirCabecera(WS_USER,WS_PASS);
 
         HttpTransportSE httpTransport = new HttpTransportSE(URL);
         Object response=null;
 
-        
         try
         {
-            /*ArrayList<HeaderProperty> headerProperty = new ArrayList<HeaderProperty>();
-            headerProperty.add(new HeaderProperty("ws_user",ws_user));
-            headerProperty.add(new HeaderProperty("ws_pass",ws_pass));*/
-
             httpTransport.call(SOAP_ACTION, envelope);
             response = envelope.getResponse();
         }
@@ -102,7 +72,6 @@ public class CallSoap {
         }
         return response.toString();
 
-    /**/
     }
     private static Element ConstruirCabecera(String user,String password){
 
@@ -117,16 +86,12 @@ public class CallSoap {
         Log.i(TAG, "ConstruirCabecera:"+h);
         return h;
     }
-    public static class llamadaWs extends AsyncTask<String,Void,Void>{
+    public static class LoginWS extends AsyncTask<String,Void,Void>{
 
         protected Void doInBackground(String... arreglo) {
-            String ws_user=arreglo[0];
-            String ws_pass=arreglo[1];
-            String carnet=arreglo[2];
-            String clave=arreglo[3];
-            Cofre.Vars.RespuestaWebService = Call(ws_user,ws_pass,carnet,clave);
-
-
+            String carnet=arreglo[0];
+            String clave=arreglo[1];
+            Cofre.Vars.RespuestaWebService = Call(carnet,clave);
             return null;
         }
     }
