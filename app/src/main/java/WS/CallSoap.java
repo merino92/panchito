@@ -48,8 +48,8 @@ public class CallSoap {
     public  static String Call (String ws_user,String ws_pass,String carnet,String contrasenia)
     {
         SoapObject request = new SoapObject(NAMESPACE,FUNCION);
-        request.addProperty("ws_user",ws_user);
-        request.addProperty("ws_pass",ws_pass);
+        //request.addProperty("ws_user",ws_user);
+        //request.addProperty("ws_pass",ws_pass);
         PropertyInfo pi;
       /*  pi.setName("ws_user");
         pi.setValue(ws_user);
