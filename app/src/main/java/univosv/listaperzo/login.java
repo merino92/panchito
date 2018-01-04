@@ -68,7 +68,6 @@ public class login extends AppCompatActivity {
         String [] arreglo={usuario.toString(),contra.toString()};
         new CallSoap.LoginWS().execute(arreglo);
 
-        ((TextView)findViewById(R.id.link_signup)).setText(Cofre.Vars.RespuestaWebService);
         Boolean respuesta=Boolean.valueOf(Cofre.Vars.RespuestaWebService);
 
         if(respuesta==true){
