@@ -88,20 +88,18 @@ public class CallSoap {
         return h;
     }
     public static class LoginWS extends AsyncTask<String, Void, String> {
-
+        public RespuestaAsync delegate = null;
         protected String doInBackground(String... arreglo) {
-            String carnet=arreglo[0];
-            String clave=arreglo[1];
+           String carnet=arreglo[0];
+           String clave=arreglo[1];
            String respuesta = Call(carnet,clave);
-            return respuesta;
+           return respuesta;
         }
 
         protected void onPostExecute(String result){
-            Boolean respuesta=Boolean.parseBoolean(result);
-            login login=new login();
-
-
-
+            //Boolean respuesta=Boolean.parseBoolean(result);
+            //login login=new login();
+            delegate.ProcesoFinalizado(result);
         }
     }
 }

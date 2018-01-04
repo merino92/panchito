@@ -26,13 +26,15 @@ import java.util.Date;
 import java.util.List;
 
 import WS.CallSoap;
+import WS.RespuestaAsync;
 import WS.WebService;
 import univosv.listaperzo.Modelos.Estudiante;
 import univosv.listaperzo.Notificaciones.Alarma;
 
 
-public class login extends AppCompatActivity {
-  EditText contra,usuario;
+public class login extends AppCompatActivity
+implements RespuestaAsync{
+    EditText contra,usuario;
     CheckBox cheque;
     public String  usuario1;
 
@@ -65,9 +67,10 @@ public class login extends AppCompatActivity {
         /*CallSoap callSoap = new CallSoap();
         String respuesta = callSoap.Call("admin_ws","@dminWS2017","U20120453","univo");
         Toast.makeText(this,respuesta,Toast.LENGTH_LONG);*/
+        CallSoap.LoginWS sincrono = new CallSoap.LoginWS();
         String [] arreglo={usuario.toString(),contra.toString()};
-        new CallSoap.LoginWS().execute(arreglo);
-
+        sincrono.delegate = this;
+        sincrono.execute(arreglo);
     }
 
     public List<Estudiante> ObtenerEstudiantesDeJson(String json) throws JSONException {
@@ -116,4 +119,9 @@ public class login extends AppCompatActivity {
        AlertDialog alerta=alert.create();
        alerta.show();//muestra la noticia
    }
+
+    @Override
+    public void ProcesoFinalizado(String salida) {
+        Toast.makeText(this,"Instancia..wee.."+salida,Toast.LENGTH_LONG).show();
+    }
 }
