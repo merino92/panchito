@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -32,6 +33,7 @@ import WS.CallSoap;
 import WS.RespuestaAsync;
 import WS.WebService;
 import univosv.listaperzo.Modelos.Estudiante;
+import univosv.listaperzo.Notificaciones.AcercaDe;
 import univosv.listaperzo.Notificaciones.Alarma;
 
 
@@ -130,25 +132,9 @@ implements RespuestaAsync{
    }
 
    public void desarrolladores(View view){
-       Dialog customDialog = null;
-
-       customDialog = new Dialog(this,R.style.Theme_Dialog_Translucent);
-       //deshabilitamos el título por defecto
-       customDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-       //obligamos al usuario a pulsar los botones para cerrarlo
-       customDialog.setCancelable(true);
-       //establecemos el contenido de nuestro dialog
-       customDialog.setContentView(R.layout.activity_acercade);
-       TextView titulo = (TextView) customDialog.findViewById(R.id.titulo);
-       titulo.setText("Desarrollado por");
-       TextView contenido = (TextView) customDialog.findViewById(R.id.contenido);
-       titulo.setText("Jose Adolfo Herrera Funes");
-       TextView contenido1 = (TextView) customDialog.findViewById(R.id.contenido1);
-       titulo.setText("Rafael Alfredo Zelaya");
-       TextView contenido2 = (TextView) customDialog.findViewById(R.id.contenido2);
-       titulo.setText("Jose Alfredo Merino Campos");
-
-       customDialog.show();
+       FragmentManager fragmentManager = getSupportFragmentManager();
+       AcercaDe dialogo = new AcercaDe();
+      dialogo.show(fragmentManager,"tagAlerta");
    }
 
     @Override
