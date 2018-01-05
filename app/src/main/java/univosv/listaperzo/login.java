@@ -1,5 +1,6 @@
 package univosv.listaperzo;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -39,6 +41,7 @@ implements RespuestaAsync{
     CheckBox cheque;
     public String  usuario1;
     ProgressDialog progreso;
+    Dialog customDialog = null;
 
     public  SharedPreferences sharedPreferences;
     @Override
@@ -115,7 +118,7 @@ implements RespuestaAsync{
 
    public void VerificarClave(Boolean respuesta){
        if(respuesta==true){
-
+            Cofre.Funciones.GuardarUsuarioYClave(usuario.getText().toString(),contra.getText().toString());
            Intent intent=new Intent(this,MainActivity.class);
            startActivity(intent);
            progreso.cancel();
@@ -128,10 +131,20 @@ implements RespuestaAsync{
    }
 
    public void desarrolladores(View view){
-       AlertDialog.Builder alert = new AlertDialog.Builder(login.this);
-       View enview1=getLayoutInflater().inflate(R.layout.activity_alertadesarrollaroderes,null);
-       AlertDialog alerta=alert.create();
-       alerta.show();//muestra la noticia
+       customDialog = new Dialog(this,R.style.AppTheme);
+       //deshabilitamos el título por defecto
+       customDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+       //obligamos al usuario a pulsar los botones para cerrarlo
+       customDialog.setCancelable(false);
+       //establecemos el contenido de nuestro dialog
+       customDialog.setContentView(R.layout.activity_alertadesarrollaroderes);
+       TextView titulo = (TextView) customDialog.findViewById(R.id.titulo);
+       titulo.setText("Desarrollado por");
+       TextView contenido = (TextView) customDialog.findViewById(R.id.contenido);
+       titulo.setText("Jose Adolfo Herrera Funes");
+       TextView contenido1 = (TextView) customDialog.findViewById(R.id.contenido2);
+       titulo.setText("Rafael Alfredo Zelaya");
+
    }
 
     @Override
