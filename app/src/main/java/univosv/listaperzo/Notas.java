@@ -33,6 +33,11 @@ public class Notas extends Activity {
             elementos.add("Lab2 [" + i + ", 1]");
             elementos.add("Lab3 [" + i + ", 2]");
             elementos.add("Lab4 [" + i + ", 3]");
+            elementos.add("par1 [" + i + ", 4]");
+            elementos.add("par2 [" + i + ", 5]");
+            elementos.add("Lab3 [" + i + ", 6]");
+            elementos.add("Repo [" + i + ", 7]");
+            elementos.add("Final [" + i + ", 8]");
             tabla.agregarFilaTabla(elementos);
         }
     }
