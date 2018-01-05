@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cabecera_tabla">
+<item>Id de la fila</item>
+<item>Lab 1</item>
+<item>Lab 2</item>
+<item>Lab 3</item>
+<item>Par 1</item>
+        <item>Par 2</item>
+        <item>Par 3</item>
+        <item>Repo</item>
+        <item>Final</item>
+    </string-array>
+    </resources>

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">ProPanchito</string>
     <string name="title_activity_login">login</string>
+    <string name="action_settings" />
+    <string name="texto">Tabla Notas</string>
 
 </resources>
