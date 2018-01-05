@@ -1,5 +1,6 @@
 package univosv.listaperzo;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -7,11 +8,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -30,6 +33,7 @@ import WS.CallSoap;
 import WS.RespuestaAsync;
 import WS.WebService;
 import univosv.listaperzo.Modelos.Estudiante;
+import univosv.listaperzo.Notificaciones.AcercaDe;
 import univosv.listaperzo.Notificaciones.Alarma;
 
 
@@ -115,7 +119,7 @@ implements RespuestaAsync{
 
    public void VerificarClave(Boolean respuesta){
        if(respuesta==true){
-
+            Cofre.Funciones.GuardarUsuarioYClave(usuario.getText().toString(),contra.getText().toString());
            Intent intent=new Intent(this,MainActivity.class);
            startActivity(intent);
            progreso.cancel();
@@ -128,10 +132,9 @@ implements RespuestaAsync{
    }
 
    public void desarrolladores(View view){
-       AlertDialog.Builder alert = new AlertDialog.Builder(login.this);
-       View enview1=getLayoutInflater().inflate(R.layout.activity_alertadesarrollaroderes,null);
-       AlertDialog alerta=alert.create();
-       alerta.show();//muestra la noticia
+       FragmentManager fragmentManager = getSupportFragmentManager();
+       AcercaDe dialogo = new AcercaDe();
+      dialogo.show(fragmentManager,"tagAlerta");
    }
 
     @Override

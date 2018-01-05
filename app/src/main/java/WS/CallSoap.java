@@ -18,53 +18,53 @@ import univosv.listaperzo.MainActivity;
 import univosv.listaperzo.login;
 
 import static android.content.ContentValues.TAG;
+import static android.content.Context.MODE_PRIVATE;
 import static android.support.v4.content.ContextCompat.startActivity;
 
 /**
  * Created by administrador on 22/11/17.
  */
 public class CallSoap {
-    public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/iniciar_sesion_app";
-    public  static final String FUNCION = "iniciar_sesion_app";
+    //public static final String SOAP_ACTION = "http://ws_app.univo.edu.sv/iniciar_sesion_app";
+    //public  static final String FUNCION = "iniciar_sesion_app";
     public  static final String NAMESPACE = "http://ws_app.univo.edu.sv/";
     public static final String URL = "http://app.univo.edu.sv/WS_APP.asmx";
     private static final String WS_USER="admin_ws";
     private static final String WS_PASS="@dminWS2017";
-    public CallSoap()
-    {
+    public CallSoap(){
     }
-    public static String Call(String carnet,String contrasenia)
-    {
-        SoapObject request = new SoapObject(NAMESPACE,FUNCION);
-        PropertyInfo pi;
-
-        pi=new PropertyInfo();
+    private static PropertyInfo PiCarnet(String carnet){
+        PropertyInfo pi=new PropertyInfo();
         pi.setName("carnet");
         pi.setValue(carnet);
         pi.setType(String.class);
-        request.addProperty(pi);
-
-        pi=new PropertyInfo();
+        return pi;
+    }
+    private static PropertyInfo PiContrasenia(String contrasenia){
+        PropertyInfo pi=new PropertyInfo();
         pi.setName("contrasenia");
         pi.setValue(contrasenia);
         pi.setType(String.class);
-        request.addProperty(pi);
-
+        return pi;
+    }
+    public static String CallLogin(String carnet,String contrasenia){
+        String SoapAction = "http://ws_app.univo.edu.sv/iniciar_sesion_app";
+        String funcion = "iniciar_sesion_app";
+        SoapObject request = new SoapObject(NAMESPACE,funcion);
+        request.addProperty(PiCarnet(carnet));
+        request.addProperty(PiContrasenia(contrasenia));
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
                 SoapEnvelope.VER11);
         envelope.dotNet = true;
-
         envelope.setOutputSoapObject(request);
         envelope.bodyOut = request;
         envelope.headerOut = new Element[1];
         envelope.headerOut[0] = ConstruirCabecera(WS_USER,WS_PASS);
-
         HttpTransportSE httpTransport = new HttpTransportSE(URL);
         Object response=null;
-
         try
         {
-            httpTransport.call(SOAP_ACTION, envelope);
+            httpTransport.call(SoapAction, envelope);
             response = envelope.getResponse();
         }
         catch (Exception exception)
@@ -72,7 +72,32 @@ public class CallSoap {
             response=exception.toString();
         }
         return response.toString();
-
+    }
+    public static String CallNotas(String carnet,String contrasenia){
+        String SoapAction = "http://ws_app.univo.edu.sv/muestra_notas_json";
+        String funcion = "muestra_notas_json";
+        SoapObject request = new SoapObject(NAMESPACE,funcion);
+        request.addProperty(PiCarnet(carnet));
+        request.addProperty(PiContrasenia(contrasenia));
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
+                SoapEnvelope.VER11);
+        envelope.dotNet = true;
+        envelope.setOutputSoapObject(request);
+        envelope.bodyOut = request;
+        envelope.headerOut = new Element[1];
+        envelope.headerOut[0] = ConstruirCabecera(WS_USER,WS_PASS);
+        HttpTransportSE httpTransport = new HttpTransportSE(URL);
+        Object response=null;
+        try
+        {
+            httpTransport.call(SoapAction, envelope);
+            response = envelope.getResponse();
+        }
+        catch (Exception e)
+        {
+            response=e.toString();
+        }
+        return response.toString();
     }
     private static Element ConstruirCabecera(String user,String password){
 
@@ -92,7 +117,7 @@ public class CallSoap {
         protected String doInBackground(String... arreglo) {
            String carnet=arreglo[0];
            String clave=arreglo[1];
-           String respuesta = Call(carnet,clave);
+           String respuesta = CallLogin(carnet,clave);
            return respuesta;
         }
 
@@ -100,6 +125,18 @@ public class CallSoap {
             //Boolean respuesta=Boolean.parseBoolean(result);
             //login login=new login();
             delegate.ProcesoFinalizado(result);
+        }
+    }
+    public static class NotasWS extends AsyncTask<String,Void,String>{
+        public RespuestaAsync delegate = null;
+        protected String doInBackground(String... arreglo){
+            String carnet=arreglo[0];
+            String clave=arreglo[1];
+            String respuesta = CallNotas(carnet,clave);
+            return respuesta;
+        }
+        protected void onPostExecute(String resultado){
+            delegate.ProcesoFinalizado(resultado);
         }
     }
 }

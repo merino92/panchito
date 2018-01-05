@@ -2,13 +2,10 @@ package univosv.listaperzo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.TableLayout;
 
-import java.util.ArrayList;
 
 
 /**
@@ -20,48 +17,7 @@ public class Notas extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notas);
-
-        TablaNotas tabla = new TablaNotas(this, (TableLayout)findViewById(R.id.tabla));
-        tabla.agregarCabecera(R.array.cabecera_tabla);
-        for(int i = 0; i < 6; i++)
-        {
-            ArrayList<String> elementos = new ArrayList<String>();
-            elementos.add(Integer.toString(i));
-            elementos.add("LAb1 [" + i + ", 0]");
-            elementos.add("Lab2 [" + i + ", 1]");
-            elementos.add("Lab3 [" + i + ", 2]");
-            elementos.add("Par1 [" + i + ", 4]");
-            elementos.add("Par2 [" + i + ", 5]");
-            elementos.add("par3 [" + i + ", 6]");
-            elementos.add("Repo [" + i + ", 7]");
-            elementos.add("Final [" + i + ", 8]");
-            tabla.agregarFilaTabla(elementos);
-        }
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.tabladinamica, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings)
-        {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
     public void lanzarHorario(View view) {
         Intent i = new Intent(this, Horarios.class );
         startActivity(i);
