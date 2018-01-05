@@ -94,7 +94,7 @@ public class TablaNotas {
             texto.setGravity(Gravity.CENTER_HORIZONTAL);
             texto.setTextAppearance(actividad, R.style.estilo_celda);
             texto.setBackgroundResource(R.drawable.post_border_style);
-            texto.setTextSize(20);
+            texto.setTextSize(17);
             layoutCelda = new TableRow.LayoutParams(obtenerAnchoPixelesTexto(texto.getText().toString()), TableRow.LayoutParams.WRAP_CONTENT);
             texto.setLayoutParams(layoutCelda);
 

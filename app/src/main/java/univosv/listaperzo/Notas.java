@@ -25,7 +25,7 @@ public class Notas extends Activity {
 
         TablaNotas tabla = new TablaNotas(this, (TableLayout)findViewById(R.id.tabla));
         tabla.agregarCabecera(R.array.cabecera_tabla);
-        for(int i = 0; i < 15; i++)
+        for(int i = 0; i < 7; i++)
         {
             ArrayList<String> elementos = new ArrayList<String>();
             elementos.add(Integer.toString(i));
