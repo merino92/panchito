@@ -41,7 +41,6 @@ implements RespuestaAsync{
     CheckBox cheque;
     public String  usuario1;
     ProgressDialog progreso;
-    Dialog customDialog = null;
 
     public  SharedPreferences sharedPreferences;
     @Override
@@ -131,20 +130,25 @@ implements RespuestaAsync{
    }
 
    public void desarrolladores(View view){
-       customDialog = new Dialog(this,R.style.AppTheme);
+       Dialog customDialog = null;
+
+       customDialog = new Dialog(this,R.style.Theme_Dialog_Translucent);
        //deshabilitamos el título por defecto
        customDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
        //obligamos al usuario a pulsar los botones para cerrarlo
-       customDialog.setCancelable(false);
+       customDialog.setCancelable(true);
        //establecemos el contenido de nuestro dialog
-       customDialog.setContentView(R.layout.activity_alertadesarrollaroderes);
+       customDialog.setContentView(R.layout.activity_acercade);
        TextView titulo = (TextView) customDialog.findViewById(R.id.titulo);
        titulo.setText("Desarrollado por");
        TextView contenido = (TextView) customDialog.findViewById(R.id.contenido);
        titulo.setText("Jose Adolfo Herrera Funes");
-       TextView contenido1 = (TextView) customDialog.findViewById(R.id.contenido2);
+       TextView contenido1 = (TextView) customDialog.findViewById(R.id.contenido1);
        titulo.setText("Rafael Alfredo Zelaya");
+       TextView contenido2 = (TextView) customDialog.findViewById(R.id.contenido2);
+       titulo.setText("Jose Alfredo Merino Campos");
 
+       customDialog.show();
    }
 
     @Override

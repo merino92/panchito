@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    tools:context="univosv.listaperzo.alertadesarrollaroderes"
-    android:background="#EAE7E7"
-    android:orientation="horizontal">
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_container"
+    android:orientation="vertical" >
+
     <TextView
         android:id="@+id/titulo"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/AzulUNIVO"
+        android:textColor="@android:color/black"
         android:layout_weight="0"/>
-
 
     <View
         android:id="@+id/divider"
@@ -23,12 +19,8 @@
         android:layout_height="5dp"
         android:layout_marginBottom="3dp"
         android:layout_marginTop="3dp"
-        android:background="@color/cardview_dark_background" />
-    <ScrollView
-        android:id="@+id/cuerpo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:background="@drawable/dialog_divider" />
+
 
         <TextView
             android:id="@+id/contenido"
@@ -36,23 +28,24 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/mostazaU" />
+            android:textColor="@android:color/black" />
+        <TextView
+            android:id="@+id/contenido1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black" />
         <TextView
             android:id="@+id/contenido2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/mostazaU" />
-        <TextView
-            android:id="@+id/contenido3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/mostazaU" />
-    </ScrollView>
+            android:textColor="@android:color/black" />
 
 
 
-</LinearLayout>
+
+</RelativeLayout>
+
