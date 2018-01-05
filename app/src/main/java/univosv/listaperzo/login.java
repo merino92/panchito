@@ -1,5 +1,6 @@
 package univosv.listaperzo;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -37,6 +38,7 @@ implements RespuestaAsync{
     EditText contra,usuario;
     CheckBox cheque;
     public String  usuario1;
+    ProgressDialog progreso;
 
     public  SharedPreferences sharedPreferences;
     @Override
@@ -67,10 +69,19 @@ implements RespuestaAsync{
         /*CallSoap callSoap = new CallSoap();
         String respuesta = callSoap.Call("admin_ws","@dminWS2017","U20120453","univo");
         Toast.makeText(this,respuesta,Toast.LENGTH_LONG);*/
+        progreso = new ProgressDialog(login.this);
+        progreso.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progreso.setMessage("Procesando...");
+        progreso.setCancelable(true);
+        progreso.setMax(100);
+         progreso.show();
         CallSoap.LoginWS sincrono = new CallSoap.LoginWS();
-        String [] arreglo={usuario.toString(),contra.toString()};
+        String user=usuario.getText().toString();
+        String pass=contra.getText().toString();
+        String [] arreglo={user,pass};
         sincrono.delegate = this;
         sincrono.execute(arreglo);
+        progreso.onStart();
     }
 
     public List<Estudiante> ObtenerEstudiantesDeJson(String json) throws JSONException {
@@ -106,9 +117,12 @@ implements RespuestaAsync{
        if(respuesta==true){
 
            Intent intent=new Intent(this,MainActivity.class);
+           startActivity(intent);
+           progreso.cancel();
        }
        else{
-           Toast.makeText(this, Cofre.Vars.RespuestaWebService+""+respuesta.toString(),Toast.LENGTH_LONG).show();
+           progreso.cancel();
+           Toast.makeText(this, "usuario o clave incorrecta",Toast.LENGTH_LONG).show();
        }
 
    }
@@ -122,6 +136,13 @@ implements RespuestaAsync{
 
     @Override
     public void ProcesoFinalizado(String salida) {
-        Toast.makeText(this,"Instancia..wee.."+salida,Toast.LENGTH_LONG).show();
+       // Toast.makeText(this,"Instancia..wee.."+salida,Toast.LENGTH_LONG).show();
+        Boolean respuesta;
+       if (salida.equals("1")){
+           respuesta=true;
+       } else{
+           respuesta=false;
+       }
+        VerificarClave(respuesta);
     }
 }
