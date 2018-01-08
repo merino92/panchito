@@ -18,7 +18,8 @@
             android:layout_height="wrap_content"
             android:text="Notas"
             android:textColor="#BD760B"
-            android:textSize="25dp"/>
+            android:textSize="25dp"
+            android:id="@+id/textView9"/>
     </LinearLayout>
 
     <LinearLayout

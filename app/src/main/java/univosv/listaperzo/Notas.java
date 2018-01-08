@@ -30,10 +30,11 @@ import com.google.gson.GsonBuilder;
 
 public class Notas extends Activity implements RespuestaAsync {
     public SharedPreferences sharedPreferences;
+    TextView texto;
     @Override
     public void ProcesoFinalizado(String salidaJson) {
         Toast.makeText(this,salidaJson, Toast.LENGTH_LONG).show();
-        ((TextView)findViewById(R.id.textView9)).setText(salidaJson);
+
         //Gson gson = new GsonBuilder().create();
         //Object o = gson.fromJson(salidaJson,Object.class);
     }
@@ -46,7 +47,8 @@ public class Notas extends Activity implements RespuestaAsync {
         getSharedPreferences(Cofre.Vars.NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE);
         Cofre.Funciones.Iniciar(sharedPreferences,this);
         MostrarNotas();
-
+        texto=(TextView)findViewById(R.id.textView9);
+        texto.setText("prueva");
         TablaNotas tabla = new TablaNotas(this, (TableLayout)findViewById(R.id.tabla));
         tabla.agregarCabecera(R.array.cabecera_tabla);
         for(int i = 0; i < 7; i++)
