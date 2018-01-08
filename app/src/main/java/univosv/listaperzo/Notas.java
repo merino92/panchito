@@ -9,13 +9,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TableLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Reader;
+import java.io.Writer;
 import java.util.ArrayList;
 
 import WS.CallSoap;
 import WS.RespuestaAsync;
-
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * Created by root on 07-30-17.
@@ -23,6 +30,13 @@ import WS.RespuestaAsync;
 
 public class Notas extends Activity implements RespuestaAsync {
     public SharedPreferences sharedPreferences;
+    @Override
+    public void ProcesoFinalizado(String salidaJson) {
+        Toast.makeText(this,salidaJson, Toast.LENGTH_LONG).show();
+        ((TextView)findViewById(R.id.textView9)).setText(salidaJson);
+        //Gson gson = new GsonBuilder().create();
+        //Object o = gson.fromJson(salidaJson,Object.class);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,10 +111,5 @@ public class Notas extends Activity implements RespuestaAsync {
     public void lanzarPerfil(View view) {
         Intent i = new Intent(this, Perfil.class );
         startActivity(i);
-    }
-
-    @Override
-    public void ProcesoFinalizado(String salida) {
-        Toast.makeText(this,salida, Toast.LENGTH_LONG).show();
     }
 }
