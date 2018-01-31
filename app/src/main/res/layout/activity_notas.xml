@@ -36,7 +36,13 @@
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rafael"
+            android:textColor="#BD760B"
+            android:textSize="25dp"
+            android:id="@+id/prueba" />
         <ScrollView
             android:id="@+id/scrollvertical"
             android:layout_width="wrap_content"
