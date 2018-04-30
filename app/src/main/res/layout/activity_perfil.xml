@@ -27,14 +27,16 @@
             android:theme="?attr/actionBarTheme"
             android:background="#92030e63"
             >
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/btncircular"
-                android:drawableBottom="@drawable/config"
-                android:text="Configuracion"
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="12sp"
+                android:text="U  N  I  V  O"
                 android:textColor="#BD760B"
-                />
+                android:textSize="35dp"
+                android:gravity="center"
+                android:textStyle="bold" />
 
         </android.support.v7.widget.Toolbar>
 
