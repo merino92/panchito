@@ -82,6 +82,8 @@ implements RespuestaAsync{
         CallSoap.LoginWS sincrono = new CallSoap.LoginWS();
         String user=usuario.getText().toString();
         String pass=contra.getText().toString();
+        Log.i("usuario:",user);
+        Log.i("clave:",pass);
         String [] arreglo={user,pass};
         sincrono.delegate = this;
         sincrono.execute(arreglo);
@@ -140,6 +142,7 @@ implements RespuestaAsync{
     @Override
     public void ProcesoFinalizado(String salida) {
        // Toast.makeText(this,"Instancia..wee.."+salida,Toast.LENGTH_LONG).show();
+        Log.i("mensaje:",salida);
         Boolean respuesta;
        if (salida.equals("1")){
            respuesta=true;

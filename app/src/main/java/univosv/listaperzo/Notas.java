@@ -2,26 +2,57 @@ package univosv.listaperzo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TableLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Reader;
+import java.io.Writer;
 import java.util.ArrayList;
 
+import WS.CallSoap;
+import WS.RespuestaAsync;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * Created by root on 07-30-17.
  */
 
-public class Notas extends Activity {
+public class Notas extends Activity implements RespuestaAsync {
+    public SharedPreferences sharedPreferences;
+    @Override
+    public void ProcesoFinalizado(String salidaJson) {
+        Toast.makeText(this,salidaJson, Toast.LENGTH_LONG).show();
+        TextView tv = ((TextView)findViewById(R.id.prueba));
+        if(tv == null){
+            Toast.makeText(this,"fallo...",Toast.LENGTH_LONG)
+                    .show();
+        }
+        else{
+            tv.setText(salidaJson);
+        }
+        //Gson gson = new GsonBuilder().create();
+        //Object o = gson.fromJson(salidaJson,Object.class);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notas);
 
+        sharedPreferences=getApplicationContext().
+        getSharedPreferences(Cofre.Vars.NOMBRE_SHARED_PREFERENCE,MODE_PRIVATE);
+        Cofre.Funciones.Iniciar(sharedPreferences,this);
+        MostrarNotas();
 
         TablaNotas tabla = new TablaNotas(this, (TableLayout)findViewById(R.id.tabla));
         tabla.agregarCabecera(R.array.cabecera_tabla);
@@ -40,6 +71,14 @@ public class Notas extends Activity {
             elementos.add("Final [" + i + ", 8]");
             tabla.agregarFilaTabla(elementos);
         }
+    }
+    private void MostrarNotas(){
+        CallSoap.NotasWS sincrono = new CallSoap.NotasWS();
+        String carnet=Cofre.Funciones.InvocarUsuario();
+        String clave=Cofre.Funciones.InvocarClave();
+        String [] arreglo={carnet,clave};
+        sincrono.delegate = this;
+        sincrono.execute(arreglo);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)

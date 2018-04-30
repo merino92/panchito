@@ -19,8 +19,8 @@ public class AcercaDe extends android.support.v4.app.DialogFragment {
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(getActivity());
 
-        builder.setMessage("\tJose Adolfo Herrera \n\tRafael ALfredo Zelaya\n\tJose Alfredo Merino")
-                .setTitle("\tDesarrolladores")
+        builder.setMessage("\t\tJose Adolfo Herrera \n\t\tRafael ALfredo Zelaya\n\t\tJose Alfredo Merino")
+                .setTitle("\t\tDesarrolladores")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
