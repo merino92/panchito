@@ -7,4 +7,7 @@
     <color name="blancocajatext">#ffffff</color>
     <color name="AzulUNIVO">#0b0c43</color>
     <color name="btntramsparente">#c6c8e4</color>
+    <color name="graylight">#fafafa</color>
+    <color name="starblue">#a109c6df</color>
+    <color name="endblue">#930bcce6</color>
 </resources>
